@@ -1,0 +1,15 @@
+{
+  "title": "School Timetable",
+  "sections": [
+    {
+      "name": "Vincent Hill",
+      "backgroundColor": "maroon",
+      "textColor": "white"
+    },
+    {
+      "name": "Shangri-la",
+      "backgroundColor": "maroon",
+      "textColor": "white"
+    }
+  ]
+}
