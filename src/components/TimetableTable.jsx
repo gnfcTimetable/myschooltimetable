@@ -96,14 +96,14 @@ const TimetableTable = () => {
 
   return (
     <div className="timetable-container">
-      <h2 className="title">📅 School Timetable</h2>
-      <h3 className="day">{currentDay}</h3>
+      <h1 className="title" align="center">📅 School Timetable</h1>
+      <h2 className="day" align="center">{currentDay}</h2>
 
       {/* Display Active Routine */}
       {currentRoutine ? (
         <div className="routine-box">
-          <h3 className="routine-time">🕒 {currentRoutine.time}</h3>
-          <p className="routine-break">🔹 {currentRoutine.break}</p>
+          <h3 className="routine-time" align="center">🕒 {currentRoutine.time}</h3>
+          <p className="routine-break" align="center">🔹 {currentRoutine.break}</p>
           {currentRoutine.teacher && <p className="routine-teacher">👨‍🏫 Teacher: {currentRoutine.teacher}</p>}
         </div>
       ) : (
