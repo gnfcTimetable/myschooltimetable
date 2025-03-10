@@ -158,3 +158,57 @@ body {
   background-color: #a3e4d7;
   transition: 0.3s;
 }
+.routine-card {
+  background: #ebb310;
+  border-radius: 12px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2), -5px -5px 15px rgba(255, 255, 255, 0.7);
+  padding: 15px;
+  margin: 10px auto;
+  text-align: center;
+  font-weight: bold;
+  color: #333;
+  width: 80%;
+  transition: all 0.3s ease-in-out;
+}
+
+.routine-card:hover {
+  transform: scale(1.05);
+}
+
+.title {
+  background: linear-gradient(135deg, #1e3c72, #2a5298);
+  color: white;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  font-size: 28px;
+  font-weight: bold;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2), -5px -5px 15px rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease-in-out;
+  width: 90%;
+  display: block;
+  margin: 0 auto 15px auto;
+}
+
+.title:hover {
+  transform: scale(1.03);
+}
+
+.day-time-box {
+  background: linear-gradient(135deg, #ff7e5f, #feb47b);
+  color: white;
+  padding: 15px;
+  border-radius: 12px;
+  text-align: center;
+  font-size: 22px;
+  font-weight: bold;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2), -5px -5px 15px rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease-in-out;
+  width: 60%;
+  margin: 0 auto 15px auto;
+}
+
+.day-time-box:hover {
+  transform: scale(1.05);
+}
+
