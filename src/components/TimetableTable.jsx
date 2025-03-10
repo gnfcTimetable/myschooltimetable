@@ -95,16 +95,15 @@ const TimetableTable = () => {
 
   return (
     <div className="timetable-container">
-      <h1 className="title-3d full-width" align="center">📅 School Timetable</h1>
-      <div className="day-time-box full-width">
-        <h2>📆 {currentDay}</h2>
-        <h3>⏰ {currentTime}</h3>
+      <h1 className="title-3d full-width single-line" align="center">📅 School Timetable</h1>
+      <div className="day-time-box full-width box-3d compact">
+        <h2>📆 {currentDay} ⏰ {currentTime}</h2>
       </div>
       {currentSlot && <h3 className="current-slot" align="center">🕒 {currentSlot.time}</h3>}
       
       {currentRoutine && (
-        <div className="routine-card">
-          <h2>🕒 {currentRoutine.time}</h2>
+        <div className="routine-card compact">
+          <h2 className="routine-time">🕒 {currentRoutine.time}</h2>
           <p>🔹 {currentRoutine.break}</p>
           {currentRoutine.teacher && <p>👨‍🏫 Teacher: {currentRoutine.teacher}</p>}
         </div>
