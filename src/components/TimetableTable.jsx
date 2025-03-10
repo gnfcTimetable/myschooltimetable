@@ -96,13 +96,13 @@ const TimetableTable = () => {
   return (
     <div className="timetable-container">
 
-<h1 className="title-3d full-width single-line" style={{ fontSize: "1.5rem" }} align="center">📅 School Timetable</h1>
+<h1 className="title-3d full-width single-line" style={{ fontSize: "1.8rem" }} align="center">📅 School Timetable</h1>
    
-<div className="day-time-box full-width box-3d compact" style={{ fontSize: "1.2rem" }}>
+<div className="day-time-box full-width box-3d compact" style={{ fontSize: "1.0rem" }}>
   <h2>📆 {currentDay} ⏰ {currentTime}</h2>
 </div>
    
-{currentSlot && <h3 className="current-slot" style={{ fontSize: "1.2rem" }} align="center">🕒 {currentSlot.time}</h3>}
+{currentSlot && <h3 className="current-slot" style={{ fontSize: "1.0rem" }} align="center">🕒 {currentSlot.time}</h3>}
 
     
       
