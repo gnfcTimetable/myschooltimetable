@@ -95,8 +95,8 @@ const TimetableTable = () => {
 
   return (
     <div className="timetable-container">
-      <h1 className="title-3d" align="center">📅 School Timetable</h1>
-      <div className="day-time-box">
+      <h1 className="title-3d full-width" align="center">📅 School Timetable</h1>
+      <div className="day-time-box full-width">
         <h2>📆 {currentDay}</h2>
         <h3>⏰ {currentTime}</h3>
       </div>
