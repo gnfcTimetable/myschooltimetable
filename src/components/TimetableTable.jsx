@@ -8,9 +8,9 @@ const TimetableTable = () => {
   const [currentSlot, setCurrentSlot] = useState(null);
   const [selectedTeacher, setSelectedTeacher] = useState("");
   const [teacherSchedule, setTeacherSchedule] = useState([]);
-  const [currentRoutine, setCurrentRoutine] = useState(null);
+  const [currentTime, setCurrentTime] = useState("");
+  const [currentSlotTime, setCurrentSlotTime] = useState("");
 
-  // Fetch timetable data initially and update every minute
   useEffect(() => {
     const fetchTimetable = () => {
       fetch(`${import.meta.env.BASE_URL}data/timetable.json`)
@@ -20,11 +20,10 @@ const TimetableTable = () => {
     };
 
     fetchTimetable();
-    const interval = setInterval(fetchTimetable, 60000); // Refresh data every 60 seconds
+    const interval = setInterval(fetchTimetable, 60000);
     return () => clearInterval(interval);
   }, []);
 
-  // Determine the current time slot and routine in real-time
   useEffect(() => {
     const updateSlot = () => {
       if (!timetableData) return;
@@ -34,7 +33,6 @@ const TimetableTable = () => {
       setCurrentDay(day);
 
       const todaySchedule = timetableData.schedule?.[day]?.classes || [];
-      const commonRoutine = timetableData.commonRoutine || [];
       const currentTime = now.getHours() * 60 + now.getMinutes();
 
       const parseTime = (timeStr) => {
@@ -60,21 +58,41 @@ const TimetableTable = () => {
         });
       };
 
-      setCurrentSlot(findCurrentSlot(todaySchedule) || null);
-      setCurrentRoutine(findCurrentSlot(commonRoutine) || null);
+      const activeSlot = findCurrentSlot(todaySchedule) || null;
+      setCurrentSlot(activeSlot);
+      setCurrentSlotTime(activeSlot ? activeSlot.time : "No active slot");
     };
 
     updateSlot();
-    const interval = setInterval(updateSlot, 60000); // Refresh every minute
+    const interval = setInterval(updateSlot, 60000);
     return () => clearInterval(interval);
   }, [timetableData]);
 
-  // Update Teacher's Routine when selection changes
+  useEffect(() => {
+    const updateTime = () => {
+      const now = new Date();
+      const timeString = now.toLocaleTimeString("en-US", { 
+        hour: "2-digit", 
+        minute: "2-digit", 
+        second: "2-digit", 
+        hour12: true 
+      });
+      setCurrentTime(timeString);
+    };
+
+    updateTime();
+    const interval = setInterval(updateTime, 1000);
+    return () => clearInterval(interval);
+  }, []);
+
   useEffect(() => {
     if (!selectedTeacher || !timetableData) return;
     const todaySchedule = timetableData.schedule?.[currentDay]?.classes || [];
 
     const teacherClasses = todaySchedule.flatMap(slot => {
+      if (!slot || !slot.time) return [];
+      const slotTime = slot.time;
+
       return classes.flatMap(className => {
         let scheduleEntries = [];
 
@@ -82,10 +100,10 @@ const TimetableTable = () => {
         const shangrilaEntry = slot.subjects?.["Shangri-la"]?.[className];
 
         if (vincentEntry?.teacher?.split("/").includes(selectedTeacher)) {
-          scheduleEntries.push({ time: slot.time, class: `${className} (VH)`, subject: vincentEntry.subject });
+          scheduleEntries.push({ time: slotTime, class: `${className} (VH)`, subject: vincentEntry.subject });
         }
         if (shangrilaEntry?.teacher?.split("/").includes(selectedTeacher)) {
-          scheduleEntries.push({ time: slot.time, class: `${className} (SH)`, subject: shangrilaEntry.subject });
+          scheduleEntries.push({ time: slotTime, class: `${className} (SH)`, subject: shangrilaEntry.subject });
         }
         return scheduleEntries;
       });
@@ -98,51 +116,40 @@ const TimetableTable = () => {
     <div className="timetable-container">
       <h1 className="title" align="center">📅 School Timetable</h1>
       <h2 className="day" align="center">{currentDay}</h2>
+      <h3 className="current-time" align="center">🕒 {currentTime}</h3>
+      <h3 className="current-slot-time" align="center">📚 {currentSlotTime}</h3>
 
-      {/* Display Active Routine */}
-      {currentRoutine ? (
-        <div className="routine-box">
-          <h3 className="routine-time" align="center">🕒 {currentRoutine.time}</h3>
-          <p className="routine-break" align="center">🔹 {currentRoutine.break}</p>
-          {currentRoutine.teacher && <p className="routine-teacher">👨‍🏫 Teacher: {currentRoutine.teacher}</p>}
-        </div>
-      ) : (
-        <p className="no-routine">No active routine currently.</p>
-      )}
-
-      <div className="content-wrapper">
-        <div className="table-wrapper">
-          {currentSlot ? (
-            <div className="responsive-table">
-              <table className="timetable">
-                <thead>
-                  <tr>
-                    <th className="class-header">Class</th>
-                    <th className="vincent-hill-header">Vincent Hill</th>
-                    <th className="shangri-la-header">Shangri-la</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {classes.map((className, classIndex) => {
-                    const displayClassName = `Class ${className}`;
-                    const subjects = currentSlot?.subjects || {};
-                    const vincentHillEntry = subjects["Vincent Hill"]?.[className] || {};
-                    const shangrilaEntry = subjects["Shangri-la"]?.[className] || {};
-                    return (
-                      <tr key={classIndex} className="timetable-row">
-                        <td className="class-cell">{displayClassName}</td>
-                        <td className="vincent-cell">{vincentHillEntry.subject ? `${vincentHillEntry.subject} (${vincentHillEntry.teacher})` : "-"}</td>
-                        <td className="shangri-cell">{shangrilaEntry.subject ? `${shangrilaEntry.subject} (${shangrilaEntry.teacher})` : "-"}</td>
-                      </tr>
-                    );
-                  })}
-                </tbody>
-              </table>
-            </div>
-          ) : (
-            <p className="no-classes">No active classes or routines at this time.</p>
-          )}
-        </div>
+      <div className="table-wrapper">
+        {currentSlot ? (
+          <div className="responsive-table">
+            <table className="timetable">
+              <thead>
+                <tr>
+                  <th className="class-header">Class</th>
+                  <th className="vincent-hill-header">Vincent Hill</th>
+                  <th className="shangri-la-header">Shangri-la</th>
+                </tr>
+              </thead>
+              <tbody>
+                {classes.map((className, classIndex) => {
+                  const displayClassName = `Class ${className}`;
+                  const subjects = currentSlot?.subjects || {};
+                  const vincentHillEntry = subjects["Vincent Hill"]?.[className] || {};
+                  const shangrilaEntry = subjects["Shangri-la"]?.[className] || {};
+                  return (
+                    <tr key={classIndex} className="timetable-row">
+                      <td className="class-cell">{displayClassName}</td>
+                      <td className="vincent-cell">{vincentHillEntry.subject ? `${vincentHillEntry.subject} (${vincentHillEntry.teacher})` : "-"}</td>
+                      <td className="shangri-cell">{shangrilaEntry.subject ? `${shangrilaEntry.subject} (${shangrilaEntry.teacher})` : "-"}</td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+        ) : (
+          <p className="no-classes">No active classes at this time.</p>
+        )}
       </div>
 
       {/* Teacher Dropdown */}
@@ -162,19 +169,17 @@ const TimetableTable = () => {
             <option key={teacher} value={teacher}>{teacher}</option>
           ))}
         </select>
-        {selectedTeacher && teacherSchedule.length > 0 && (
-          <table className="timetable">
-            <thead>
-              <tr><th>Time</th><th>Class</th><th>Subject</th></tr>
-            </thead>
-            <tbody>
-              {teacherSchedule.map((slot, index) => (
-                <tr key={index}><td>{slot.time}</td><td>{slot.class}</td><td>{slot.subject}</td></tr>
-              ))}
-            </tbody>
-          </table>
-        )}
       </div>
+
+      {/* Display Teacher's Routine */}
+      {teacherSchedule.length > 0 && (
+        <div className="teacher-routine">
+          <h3>{selectedTeacher}'s Schedule</h3>
+          {teacherSchedule.map((entry, index) => (
+            <p key={index}>🕒 {entry.time}: {entry.class} - {entry.subject}</p>
+          ))}
+        </div>
+      )}
     </div>
   );
 };
