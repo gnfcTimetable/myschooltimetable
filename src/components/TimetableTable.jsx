@@ -108,7 +108,7 @@ const TimetableTable = () => {
       
       {currentRoutine && (
         <div className="routine-card compact">
-          <h2 className="routine-time">🕒 {currentRoutine.time}</h2>
+          <h2 className="routine-time">{currentRoutine.time}</h2>
           <p>🔹 {currentRoutine.break}</p>
           {currentRoutine.teacher && <p>👨‍🏫 Teacher: {currentRoutine.teacher}</p>}
         </div>
