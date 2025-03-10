@@ -32,7 +32,7 @@
             "VI": { "subject": "MATHS", "teacher": "SRW" }
             },
             "Shangri-la": {
-              "XII": { "subject": "H/P/C/A/PE", "teacher": "PT/HK/AK/VT/SPB" },
+              "XII": { "subject": "H/P/C/A/PE", "teacher": "PT/HK/AM/VT/SPB" },
             "XI": { "subject": "ENG", "teacher": "AVK" },
             "X": { "subject": "BIO", "teacher": "DS" },
             "IX": { "subject": "ENG", "teacher": "PG" },
@@ -272,7 +272,7 @@
             "VI": { "subject": "MATHS", "teacher": "SRW" }
             },
             "Shangri-la": {
-               "XII": { "subject": "H/P/C/PE/A", "teacher": "PT/HPK/AK/SSB/VT" },
+               "XII": { "subject": "H/P/C/PE/A", "teacher": "PT/HPK/AM/SSB/VT" },
         "XI": { "subject": "ENG", "teacher": "AVK" },
         "X": { "subject": "BIO", "teacher": "DS" },
         "IX": { "subject": "ENG", "teacher": "PG" },
@@ -512,7 +512,7 @@
             "VI": { "subject": "MATHS", "teacher": "SRW" }
             },
             "Shangri-la": {
-             "XII": { "subject": "H/P/C/PE/A", "teacher": "PT/HPK/AK/SSB/VY" },
+             "XII": { "subject": "H/P/C/PE/A", "teacher": "PT/HPK/AM/SSB/VY" },
         "XI": { "subject": "ENG", "teacher": "AVK" },
         "X": { "subject": "COM/CHE", "teacher": "VKS/KK" },
         "IX": { "subject": "ENG", "teacher": "PG" },
@@ -542,7 +542,7 @@
             },
             "Shangri-la": {
              "XII": { "subject": "ECO/BIO", "teacher": "TB/DS" },
-        "XI": { "subject": "H/P/C/PE/A", "teacher": "PT/HPK/AK/SSB/VT" },
+        "XI": { "subject": "H/P/C/PE/A", "teacher": "PT/HPK/AM/SSB/VT" },
         "X": { "subject": "HIST", "teacher": "CPR" },
         "IX": { "subject": "MAT/ECO", "teacher": "PD/TB" },
         "VIII": { "subject": "CHE/COM", "teacher": "KST/VKS" },
@@ -752,7 +752,7 @@
             "VI": { "subject": "MATHS", "teacher": "SRW" }
             },
             "Shangri-la": {
-            "XII": { "subject": "H/P/C/PE/A", "teacher": "PT/HPK/AK/SSB/VT" },
+            "XII": { "subject": "H/P/C/PE/A", "teacher": "PT/HPK/AM/SSB/VT" },
         "XI": { "subject": "ENG", "teacher": "AVK" },
         "X": { "subject": "COM/CHE", "teacher": "VKS/KK" },
         "IX": { "subject": "ENG", "teacher": "PG" },
