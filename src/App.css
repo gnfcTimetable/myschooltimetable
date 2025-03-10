@@ -178,16 +178,16 @@ body {
 .title {
   background: linear-gradient(135deg, #1e3c72, #2a5298);
   color: white;
-  padding: 20px;
+  padding: 18px;
   border-radius: 12px;
   text-align: center;
-  font-size: 30px;
+  font-size: 32px;
   font-weight: bold;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2), -5px -5px 15px rgba(255, 255, 255, 0.3);
   transition: all 0.3s ease-in-out;
   width: 90%;
   display: block;
-  margin: 0 auto 15px auto;
+  margin: 0 auto 10px auto;
 }
 
 .title:hover {
