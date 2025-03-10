@@ -3,7 +3,7 @@
     { "time": "07:00 AM TO 07:30 AM", "break": "MORNING ASSEMBLY" },
     { "time": "07:45 AM TO 08:15 AM", "break": "BREAKFAST" },
     { "time": "08:15 AM TO 08:30 AM", "break": "ASSEMBLY" },
-    { "time": "01:25 PM TO 02:00 PM", "break": "LUNCH BREAK" },
+    { "time": "01:30 PM TO 02:00 PM", "break": "LUNCH BREAK" },
     { "time": "02:00 PM TO 03:30 PM", "remedial": "REMEDIAL CLASSES/PREP", "teacher": "Class Teacher" },
     { "time": "03:30 PM TO 03:45 PM", "break": "TEA SHARE" },
     { "time": "03:45 PM TO 04:00 PM", "break": "CHANGE INTO GAMES KIT" },
