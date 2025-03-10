@@ -102,7 +102,7 @@ const TimetableTable = () => {
   <h2>📆 {currentDay} ⏰ {currentTime}</h2>
 </div>
    
-{currentSlot && <h3 className="current-slot" style={{ fontSize: "1.0rem" }} align="center">🕒 {currentSlot.time}</h3>}
+{currentSlot && <h3 className="current-slot" style={{ fontSize: "0.8rem" }} align="center">🕒 {currentSlot.time}</h3>}
 
     
       
