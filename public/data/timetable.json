@@ -471,7 +471,7 @@
             "XI": { "subject": "MATHS", "teacher": "PS" },
             "X": { "subject": "COM/CHEM", "teacher": "AG/PSK" },
             "IX": { "subject": "HIST", "teacher": "SJK" },
-            "VIII": { "subject": "DIV", "teacher": "HPS" },
+            "VIII": { "subject": "PHY", "teacher": "PS" },
             "VII": { "subject": "LIB", "teacher": "SGR" },
             "VI": { "subject": "GK", "teacher": "RK" }
             },
