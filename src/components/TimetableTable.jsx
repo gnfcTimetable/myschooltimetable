@@ -5,11 +5,11 @@ const TimetableTable = () => {
   const classes = ["KG", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XII"];
   const [timetableData, setTimetableData] = useState(null);
   const [currentDay, setCurrentDay] = useState("");
-  const [currentTime, setCurrentTime] = useState("");
   const [currentSlot, setCurrentSlot] = useState(null);
   const [selectedTeacher, setSelectedTeacher] = useState("");
   const [teacherSchedule, setTeacherSchedule] = useState([]);
-  const [currentRoutine, setCurrentRoutine] = useState(null);
+  const [currentTime, setCurrentTime] = useState("");
+  const [currentSlotTime, setCurrentSlotTime] = useState("");
 
   useEffect(() => {
     const fetchTimetable = () => {
@@ -31,11 +31,9 @@ const TimetableTable = () => {
       const now = new Date();
       const day = now.toLocaleString("en-US", { weekday: "long" });
       setCurrentDay(day);
-      setCurrentTime(now.toLocaleTimeString("en-US", { hour: "2-digit", minute: "2-digit", second: "2-digit" }));
 
       const todaySchedule = timetableData.schedule?.[day]?.classes || [];
-      const commonRoutine = timetableData.commonRoutine || [];
-      const currentTimeInMinutes = now.getHours() * 60 + now.getMinutes();
+      const currentTime = now.getHours() * 60 + now.getMinutes();
 
       const parseTime = (timeStr) => {
         const match = timeStr.match(/(\d+):(\d+)\s*(AM|PM)?/i);
@@ -56,24 +54,45 @@ const TimetableTable = () => {
           const [start, end] = period.time.split(" TO ").map(t => t.trim());
           const startTime = parseTime(start);
           const endTime = parseTime(end);
-          return startTime !== null && endTime !== null && currentTimeInMinutes >= startTime && currentTimeInMinutes <= endTime;
+          return startTime !== null && endTime !== null && currentTime >= startTime && currentTime <= endTime;
         });
       };
 
-      setCurrentSlot(findCurrentSlot(todaySchedule) || null);
-      setCurrentRoutine(findCurrentSlot(commonRoutine) || null);
+      const activeSlot = findCurrentSlot(todaySchedule) || null;
+      setCurrentSlot(activeSlot);
+      setCurrentSlotTime(activeSlot ? activeSlot.time : "No active slot");
     };
 
     updateSlot();
-    const interval = setInterval(updateSlot, 1000);
+    const interval = setInterval(updateSlot, 60000);
     return () => clearInterval(interval);
   }, [timetableData]);
+
+  useEffect(() => {
+    const updateTime = () => {
+      const now = new Date();
+      const timeString = now.toLocaleTimeString("en-US", { 
+        hour: "2-digit", 
+        minute: "2-digit", 
+        second: "2-digit", 
+        hour12: true 
+      });
+      setCurrentTime(timeString);
+    };
+
+    updateTime();
+    const interval = setInterval(updateTime, 1000);
+    return () => clearInterval(interval);
+  }, []);
 
   useEffect(() => {
     if (!selectedTeacher || !timetableData) return;
     const todaySchedule = timetableData.schedule?.[currentDay]?.classes || [];
 
     const teacherClasses = todaySchedule.flatMap(slot => {
+      if (!slot || !slot.time) return [];
+      const slotTime = slot.time;
+
       return classes.flatMap(className => {
         let scheduleEntries = [];
 
@@ -81,10 +100,10 @@ const TimetableTable = () => {
         const shangrilaEntry = slot.subjects?.["Shangri-la"]?.[className];
 
         if (vincentEntry?.teacher?.split("/").includes(selectedTeacher)) {
-          scheduleEntries.push({ time: slot.time, class: `${className} (VH)`, subject: vincentEntry.subject });
+          scheduleEntries.push({ time: slotTime, class: `${className} (VH)`, subject: vincentEntry.subject });
         }
         if (shangrilaEntry?.teacher?.split("/").includes(selectedTeacher)) {
-          scheduleEntries.push({ time: slot.time, class: `${className} (SH)`, subject: shangrilaEntry.subject });
+          scheduleEntries.push({ time: slotTime, class: `${className} (SH)`, subject: shangrilaEntry.subject });
         }
         return scheduleEntries;
       });
@@ -95,27 +114,47 @@ const TimetableTable = () => {
 
   return (
     <div className="timetable-container">
+      <h1 className="title" align="center">📅 School Timetable</h1>
+      <h2 className="day" align="center">{currentDay}🕒 {currentTime}</h2>
+      <h3 className="current-time" align="center"></h3>
+      <h3 className="current-slot-time" align="center">📚 {currentSlotTime}</h3>
 
-<h1 className="title-3d full-width single-line" style={{ fontSize: "2.0rem" }} align="center">📅 School Timetable</h1>
-   
-<div className="day-time-box full-width box-3d compact" style={{ fontSize: "1.0rem" }}>
-  <h2>📆 {currentDay} ⏰ {currentTime}</h2>
-</div>
-   
-{currentSlot && <h3 className="current-slot" style={{ fontSize: "0.8rem" }} align="center">🕒 {currentSlot.time}</h3>}
+      <div className="table-wrapper">
+        {currentSlot ? (
+          <div className="responsive-table">
+            <table className="timetable">
+              <thead>
+                <tr>
+                  <th className="class-header">Class</th>
+                  <th className="vincent-hill-header">Vincent Hill</th>
+                  <th className="shangri-la-header">Shangri-la</th>
+                </tr>
+              </thead>
+              <tbody>
+                {classes.map((className, classIndex) => {
+                  const displayClassName = `Class ${className}`;
+                  const subjects = currentSlot?.subjects || {};
+                  const vincentHillEntry = subjects["Vincent Hill"]?.[className] || {};
+                  const shangrilaEntry = subjects["Shangri-la"]?.[className] || {};
+                  return (
+                    <tr key={classIndex} className="timetable-row">
+                      <td className="class-cell">{displayClassName}</td>
+                      <td className="vincent-cell">{vincentHillEntry.subject ? `${vincentHillEntry.subject} (${vincentHillEntry.teacher})` : "-"}</td>
+                      <td className="shangri-cell">{shangrilaEntry.subject ? `${shangrilaEntry.subject} (${shangrilaEntry.teacher})` : "-"}</td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+        ) : (
+          <p className="no-classes">No active classes at this time.</p>
+        )}
+      </div>
 
-    
-      
-      {currentRoutine && (
-        <div className="routine-card compact">
-          <h2 className="routine-time">{currentRoutine.time}</h2>
-          <p>🔹 {currentRoutine.break}</p>
-          {currentRoutine.teacher && <p>👨‍🏫 Teacher: {currentRoutine.teacher}</p>}
-        </div>
-      )}
-
+      {/* Teacher Dropdown */}
       <div className="teacher-schedule">
-        <h3 align="center">Select a Teacher:</h3>
+        <h3>Select a Teacher:</h3>
         <select onChange={(e) => setSelectedTeacher(e.target.value)} value={selectedTeacher}>
           <option value="">Select a Teacher</option>
           {Array.from(new Set(
@@ -130,16 +169,19 @@ const TimetableTable = () => {
             <option key={teacher} value={teacher}>{teacher}</option>
           ))}
         </select>
+      </div>
 
-        {teacherSchedule.length > 0 && (
-          <div className="teacher-routine-box">
-            <h3>📖 {selectedTeacher}'s Routine</h3>
-            <table>
+      {/* Display Teacher's Routine in Table */}
+      {teacherSchedule.length > 0 && (
+        <div className="teacher-routine">
+          <h3>{selectedTeacher}'s Schedule</h3>
+          <div className="responsive-table">
+            <table className="teacher-table">
               <thead>
                 <tr>
-                  <th>⏰ Time</th>
-                  <th>🏫 Class</th>
-                  <th>📚 Subject</th>
+                  <th>Time</th>
+                  <th>Class</th>
+                  <th>Subject</th>
                 </tr>
               </thead>
               <tbody>
@@ -153,8 +195,8 @@ const TimetableTable = () => {
               </tbody>
             </table>
           </div>
-        )}
-      </div>
+        </div>
+      )}
     </div>
   );
 };
