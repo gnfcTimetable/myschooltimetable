@@ -1,204 +1,315 @@
-import React, { useState, useEffect } from "react";
-import "../App.css";
+/* General Styling */
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 20px;
+}
 
-const TimetableTable = () => {
-  const classes = ["KG", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XII"];
-  const [timetableData, setTimetableData] = useState(null);
-  const [currentDay, setCurrentDay] = useState("");
-  const [currentSlot, setCurrentSlot] = useState(null);
-  const [selectedTeacher, setSelectedTeacher] = useState("");
-  const [teacherSchedule, setTeacherSchedule] = useState([]);
-  const [currentTime, setCurrentTime] = useState("");
-  const [currentSlotTime, setCurrentSlotTime] = useState("");
+.timetable-container {
+  max-width: 1000px;
+  margin: auto;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
 
-  useEffect(() => {
-    const fetchTimetable = () => {
-      fetch(`${import.meta.env.BASE_URL}data/timetable.json`)
-        .then((response) => response.json())
-        .then((data) => setTimetableData(data))
-        .catch((error) => console.error("Error loading timetable data:", error));
-    };
+/* Title & Day Display */
+.title {
+  text-align: center;
+  color: #2c3e50;
+  font-size: 24px;
+  font-weight: bold;
+}
 
-    fetchTimetable();
-    const interval = setInterval(fetchTimetable, 60000);
-    return () => clearInterval(interval);
-  }, []);
+.day {
+  text-align: center;
+  font-size: 12px;
+  color: #34495e;
+  margin-bottom: 1px;
+}
 
-  useEffect(() => {
-    const updateSlot = () => {
-      if (!timetableData) return;
+/* Table Styling */
+.responsive-table {
+  overflow-x: auto;
+}
 
-      const now = new Date();
-      const day = now.toLocaleString("en-US", { weekday: "long" });
-      setCurrentDay(day);
+.timetable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1px;
+}
 
-      const todaySchedule = timetableData.schedule?.[day]?.classes || [];
-      const currentTime = now.getHours() * 60 + now.getMinutes();
+.timetable th,
+.timetable td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: center;
+}
 
-      const parseTime = (timeStr) => {
-        const match = timeStr.match(/(\d+):(\d+)\s*(AM|PM)?/i);
-        if (!match) return null;
-        let [_, hour, minute, period] = match;
-        hour = parseInt(hour, 10);
-        minute = parseInt(minute, 10);
-        if (period) {
-          if (period.toUpperCase() === "PM" && hour !== 12) hour += 12;
-          if (period.toUpperCase() === "AM" && hour === 12) hour = 0;
-        }
-        return hour * 60 + minute;
-      };
+.timetable th {
+  background-color: #3498db;
+  color: white;
+  font-weight: bold;
+}
 
-      const findCurrentSlot = (schedule) => {
-        return schedule.find(period => {
-          if (!period.time.includes(" TO ")) return false;
-          const [start, end] = period.time.split(" TO ").map(t => t.trim());
-          const startTime = parseTime(start);
-          const endTime = parseTime(end);
-          return startTime !== null && endTime !== null && currentTime >= startTime && currentTime <= endTime;
-        });
-      };
+.timetable tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
 
-      const activeSlot = findCurrentSlot(todaySchedule) || null;
-      setCurrentSlot(activeSlot);
-      setCurrentSlotTime(activeSlot ? activeSlot.time : "No active slot");
-    };
+.timetable tbody tr:hover {
+  background-color: #ecf0f1;
+  transition: 0.3s;
+}
 
-    updateSlot();
-    const interval = setInterval(updateSlot, 60000);
-    return () => clearInterval(interval);
-  }, [timetableData]);
+/* Specific Column Colors */
+.class-header {
+  background-color: #f39c12 !important;
+}
 
-  useEffect(() => {
-    const updateTime = () => {
-      const now = new Date();
-      const timeString = now.toLocaleTimeString("en-US", { 
-        hour: "2-digit", 
-        minute: "2-digit", 
-        second: "2-digit", 
-        hour12: true 
-      });
-      setCurrentTime(timeString);
-    };
+.vincent-hill-header {
+  background-color: #2c3e50 !important;
+  color: white;
+}
 
-    updateTime();
-    const interval = setInterval(updateTime, 1000);
-    return () => clearInterval(interval);
-  }, []);
+.shangri-la-header {
+  background-color: #8e44ad !important;
+  color: white;
+}
 
-  useEffect(() => {
-    if (!selectedTeacher || !timetableData) return;
-    const todaySchedule = timetableData.schedule?.[currentDay]?.classes || [];
+.class-cell {
+  background-color: #f7dc6f;
+  font-weight: bold;
+}
 
-    const teacherClasses = todaySchedule.flatMap(slot => {
-      if (!slot || !slot.time) return [];
-      const slotTime = slot.time;
+.vincent-cell {
+  color: #2c3e50;
+  font-weight: bold;
+}
 
-      return classes.flatMap(className => {
-        let scheduleEntries = [];
+.shangri-cell {
+  color: #8e44ad;
+  font-weight: bold;
+}
 
-        const vincentEntry = slot.subjects?.["Vincent Hill"]?.[className];
-        const shangrilaEntry = slot.subjects?.["Shangri-la"]?.[className];
+/* Teacher Dropdown */
+.teacher-schedule {
+  margin-top: 20px;
+  padding: 15px;
+  background: #ecf0f1;
+  border-radius: 8px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
 
-        if (vincentEntry?.teacher?.split("/").includes(selectedTeacher)) {
-          scheduleEntries.push({ time: slotTime, class: `${className} (VH)`, subject: vincentEntry.subject });
-        }
-        if (shangrilaEntry?.teacher?.split("/").includes(selectedTeacher)) {
-          scheduleEntries.push({ time: slotTime, class: `${className} (SH)`, subject: shangrilaEntry.subject });
-        }
-        return scheduleEntries;
-      });
-    });
+.teacher-schedule h3 {
+  color: #2c3e50;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
 
-    setTeacherSchedule(teacherClasses);
-  }, [selectedTeacher, timetableData, currentDay]);
+.teacher-schedule select {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #3498db;
+  border-radius: 6px;
+  background: white;
+  outline: none;
+  transition: all 0.3s;
+}
 
-  return (
-    <div className="timetable-container">
-      <h1 className="title" align="center">📅 School Timetable</h1>
-      <h2 className="day" align="center">{currentDay}🕒 {currentTime}</h2>
-      <h3 className="current-time" align="center"></h3>
-      <h3 className="current-slot-time" align="center">📚 {currentSlotTime}</h3>
+.teacher-schedule select:hover {
+  border-color: #2980b9;
+}
 
-      <div className="table-wrapper">
-        {currentSlot ? (
-          <div className="responsive-table">
-            <table className="timetable">
-              <thead>
-                <tr>
-                  <th className="class-header">Class</th>
-                  <th className="vincent-hill-header">Vincent Hill</th>
-                  <th className="shangri-la-header">Shangri-la</th>
-                </tr>
-              </thead>
-              <tbody>
-                {classes.map((className, classIndex) => {
-                  const displayClassName = `Class ${className}`;
-                  const subjects = currentSlot?.subjects || {};
-                  const vincentHillEntry = subjects["Vincent Hill"]?.[className] || {};
-                  const shangrilaEntry = subjects["Shangri-la"]?.[className] || {};
-                  return (
-                    <tr key={classIndex} className="timetable-row">
-                      <td className="class-cell">{displayClassName}</td>
-                      <td className="vincent-cell">{vincentHillEntry.subject ? `${vincentHillEntry.subject} (${vincentHillEntry.teacher})` : "-"}</td>
-                      <td className="shangri-cell">{shangrilaEntry.subject ? `${shangrilaEntry.subject} (${shangrilaEntry.teacher})` : "-"}</td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
-          </div>
-        ) : (
-          <p className="no-classes">No active classes at this time.</p>
-        )}
-      </div>
+.teacher-schedule select:focus {
+  border-color: #1abc9c;
+  box-shadow: 0px 0px 8px rgba(26, 188, 156, 0.5);
+}
 
-      {/* Teacher Dropdown */}
-      <div className="teacher-schedule">
-        <h3>Select a Teacher:</h3>
-        <select onChange={(e) => setSelectedTeacher(e.target.value)} value={selectedTeacher}>
-          <option value="">Select a Teacher</option>
-          {Array.from(new Set(
-            Object.values(timetableData?.schedule?.[currentDay]?.classes || []).flatMap(slot =>
-              Object.values(slot.subjects || {}).flatMap(school =>
-                Object.values(school || {}).flatMap(entry =>
-                  entry.teacher ? entry.teacher.split("/") : []
-                )
-              )
-            )
-          )).map(teacher => (
-            <option key={teacher} value={teacher}>{teacher}</option>
-          ))}
-        </select>
-      </div>
+/* Teacher Schedule Table */
+.teacher-schedule table {
+  width: 100%;
+  margin-top: 15px;
+  border-collapse: collapse;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
 
-      {/* Display Teacher's Routine in Table */}
-      {teacherSchedule.length > 0 && (
-        <div className="teacher-routine">
-          <h3>{selectedTeacher}'s Schedule</h3>
-          <div className="responsive-table">
-            <table className="teacher-table">
-              <thead>
-                <tr>
-                  <th>Time</th>
-                  <th>Class</th>
-                  <th>Subject</th>
-                </tr>
-              </thead>
-              <tbody>
-                {teacherSchedule.map((entry, index) => (
-                  <tr key={index}>
-                    <td>{entry.time}</td>
-                    <td>{entry.class}</td>
-                    <td>{entry.subject}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      )}
-    </div>
-  );
-};
+.teacher-schedule th,
+.teacher-schedule td {
+  padding: 12px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
 
-export default TimetableTable;
+.teacher-schedule th {
+  background-color: #1abc9c;
+  color: white;
+}
+
+.teacher-schedule tbody tr:nth-child(even) {
+  background-color: #d1f2eb;
+}
+
+.teacher-schedule tbody tr:hover {
+  background-color: #a3e4d7;
+  transition: 0.3s;
+}
+.routine-card {
+  background: #ebb310;
+  border-radius: 12px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2), -5px -5px 15px rgba(255, 255, 255, 0.7);
+  padding: 1px;
+  margin: 1x auto;
+  text-align: center;
+  font-weight: bold;
+  color: #333;
+  width: 100%;
+  transition: all 0.3s ease-in-out;
+}
+
+.routine-card:hover {
+  transform: scale(1.05);
+}
+
+.title {
+  background: linear-gradient(135deg, #1e3c72, #2a5298);
+  color: white;
+  padding: 2px;
+  border-radius: 12px;
+  text-align: center;
+  font-size: 25px;
+  font-weight: bold;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2), -5px -5px 15px rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease-in-out;
+  width: 100%;
+  display: block;
+  margin: 0 auto 3px auto;
+}
+
+.title:hover {
+  transform: scale(1.03);
+}
+
+.day-time-box {
+  background: linear-gradient(135deg, #ff7e5f, #feb47b);
+  color: white;
+  padding: 1px;
+  border-radius: 12px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2), -5px -5px 15px rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease-in-out;
+  width: 100%;
+  margin: 0 auto 1px auto;
+}
+
+.day-time-box:hover {
+  transform: scale(1.05);
+}
+
+.day {
+
+ background: linear-gradient(135deg, #1e3c72, #2a5298);
+  color: white;
+  padding: 2px;
+  border-radius: 12px;
+  text-align: center;
+  font-size: 26px;
+  font-weight: bold;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2), -5px -5px 15px rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease-in-out;
+  width: 100%;
+  display: block;
+  margin: 0 auto 1px auto;
+
+  font-size: 1.5rem; /* Increase the size */
+  font-weight: bold;
+  //color: #2c3e50; /* Adjust color if needed */
+  margin-bottom: 10px;
+}
+
+.current-slot-time {
+  font-size: 1.5rem; /* Increase text size */
+  font-weight: bold; /* Make it stand out */
+  color: #d35400; /* Use a distinct color (orange) */
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+  margin-bottom: 10px;
+  padding: 5px 10px;
+  border-radius: 8px;
+  background-color: rgba(255, 215, 0, 0.2); /* Light golden background */
+}
+
+
+
+.vincent-cell, .shangri-cell {
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 10px;
+  text-align: center;
+}
+
+.vincent-cell {
+  color: navy; /* Vincent Hill text color */
+  background-color: rgba(0, 0, 128, 0.1); /* Light navy background */
+}
+
+.shangri-cell {
+  color: darkred; /* Shangri-la text color */
+  background-color: rgba(139, 0, 0, 0.1); /* Light maroon background */
+}
+
+
+.current-slot-time {
+  animation: pulse 0.8s ease-in-out infinite alternate;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.1); }
+}
+
+
+.active-slot {
+  background-color: lightgreen;
+  font-weight: bold;
+}
+
+
+.teacher-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.teacher-table th,
+.teacher-table td {
+  padding: 12px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+.teacher-table th {
+  background: darkblue;
+  color: white;
+  font-size: 1.3rem;
+}
+
+.teacher-table tr:nth-child(even) {
+  background: #f2f2f2;
+}
+
+.teacher-table tr:hover {
+  background: #ddd;
+  transition: 0.3s;
+}
+
+
