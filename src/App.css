@@ -315,7 +315,7 @@ body {
   font-weight: bold;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2), -5px -5px 15px rgba(255, 255, 255, 0.3);
   transition: all 0.3s ease-in-out;
-  width: 90%;
+  width: 100%;
   display: block;
   margin: 0 auto 15px auto;
 }
