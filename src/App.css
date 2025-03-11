@@ -25,9 +25,9 @@ body {
 
 .day {
   text-align: center;
-  font-size: 18px;
+  font-size: 12px;
   color: #34495e;
-  margin-bottom: 20px;
+  margin-bottom: 2px;
 }
 
 /* Table Styling */
@@ -163,7 +163,7 @@ body {
   border-radius: 12px;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2), -5px -5px 15px rgba(255, 255, 255, 0.7);
   padding: 1px;
-  margin: 5px auto;
+  margin: 1x auto;
   text-align: center;
   font-weight: bold;
   color: #333;
@@ -178,7 +178,7 @@ body {
 .title {
   background: linear-gradient(135deg, #1e3c72, #2a5298);
   color: white;
-  padding: 18px;
+  padding: 2px;
   border-radius: 12px;
   text-align: center;
   font-size: 32px;
@@ -187,7 +187,7 @@ body {
   transition: all 0.3s ease-in-out;
   width: 90%;
   display: block;
-  margin: 0 auto 10px auto;
+  margin: 0 auto 15px auto;
 }
 
 .title:hover {
@@ -200,7 +200,7 @@ body {
   padding: 1px;
   border-radius: 12px;
   text-align: center;
-  font-size: 22px;
+  font-size: 14px;
   font-weight: bold;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2), -5px -5px 15px rgba(255, 255, 255, 0.3);
   transition: all 0.3s ease-in-out;
@@ -211,3 +211,105 @@ body {
 .day-time-box:hover {
   transform: scale(1.05);
 }
+
+.day {
+
+ background: linear-gradient(135deg, #1e3c72, #2a5298);
+  color: white;
+  padding: 2px;
+  border-radius: 12px;
+  text-align: center;
+  font-size: 28px;
+  font-weight: bold;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2), -5px -5px 15px rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease-in-out;
+  width: 90%;
+  display: block;
+  margin: 0 auto 15px auto;
+
+  font-size: 1.5rem; /* Increase the size */
+  font-weight: bold;
+  //color: #2c3e50; /* Adjust color if needed */
+  margin-bottom: 10px;
+}
+
+.current-slot-time {
+  font-size: 2rem; /* Increase text size */
+  font-weight: bold; /* Make it stand out */
+  color: #d35400; /* Use a distinct color (orange) */
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+  margin-bottom: 10px;
+  padding: 5px 10px;
+  border-radius: 8px;
+  background-color: rgba(255, 215, 0, 0.2); /* Light golden background */
+}
+
+
+
+.vincent-cell, .shangri-cell {
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 10px;
+  text-align: center;
+}
+
+.vincent-cell {
+  color: navy; /* Vincent Hill text color */
+  background-color: rgba(0, 0, 128, 0.1); /* Light navy background */
+}
+
+.shangri-cell {
+  color: darkred; /* Shangri-la text color */
+  background-color: rgba(139, 0, 0, 0.1); /* Light maroon background */
+}
+
+
+.current-slot-time {
+  animation: pulse 0.8s ease-in-out infinite alternate;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.1); }
+}
+
+
+.active-slot {
+  background-color: lightgreen;
+  font-weight: bold;
+}
+
+
+.teacher-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.teacher-table th,
+.teacher-table td {
+  padding: 12px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+.teacher-table th {
+  background: darkblue;
+  color: white;
+  font-size: 1.1rem;
+}
+
+.teacher-table tr:nth-child(even) {
+  background: #f2f2f2;
+}
+
+.teacher-table tr:hover {
+  background: #ddd;
+  transition: 0.3s;
+}
+
+
