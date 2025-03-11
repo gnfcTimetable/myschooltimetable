@@ -45,7 +45,7 @@ h3.current-time, h3.current-slot-time {
     text-align: center;
     overflow: hidden;
     white-space: normal; /* Allows wrapping without breaking layout */
-    font-size: 1.8vw; /* Dynamically adjusts */
+    font-size: 2.3vw; /* Dynamically adjusts */
 }
 
 /* Table Headers */
