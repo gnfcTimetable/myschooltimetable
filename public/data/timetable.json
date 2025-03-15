@@ -693,7 +693,7 @@
         "IX": { "subject": "GEOG", "teacher": "SRW" },
         "VIII": { "subject": "HIN", "teacher": "PT" },
         "VII": { "subject": "MATHS", "teacher": "RBH" },
-        "VI": { "subject": "PBI", "teacher": "HPK" },
+        "VI": { "subject": "PBI", "teacher": "JJ" },
         "V": { "subject": "ENG", "teacher": "DK" },
         "IV": { "subject": "HINDI", "teacher": "DD" },
         "III": { "subject": "GAMES", "teacher": "SSN" },
@@ -803,7 +803,7 @@
             "Vincent Hill": {
              "XII": { "subject": "ACC/PHY", "teacher": "JSS/PS" },
             "XI": { "subject": "ECO/BIO", "teacher": "PR/RBW" },
-            "X": { "subject": "P/C/A", "teacher": "RA/SR/NT" },
+            "X": { "subject": "GEOG", "teacher": "SRW" },
             "IX": { "subject": "P/C/A", "teacher": "VR/SR/NT" },
             "VIII": { "subject": "ART", "teacher": "NT" },
             "VII": { "subject": "MATHS", "teacher": "RBH" },
@@ -1045,7 +1045,7 @@
             "Vincent Hill": {
             "XII": { "subject": "ECO/BIO", "teacher": "PR/RBW" },
             "XI": { "subject": "P/C/A", "teacher": "VR/AM/NT" },
-            "X": { "subject": "GEOG", "teacher": "SRW" },
+            "X": { "subject": "P/C/A", "teacher": "VR/SR/NT" },
             "IX": { "subject": "HINDI/PBI", "teacher": "SS/HPS" },
             "VIII": { "subject": "MATHS", "teacher": "RBH" },
             "VII": { "subject": "ENG", "teacher": "IR" },
@@ -1192,7 +1192,7 @@
              "XII": { "subject": "MATHS/HINDI/PBI", "teacher": "PS/SS/HPS" },
             "XI": { "subject": "MATHS", "teacher": "PS" },
             "X": { "subject": "COM", "teacher": "AG" },
-            "IX": { "subject": "HIST", "teacher": "SJK" },
+            "IX": { "subject": "GAMES", "teacher": "VR" },
             "VIII": { "subject": "PHY", "teacher": "PS" },
             "VII": { "subject": "CHEM", "teacher": "PSK" },
             "VI": { "subject": "MUSIC", "teacher": "HS" }
