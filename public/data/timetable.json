@@ -684,7 +684,7 @@
             "IX": { "subject": "ENG", "teacher": "IR" },
             "VIII": { "subject": "PBI", "teacher": "HPS" },
             "VII": { "subject": "CHEM", "teacher": "PSK" },
-            "VI": { "subject": "HINDI", "teacher": "RK" }
+            "VI": { "subject": "MUSIC", "teacher": "HS" }
             },
             "Shangri-la": {
             "XII": { "subject": "ECO", "teacher": "TB" },
@@ -1195,7 +1195,7 @@
             "IX": { "subject": "GAMES", "teacher": "VR" },
             "VIII": { "subject": "PHY", "teacher": "PS" },
             "VII": { "subject": "CHEM", "teacher": "PSK" },
-            "VI": { "subject": "MUSIC", "teacher": "HS" }
+            "VI": { "subject": "HINDI", "teacher": "RK" }
             },
             "Shangri-la": {
             "XII": { "subject": "NA", "teacher": "NA" },
