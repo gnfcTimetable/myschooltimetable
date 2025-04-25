@@ -1,8 +1,11 @@
+
+
 {
   "commonRoutine": [
-    { "time": "07:00 AM TO 07:30 AM", "break": "MORNING ASSEMBLY" },
-    { "time": "07:30 AM TO 08:00 AM", "break": "BREAKFAST" },
-    { "time": "01:25 PM TO 02:00 PM", "break": "LUNCH BREAK" },
+    { "time": "07:00 AM TO 07:45 AM", "break": "MORNING GURUDWARA" },
+    { "time": "07:45 AM TO 08:15 AM", "break": "BREAKFAST" },
+    { "time": "08:15 AM TO 08:30 AM", "break": "ASSEMBLY" },
+    { "time": "01:30 PM TO 02:00 PM", "break": "LUNCH BREAK" },
     { "time": "02:00 PM TO 03:30 PM", "remedial": "REMEDIAL CLASSES/PREP", "teacher": "Class Teacher" },
     { "time": "03:30 PM TO 03:45 PM", "break": "TEA SHARE" },
     { "time": "03:45 PM TO 04:00 PM", "break": "CHANGE INTO GAMES KIT" },
@@ -12,7 +15,8 @@
     { "time": "07:00 PM TO 07:30 PM", "break": "DINNER" },
     { "time": "07:30 PM TO 08:30 PM", "break": "NIGHT PREP" },
     { "time": "08:30 PM TO 10:00 PM", "break": "RECREATION & REST" },
-    { "time": "10:00 PM TO 05:30 AM", "break": "LIGHTS OUT" }
+    { "time": "10:00 PM TO 11:59 PM", "break": "LIGHTS OUT" },
+    { "time": "00:00 AM TO 05:30 AM", "break": "LIGHTS OUT" }
   ],
   "schedule": {
     "Monday": {
@@ -23,20 +27,26 @@
             "Vincent Hill": {
               "XII": { "subject": "ENG", "teacher": "AK" },
             "XI": { "subject": "ACC/PHY", "teacher": "JSS/BSN" },
-            "X": { "subject": "MATHS/ECO", "teacher": "PD/PR" },
+            "X": { "subject": "MATHS/ECO", "teacher": "PD/RB/PR" },
             "IX": { "subject": "COM/BIO", "teacher": "AG/RBW" },
             "VIII": { "subject": "ENG", "teacher": "IR" },
-            "VII": { "subject": "PBI", "teacher": "JJ" },
+            "VII": { "subject": "COMP", "teacher": "SR" },
             "VI": { "subject": "MATHS", "teacher": "SRW" }
             },
             "Shangri-la": {
-              "XII": { "subject": "ENG", "teacher": "AK" },
-            "XI": { "subject": "ACC/PHY", "teacher": "JSS/BSN" },
-            "X": { "subject": "MATHS/ECO", "teacher": "PD/PR" },
-            "IX": { "subject": "COM/BIO", "teacher": "AG/RBW" },
-            "VIII": { "subject": "ENG", "teacher": "IR" },
-            "VII": { "subject": "PBI", "teacher": "JJ" },
-            "VI": { "subject": "MATHS", "teacher": "SRW" }
+              "XII": { "subject": "H/P/C/A/PE", "teacher": "PT/HK/AM/VT/SPB" },
+            "XI": { "subject": "MATHS/BIO", "teacher": "RB/DS" },
+            "X": { "subject": "ENG", "teacher": "AVK" },
+            "IX": { "subject": "ENG", "teacher": "PG" },
+            "VIII": { "subject": "MATHS", "teacher": "PB" },
+            "VII": { "subject": "HIST", "teacher": "CPR" },
+            "VI": { "subject": "PHY", "teacher": "AP" },
+"V": { "subject": "HINDI", "teacher": "DD" },
+"IV": { "subject": "ENG", "teacher": "DK" },
+"III": { "subject": "MATHS", "teacher": "ES" },
+"II": { "subject": "MOTHER-TEACHER", "teacher": "DP" },
+"I": { "subject": "MOTHER-TEACHER", "teacher": "SNT" },
+"KG": { "subject": "MOTHER-TEACHER", "teacher": "SKH" }
             }
           }
         },
@@ -46,20 +56,26 @@
             "Vincent Hill": {
             "XII": { "subject": "ENG", "teacher": "AK" },
             "XI": { "subject": "ACC/PHY", "teacher": "JSS/BSN" },
-            "X": { "subject": "MATHS/ECO", "teacher": "PD/PR" },
+            "X": { "subject": "MATHS/ECO", "teacher": "PD/RB/PR" },
             "IX": { "subject": "COM/CHEM", "teacher": "AG/PSK" },
-            "VIII": { "subject": "ENG", "teacher": "IR" },
+            "VIII": { "subject": "ART", "teacher": "NT" },
             "VII": { "subject": "GEO", "teacher": "PK" },
             "VI": { "subject": "MATHS", "teacher": "SRW" }
             },
             "Shangri-la": {
-              "XII": { "subject": "ENG", "teacher": "AK" },
-            "XI": { "subject": "ACC/PHY", "teacher": "JSS/BSN" },
-            "X": { "subject": "MATHS/ECO", "teacher": "PD/PR" },
-            "IX": { "subject": "COM/CHEM", "teacher": "AG/PSK" },
-            "VIII": { "subject": "ENG", "teacher": "IR" },
-            "VII": { "subject": "GEO", "teacher": "PK" },
-            "VI": { "subject": "MATHS", "teacher": "SRW" }
+              "XII": { "subject": "MATHS/BIO/HIST", "teacher": "GD/DS/CPR" },
+            "XI": { "subject": "H/P/C/PE/A", "teacher": "PT/HK/AM/SPB/VT" },
+            "X": { "subject": "PHY", "teacher": "PD" },
+            "IX": { "subject": "COM/CHEM", "teacher": "VKS/KST" },
+            "VIII": { "subject": "ENG", "teacher": "PG" },
+            "VII": { "subject": "PHY", "teacher": "AP" },
+            "VI": { "subject": "COMP", "teacher": "SD" },
+"V": { "subject": "LIB", "teacher": "SK" },
+"IV": { "subject": "SST", "teacher": "PP" },
+"III": { "subject": "ENG", "teacher": "DK" },
+"II": { "subject": "MOTHER-TEACHER", "teacher": "DP" },
+"I": { "subject": "MOTHER-TEACHER", "teacher": "SNT" },
+"KG": { "subject": "MOTHER-TEACHER", "teacher": "SKH" }
             }
           }
         },
@@ -76,13 +92,19 @@
             "VI": { "subject": "PBI", "teacher": "JJ" }
             },
             "Shangri-la": {
-              "XII": { "subject": "ENG", "teacher": "AK" },
-            "XI": { "subject": "ACC/PHY", "teacher": "JSS/BSN" },
-            "X": { "subject": "MATHS/ECO", "teacher": "PD/PR" },
-            "IX": { "subject": "COM/CHEM", "teacher": "AG/PSK" },
-            "VIII": { "subject": "ENG", "teacher": "IR" },
-            "VII": { "subject": "GEO", "teacher": "PK" },
-            "VI": { "subject": "MATHS", "teacher": "SRW" }
+               "XII": { "subject": "COM/CHEM", "teacher": "VKS/KK" },
+            "XI": { "subject": "ECO/CHEM", "teacher": "TB/KST" },
+            "X": { "subject": "HIST", "teacher": "CPR" },
+            "IX": { "subject": "HINDI/PBI", "teacher": "PT/HK" },
+            "VIII": { "subject": "ART", "teacher": "VT" },
+            "VII": { "subject": "COMP", "teacher": "SD" },
+            "VI": { "subject": "MATHS", "teacher": "GD" },
+"V": { "subject": "MATHS", "teacher": "ES" },
+"IV": { "subject": "LIB", "teacher": "SK" },
+"III": { "subject": "HINDI", "teacher": "DD" },
+"II": { "subject": "MOTHER-TEACHER", "teacher": "DP" },
+"I": { "subject": "MOTHER-TEACHER", "teacher": "SNT" },
+"KG": { "subject": "MOTHER-TEACHER", "teacher": "SKH" }
             }
           }
         },
@@ -99,13 +121,19 @@
             "VI": { "subject": "ENG", "teacher": "SJK" }
             },
             "Shangri-la": {
-              "XII": { "subject": "ENG", "teacher": "AK" },
-            "XI": { "subject": "ACC/PHY", "teacher": "JSS/BSN" },
-            "X": { "subject": "MATHS/ECO", "teacher": "PD/PR" },
-            "IX": { "subject": "COM/CHEM", "teacher": "AG/PSK" },
-            "VIII": { "subject": "ENG", "teacher": "IR" },
-            "VII": { "subject": "GEO", "teacher": "PK" },
-            "VI": { "subject": "MATHS", "teacher": "SRW" }
+              "XII": { "subject": "COM/CHEM", "teacher": "VKS/KK" },
+            "XI": { "subject": "ENG", "teacher": "AVK" },
+            "X": { "subject": "MATHS/ECO", "teacher": "PD/TB" },
+            "IX": { "subject": "HIST", "teacher": "CPR" },
+            "VIII": { "subject": "ENG", "teacher": "PG" },
+            "VII": { "subject": "BIO", "teacher": "AP" },
+            "VI": { "subject": "HINDI", "teacher": "DD" },
+"V": { "subject": "GK", "teacher": "SD" },
+"IV": { "subject": "SCI", "teacher": "ES" },
+"III": { "subject": "SCI", "teacher": "PP" },
+"II": { "subject": "MOTHER-TEACHER", "teacher": "DP" },
+"I": { "subject": "MOTHER-TEACHER", "teacher": "SNT" },
+"KG": { "subject": "MOTHER-TEACHER", "teacher": "SKH" }
             }
           }
         },
@@ -117,19 +145,25 @@
               "XII": { "subject": "COM/CHEM", "teacher": "AG/KK" },
             "XI": { "subject": "ENG", "teacher": "AK" },
             "X": { "subject": "BIO/MUSIC", "teacher": "RBW/HS" },
-            "IX": { "subject": "MATHS/ECO", "teacher": "PSK/PR" },
+            "IX": { "subject": "MATHS/ECO", "teacher": "RB/PR" },
             "VIII": { "subject": "HINDI", "teacher": "SS" },
             "VII": { "subject": "HINDI", "teacher": "RK" },
             "VI": { "subject": "HIST", "teacher": "SJK" }
             },
             "Shangri-la": {
-              "XII": { "subject": "ENG", "teacher": "AK" },
-            "XI": { "subject": "ACC/PHY", "teacher": "JSS/BSN" },
-            "X": { "subject": "MATHS/ECO", "teacher": "PD/PR" },
-            "IX": { "subject": "COM/CHEM", "teacher": "AG/PSK" },
-            "VIII": { "subject": "ENG", "teacher": "IR" },
-            "VII": { "subject": "GEO", "teacher": "PK" },
-            "VI": { "subject": "MATHS", "teacher": "SRW" }
+             "XII": { "subject": "ACC/PHY", "teacher": "JSS/BSN" },
+        "XI": { "subject": "COM", "teacher": "VKS" },
+        "X": { "subject": "ENG", "teacher": "AVK" },
+        "IX": { "subject": "MATHS/ECO", "teacher": "PD/TB" },
+        "VIII": { "subject": "COMP", "teacher": "SR" },
+        "VII": { "subject": "GEOG", "teacher": "SRW" },
+        "VI": { "subject": "ENG", "teacher": "PK" },
+        "V": { "subject": "SCI", "teacher": "DK" },
+        "IV": { "subject": "PBI", "teacher": "JJ" },
+"III": { "subject": "SST", "teacher": "PP" },
+"II": { "subject": "MOTHER-TEACHER", "teacher": "DP" },
+"I": { "subject": "MOTHER-TEACHER", "teacher": "SNT" },
+"KG": { "subject": "MOTHER-TEACHER", "teacher": "SKH" }
             }
           }
         },
@@ -138,21 +172,27 @@
           "subjects": {
             "Vincent Hill": {
              "XII": { "subject": "COM/CHEM", "teacher": "AG/KK" },
-            "XI": { "subject": "ENG", "teacher": "AK" },
+            "XI": { "subject": "ENG", "teacher": "AVK" },
             "X": { "subject": "HIST", "teacher": "SJK" },
-            "IX": { "subject": "MATHS/ECO", "teacher": "PSK/PR" },
+            "IX": { "subject": "MATHS/ECO", "teacher": "RB/PR" },
             "VIII": { "subject": "PHY", "teacher": "PS" },
             "VII": { "subject": "BIO", "teacher": "RBW" },
             "VI": { "subject": "ART", "teacher": "NT" }
             },
             "Shangri-la": {
-              "XII": { "subject": "ENG", "teacher": "AK" },
-            "XI": { "subject": "ACC/PHY", "teacher": "JSS/BSN" },
-            "X": { "subject": "MATHS/ECO", "teacher": "PD/PR" },
-            "IX": { "subject": "COM/CHEM", "teacher": "AG/PSK" },
-            "VIII": { "subject": "ENG", "teacher": "IR" },
-            "VII": { "subject": "GEO", "teacher": "PK" },
-            "VI": { "subject": "MATHS", "teacher": "SRW" }
+             "XII": { "subject": "ECO/PHY", "teacher": "TB/BSN" },
+        "XI": { "subject": "ACC", "teacher": "JSS" },
+        "X": { "subject": "GEOG", "teacher": "SRW" },
+        "IX": { "subject": "P/C/A", "teacher": "SN/SR/VT" },
+        "VIII": { "subject": "HIN", "teacher": "PT" },
+        "VII": { "subject": "ENG", "teacher": "PG" },
+        "VI": { "subject": "MATHS", "teacher": "GD" },
+        "V": { "subject": "SST", "teacher": "PK" },
+        "IV": { "subject": "HINDI", "teacher": "DD" },
+        "III": { "subject": "DIV", "teacher": "HK" },
+"II": { "subject": "MOTHER-TEACHER", "teacher": "DP" },
+"I": { "subject": "MOTHER-TEACHER", "teacher": "SNT" },
+"KG": { "subject": "MOTHER-TEACHER", "teacher": "SKH" }
             }
           }
         },
@@ -165,17 +205,23 @@
             "X": { "subject": "ENG", "teacher": "AK" },
             "IX": { "subject": "ENG", "teacher": "IR" },
             "VIII": { "subject": "GK", "teacher": "RK" },
-            "VII": { "subject": "CHEM", "teacher": "PSK" },
-            "VI": { "subject": "ENG", "teacher": "SJK" }
+            "VII": { "subject": "DIV", "teacher": "HPS" },
+            "VI": { "subject": "BIO", "teacher": "RBW" }
             },
             "Shangri-la": {
-              "XII": { "subject": "ENG", "teacher": "AK" },
-            "XI": { "subject": "ACC/PHY", "teacher": "JSS/BSN" },
-            "X": { "subject": "MATHS/ECO", "teacher": "PD/PR" },
-            "IX": { "subject": "COM/CHEM", "teacher": "AG/PSK" },
-            "VIII": { "subject": "ENG", "teacher": "IR" },
-            "VII": { "subject": "GEO", "teacher": "PK" },
-            "VI": { "subject": "MATHS", "teacher": "SRW" }
+             "XII": { "subject": "ENG", "teacher": "AVK" },
+        "XI": { "subject": "COM/PHY", "teacher": "VKS/BSN" },
+        "X": { "subject": "HINDI/PBI", "teacher": "PT/HK" },
+        "IX": { "subject": "GEOG", "teacher": "SRW" },
+        "VIII": { "subject": "PHY", "teacher": "AP" },
+        "VII": { "subject": "MATHS", "teacher": "RBH" },
+        "VI": { "subject": "ENG", "teacher": "PK" },
+        "V": { "subject": "ENG", "teacher": "DK" },
+        "IV": { "subject": "MATHS", "teacher": "ES" },
+        "III": { "subject": "PBI", "teacher": "JJ" },
+"II": { "subject": "MOTHER-TEACHER", "teacher": "DP" },
+"I": { "subject": "MOTHER-TEACHER", "teacher": "SNT" },
+"KG": { "subject": "MOTHER-TEACHER", "teacher": "SKH" }
             }
           }
         },
@@ -184,21 +230,27 @@
           "subjects": {
             "Vincent Hill": {
               "XII": { "subject": "MATHS/HINDI/PBI", "teacher": "PS/SS/HPS" },
-            "XI": { "subject": "MATHS", "teacher": "PS" },
+            "XI": { "subject": "MATHS", "teacher": "RB" },
             "X": { "subject": "COM/CHEM", "teacher": "AG/PSK" },
             "IX": { "subject": "HIST", "teacher": "SJK" },
             "VIII": { "subject": "MUSIC", "teacher": "HS" },
-            "VII": { "subject": "DIV", "teacher": "HPS" },
+            "VII": { "subject": "GAMES", "teacher": "RA" },
             "VI": { "subject": "HINDI", "teacher": "RK" }
             },
             "Shangri-la": {
-              "XII": { "subject": "ENG", "teacher": "AK" },
-            "XI": { "subject": "ACC/PHY", "teacher": "JSS/BSN" },
-            "X": { "subject": "MATHS/ECO", "teacher": "PD/PR" },
-            "IX": { "subject": "COM/CHEM", "teacher": "AG/PSK" },
-            "VIII": { "subject": "ENG", "teacher": "IR" },
-            "VII": { "subject": "GEO", "teacher": "PK" },
-            "VI": { "subject": "MATHS", "teacher": "SRW" }
+              "XII": { "subject": "ACC", "teacher": "JSS" },
+        "XI": { "subject": "PUN", "teacher": "HPK" },
+        "X": { "subject": "COM/BIO", "teacher": "VKS/DS" },
+        "IX": { "subject": "PHY", "teacher": "BSN" },
+        "VIII": { "subject": "GEOG", "teacher": "SRW" },
+        "VII": { "subject": "DIV", "teacher": "JJ" },
+        "VI": { "subject": "HIST", "teacher": "RBH" },
+        "V": { "subject": "MATHS", "teacher": "ES" },
+        "IV": { "subject": "ENG", "teacher": "DK" },
+        "III": { "subject": "ART", "teacher": "DD" },
+"II": { "subject": "MOTHER-TEACHER", "teacher": "DP" },
+"I": { "subject": "MOTHER-TEACHER", "teacher": "SNT" },
+"KG": { "subject": "MOTHER-TEACHER", "teacher": "SKH" }
             }
           }
         }
@@ -215,20 +267,26 @@
             "Vincent Hill": {
              "XII": { "subject": "ENG", "teacher": "AK" },
             "XI": { "subject": "ACC/PHY", "teacher": "JSS/BSN" },
-            "X": { "subject": "MATHS/ECO", "teacher": "PD/PR" },
+            "X": { "subject": "MATHS/ECO", "teacher": "PD/RB/PR" },
             "IX": { "subject": "COM/BIO", "teacher": "AG/RBW" },
             "VIII": { "subject": "ENG", "teacher": "IR" },
-            "VII": { "subject": "PBI", "teacher": "JJ" },
+            "VII": { "subject": "COMP", "teacher": "SR" },
             "VI": { "subject": "MATHS", "teacher": "SRW" }
             },
             "Shangri-la": {
-              "XII": { "subject": "ENG", "teacher": "AK" },
-            "XI": { "subject": "ACC/PHY", "teacher": "JSS/BSN" },
-            "X": { "subject": "MATHS/ECO", "teacher": "PD/PR" },
-            "IX": { "subject": "COM/BIO", "teacher": "AG/RBW" },
-            "VIII": { "subject": "ENG", "teacher": "IR" },
-            "VII": { "subject": "PBI", "teacher": "JJ" },
-            "VI": { "subject": "MATHS", "teacher": "SRW" }
+               "XII": { "subject": "H/P/C/PE/A", "teacher": "PT/HPK/AM/SSB/VT" },
+        "XI": { "subject": "MATH/BIO", "teacher": "RB/DS" },
+        "X": { "subject": "ENG", "teacher": "AVK" },
+        "IX": { "subject": "ENG", "teacher": "PG" },
+        "VIII": { "subject": "MATHS", "teacher": "PB" },
+        "VII": { "subject": "HIST", "teacher": "CPR" },
+        "VI": { "subject": "PHY", "teacher": "AP" },
+        "V": { "subject": "HIN", "teacher": "DD" },
+        "IV": { "subject": "ENG", "teacher": "DK" },
+        "III": { "subject": "MATHS", "teacher": "ES" },
+"II": { "subject": "MOTHER-TEACHER", "teacher": "DP" },
+"I": { "subject": "MOTHER-TEACHER", "teacher": "SNT" },
+"KG": { "subject": "MOTHER-TEACHER", "teacher": "SKH" }
             }
           }
         },
@@ -238,20 +296,26 @@
             "Vincent Hill": {
             "XII": { "subject": "ENG", "teacher": "AK" },
             "XI": { "subject": "ACC/PHY", "teacher": "JSS/BSN" },
-            "X": { "subject": "MATHS/ECO", "teacher": "PD/PR" },
+            "X": { "subject": "MATHS/ECO", "teacher": "PD/RB/PR" },
             "IX": { "subject": "COM/CHEM", "teacher": "AG/PSK" },
             "VIII": { "subject": "ENG", "teacher": "IR" },
             "VII": { "subject": "GEO", "teacher": "PK" },
             "VI": { "subject": "MATHS", "teacher": "SRW" }
             },
             "Shangri-la": {
-              "XII": { "subject": "ENG", "teacher": "AK" },
-            "XI": { "subject": "ACC/PHY", "teacher": "JSS/BSN" },
-            "X": { "subject": "MATHS/ECO", "teacher": "PD/PR" },
-            "IX": { "subject": "COM/CHEM", "teacher": "AG/PSK" },
-            "VIII": { "subject": "ENG", "teacher": "IR" },
-            "VII": { "subject": "GEO", "teacher": "PK" },
-            "VI": { "subject": "MATHS", "teacher": "SRW" }
+             "XII": { "subject": "MAT/BIO/HIST", "teacher": "GD/DS/CPR" },
+        "XI": { "subject": "H/P/C/PE/A", "teacher": "PT/HPK/AK/SSB/VT" },
+        "X": { "subject": "PHY", "teacher": "PD" },
+        "IX": { "subject": "CHE/COM", "teacher": "KST/VKS" },
+        "VIII": { "subject": "ENG", "teacher": "PG" },
+        "VII": { "subject": "PHY", "teacher": "AP" },
+        "VI": { "subject": "COMP", "teacher": "SD" },
+        "V": { "subject": "MUSIC", "teacher": "HS" },
+        "IV": { "subject": "SST", "teacher": "PP" },
+        "III": { "subject": "ENG", "teacher": "DK" },
+"II": { "subject": "MOTHER-TEACHER", "teacher": "DP" },
+"I": { "subject": "MOTHER-TEACHER", "teacher": "SNT" },
+"KG": { "subject": "MOTHER-TEACHER", "teacher": "SKH" }
             }
           }
         },
@@ -268,13 +332,19 @@
             "VI": { "subject": "PBI", "teacher": "JJ" }
             },
             "Shangri-la": {
-              "XII": { "subject": "ENG", "teacher": "AK" },
-            "XI": { "subject": "ACC/PHY", "teacher": "JSS/BSN" },
-            "X": { "subject": "MATHS/ECO", "teacher": "PD/PR" },
-            "IX": { "subject": "COM/CHEM", "teacher": "AG/PSK" },
-            "VIII": { "subject": "ENG", "teacher": "IR" },
-            "VII": { "subject": "GEO", "teacher": "PK" },
-            "VI": { "subject": "MATHS", "teacher": "SRW" }
+              "XII": { "subject": "COM/CHE", "teacher": "VKS/KK" },
+        "XI": { "subject": "ECO/CHE", "teacher": "TB/KST" },
+        "X": { "subject": "HIST", "teacher": "CPR" },
+        "IX": { "subject": "HIN/PBI", "teacher": "PT/HPK" },
+        "VIII": { "subject": "GAMES", "teacher": "SN" },
+        "VII": { "subject": "COMP", "teacher": "SD" },
+        "VI": { "subject": "MATHS", "teacher": "GD" },
+        "V": { "subject": "MATHS", "teacher": "ES" },
+        "IV": { "subject": "MUSIC", "teacher": "HS" },
+        "III": { "subject": "HIN", "teacher": "DD" },
+"II": { "subject": "MOTHER-TEACHER", "teacher": "DP" },
+"I": { "subject": "MOTHER-TEACHER", "teacher": "SNT" },
+"KG": { "subject": "MOTHER-TEACHER", "teacher": "SKH" }
             }
           }
         },
@@ -291,13 +361,19 @@
             "VI": { "subject": "ENG", "teacher": "SJK" }
             },
             "Shangri-la": {
-              "XII": { "subject": "ENG", "teacher": "AK" },
-            "XI": { "subject": "ACC/PHY", "teacher": "JSS/BSN" },
-            "X": { "subject": "MATHS/ECO", "teacher": "PD/PR" },
-            "IX": { "subject": "COM/CHEM", "teacher": "AG/PSK" },
-            "VIII": { "subject": "ENG", "teacher": "IR" },
-            "VII": { "subject": "GEO", "teacher": "PK" },
-            "VI": { "subject": "MATHS", "teacher": "SRW" }
+             "XII": { "subject": "COM/CHE", "teacher": "VKS/KK" },
+        "XI": { "subject": "ENG", "teacher": "AVK" },
+        "X": { "subject": "MATHS/ECO", "teacher": "PD/TB" },
+        "IX": { "subject": "HIST", "teacher": "CPR" },
+        "VIII": { "subject": "ENG", "teacher": "PG" },
+        "VII": { "subject": "BIO", "teacher": "AP" },
+        "VI": { "subject": "HINDI", "teacher": "DD" },
+        "V": { "subject": "ART", "teacher": "VT" },
+        "IV": { "subject": "SCI", "teacher": "ES" },
+        "III": { "subject": "SCI", "teacher": "PP" },
+"II": { "subject": "MOTHER-TEACHER", "teacher": "DP" },
+"I": { "subject": "MOTHER-TEACHER", "teacher": "SNT" },
+"KG": { "subject": "MOTHER-TEACHER", "teacher": "SKH" }
             }
           }
         },
@@ -308,20 +384,26 @@
             "Vincent Hill": {
             "XII": { "subject": "COM/CHEM", "teacher": "AG/KK" },
             "XI": { "subject": "ENG", "teacher": "AK" },
-            "X": { "subject": "BIO", "teacher": "RBW" },
-            "IX": { "subject": "MATHS/ECO", "teacher": "PSK/PR" },
+            "X": { "subject": "BIO/LIB", "teacher": "RBW/SGR" },
+            "IX": { "subject": "MATHS/ECO", "teacher": "RB/PR" },
             "VIII": { "subject": "HINDI", "teacher": "SS" },
             "VII": { "subject": "HINDI", "teacher": "RK" },
             "VI": { "subject": "HIST", "teacher": "SJK" }
             },
             "Shangri-la": {
-              "XII": { "subject": "ENG", "teacher": "AK" },
-            "XI": { "subject": "ACC/PHY", "teacher": "JSS/BSN" },
-            "X": { "subject": "MATHS/ECO", "teacher": "PD/PR" },
-            "IX": { "subject": "COM/CHEM", "teacher": "AG/PSK" },
-            "VIII": { "subject": "ENG", "teacher": "IR" },
-            "VII": { "subject": "GEO", "teacher": "PK" },
-            "VI": { "subject": "MATHS", "teacher": "SRW" }
+            "XII": { "subject": "ACC/PHY", "teacher": "JSS/BSN" },
+        "XI": { "subject": "COM", "teacher": "VKS" },
+        "X": { "subject": "P/C/A", "teacher": "SSB/SR/VT" },
+        "IX": { "subject": "MAT/ECO", "teacher": "PD/TB" },
+        "VIII": { "subject": "PUN", "teacher": "HPK" },
+        "VII": { "subject": "CHEM", "teacher": "AP" },
+        "VI": { "subject": "ENG", "teacher": "PK" },
+        "V": { "subject": "SCI", "teacher": "DK" },
+        "IV": { "subject": "MATHS", "teacher": "ES" },
+        "III": { "subject": "SST", "teacher": "PP" },
+"II": { "subject": "MOTHER-TEACHER", "teacher": "DP" },
+"I": { "subject": "MOTHER-TEACHER", "teacher": "SNT" },
+"KG": { "subject": "MOTHER-TEACHER", "teacher": "SKH" }
             }
           }
         },
@@ -332,19 +414,25 @@
              "XII": { "subject": "COM/CHEM", "teacher": "AG/KK" },
             "XI": { "subject": "ENG", "teacher": "AK" },
             "X": { "subject": "HIST", "teacher": "SJK" },
-            "IX": { "subject": "MATHS/ECO", "teacher": "PSK/PR" },
-            "VIII": { "subject": "PHY", "teacher": "PS" },
+            "IX": { "subject": "MATHS/ECO", "teacher": "RB/PR" },
+            "VIII": { "subject": "DIV", "teacher": "HPS" },
             "VII": { "subject": "BIO", "teacher": "RBW" },
             "VI": { "subject": "ART", "teacher": "NT" }
             },
             "Shangri-la": {
-              "XII": { "subject": "ENG", "teacher": "AK" },
-            "XI": { "subject": "ACC/PHY", "teacher": "JSS/BSN" },
-            "X": { "subject": "MATHS/ECO", "teacher": "PD/PR" },
-            "IX": { "subject": "COM/CHEM", "teacher": "AG/PSK" },
-            "VIII": { "subject": "ENG", "teacher": "IR" },
-            "VII": { "subject": "GEO", "teacher": "PK" },
-            "VI": { "subject": "MATHS", "teacher": "SRW" }
+              "XII": { "subject": "ECO/PHY", "teacher": "TB/BSN" },
+        "XI": { "subject": "ACC", "teacher": "JSS" },
+        "X": { "subject": "GEOG", "teacher": "SRW" },
+        "IX": { "subject": "P/C/A", "teacher": "SN/SR/VT" },
+        "VIII": { "subject": "HIN", "teacher": "PT" },
+        "VII": { "subject": "MATHS", "teacher": "RBH" },
+        "VI": { "subject": "DIV", "teacher": "JJ" },
+        "V": { "subject": "SST", "teacher": "PK" },
+        "IV": { "subject": "HIN", "teacher": "DD" },
+        "III": { "subject": "MUS", "teacher": "HS" },
+"II": { "subject": "MOTHER-TEACHER", "teacher": "DP" },
+"I": { "subject": "MOTHER-TEACHER", "teacher": "SNT" },
+"KG": { "subject": "MOTHER-TEACHER", "teacher": "SKH" }
             }
           }
         },
@@ -358,16 +446,22 @@
             "IX": { "subject": "ENG", "teacher": "IR" },
             "VIII": { "subject": "PBI", "teacher": "HPS" },
             "VII": { "subject": "CHEM", "teacher": "PSK" },
-            "VI": { "subject": "HINDI (R)", "teacher": "SS" }
+            "VI": { "subject": "BIO", "teacher": "RBW" }
             },
             "Shangri-la": {
-              "XII": { "subject": "ENG", "teacher": "AK" },
-            "XI": { "subject": "ACC/PHY", "teacher": "JSS/BSN" },
-            "X": { "subject": "MATHS/ECO", "teacher": "PD/PR" },
-            "IX": { "subject": "COM/CHEM", "teacher": "AG/PSK" },
-            "VIII": { "subject": "ENG", "teacher": "IR" },
-            "VII": { "subject": "GEO", "teacher": "PK" },
-            "VI": { "subject": "MATHS", "teacher": "SRW" }
+             "XII": { "subject": "ENG", "teacher": "AVK" },
+        "XI": { "subject": "COM/PHY", "teacher": "VKS/BSN" },
+        "X": { "subject": "HIN/PBI", "teacher": "PT/HK" },
+        "IX": { "subject": "BIO", "teacher": "AP" },
+        "VIII": { "subject": "GEOG", "teacher": "SRW" },
+        "VII": { "subject": "MATHS", "teacher": "RBH" },
+        "VI": { "subject": "ENG", "teacher": "PK" },
+        "V": { "subject": "ENG", "teacher": "DK" },
+        "IV": { "subject": "HIN", "teacher": "DD" },
+        "III": { "subject": "PUN", "teacher": "JJ" },
+"II": { "subject": "MOTHER-TEACHER", "teacher": "DP" },
+"I": { "subject": "MOTHER-TEACHER", "teacher": "SNT" },
+"KG": { "subject": "MOTHER-TEACHER", "teacher": "SKH" }
             }
           }
         },
@@ -376,21 +470,27 @@
           "subjects": {
             "Vincent Hill": {
              "XII": { "subject": "MATHS/HINDI/PBI", "teacher": "PS/SS/HPS" },
-            "XI": { "subject": "MATHS", "teacher": "PS" },
+            "XI": { "subject": "MATHS", "teacher": "RB" },
             "X": { "subject": "COM/CHEM", "teacher": "AG/PSK" },
             "IX": { "subject": "HIST", "teacher": "SJK" },
-            "VIII": { "subject": "DIV", "teacher": "HPS" },
+            "VIII": { "subject": "GAMES", "teacher": "RA" },
             "VII": { "subject": "LIB", "teacher": "SGR" },
             "VI": { "subject": "GK", "teacher": "RK" }
             },
             "Shangri-la": {
-              "XII": { "subject": "ENG", "teacher": "AK" },
-            "XI": { "subject": "ACC/PHY", "teacher": "JSS/BSN" },
-            "X": { "subject": "MATHS/ECO", "teacher": "PD/PR" },
-            "IX": { "subject": "COM/CHEM", "teacher": "AG/PSK" },
-            "VIII": { "subject": "ENG", "teacher": "IR" },
-            "VII": { "subject": "GEO", "teacher": "PK" },
-            "VI": { "subject": "MATHS", "teacher": "SRW" }
+             "XII": { "subject": "ECO", "teacher": "TB" },
+        "XI": { "subject": "PUN", "teacher": "HPK" },
+        "X": { "subject": "COM/BIO", "teacher": "DS/VKS" },
+        "IX": { "subject": "PHY", "teacher": "BSN" },
+        "VIII": { "subject": "PHY", "teacher": "AP" },
+        "VII": { "subject": "ENG", "teacher": "PG" },
+        "VI": { "subject": "HIST", "teacher": "RBH" },
+        "V": { "subject": "MATHS", "teacher": "ES" },
+        "IV": { "subject": "ENG", "teacher": "DK" },
+        "III": { "subject": "ART", "teacher": "DD" },
+"II": { "subject": "MOTHER-TEACHER", "teacher": "DP" },
+"I": { "subject": "MOTHER-TEACHER", "teacher": "SNT" },
+"KG": { "subject": "MOTHER-TEACHER", "teacher": "SKH" }
             }
           }
         }
@@ -407,20 +507,26 @@
             "Vincent Hill": {
              "XII": { "subject": "ENG", "teacher": "AK" },
             "XI": { "subject": "ACC/PHY", "teacher": "JSS/BSN" },
-            "X": { "subject": "MATHS/ECO", "teacher": "PD/PR" },
+            "X": { "subject": "MATHS/ECO", "teacher": "PD/RB/PR" },
             "IX": { "subject": "COM/BIO", "teacher": "AG/RBW" },
             "VIII": { "subject": "ENG", "teacher": "IR" },
-            "VII": { "subject": "PBI", "teacher": "JJ" },
+            "VII": { "subject": "GEOG", "teacher": "PK" },
             "VI": { "subject": "MATHS", "teacher": "SRW" }
             },
             "Shangri-la": {
-              "XII": { "subject": "ENG", "teacher": "AK" },
-            "XI": { "subject": "ACC/PHY", "teacher": "JSS/BSN" },
-            "X": { "subject": "MATHS/ECO", "teacher": "PD/PR" },
-            "IX": { "subject": "COM/BIO", "teacher": "AG/RBW" },
-            "VIII": { "subject": "ENG", "teacher": "IR" },
-            "VII": { "subject": "PBI", "teacher": "JJ" },
-            "VI": { "subject": "MATHS", "teacher": "SRW" }
+             "XII": { "subject": "H/P/C/PE/A", "teacher": "PT/HPK/AM/SSB/VT" },
+        "XI": { "subject": "MATH/BIO", "teacher": "RB/DS" },
+        "X": { "subject": "COM/CHE", "teacher": "VKS/KK" },
+        "IX": { "subject": "ENG", "teacher": "PG" },
+        "VIII": { "subject": "MATHS", "teacher": "PB" },
+        "VII": { "subject": "HIST", "teacher": "CPR" },
+        "VI": { "subject": "PHY", "teacher": "AP" },
+        "V": { "subject": "HIN", "teacher": "DD" },
+        "IV": { "subject": "ENG", "teacher": "DK" },
+        "III": { "subject": "MATHS", "teacher": "ES" },
+"II": { "subject": "MOTHER-TEACHER", "teacher": "DP" },
+"I": { "subject": "MOTHER-TEACHER", "teacher": "SNT" },
+"KG": { "subject": "MOTHER-TEACHER", "teacher": "SKH" }
             }
           }
         },
@@ -437,13 +543,19 @@
             "VI": { "subject": "CHEM", "teacher": "PSK" }
             },
             "Shangri-la": {
-              "XII": { "subject": "ENG", "teacher": "AK" },
-            "XI": { "subject": "ACC/PHY", "teacher": "JSS/BSN" },
-            "X": { "subject": "MATHS/ECO", "teacher": "PD/PR" },
-            "IX": { "subject": "COM/CHEM", "teacher": "AG/PSK" },
-            "VIII": { "subject": "ENG", "teacher": "IR" },
-            "VII": { "subject": "GEO", "teacher": "PK" },
-            "VI": { "subject": "MATHS", "teacher": "SRW" }
+             "XII": { "subject": "ECO/BIO", "teacher": "TB/DS" },
+        "XI": { "subject": "H/P/C/PE/A", "teacher": "PT/HPK/AM/SSB/VT" },
+        "X": { "subject": "HIST", "teacher": "CPR" },
+        "IX": { "subject": "CHE/COM", "teacher": "KST/VKS" },
+        "VIII": { "subject": "GK", "teacher": "PB" },
+        "VII": { "subject": "PHY", "teacher": "AP" },
+        "VI": { "subject": "COMP", "teacher": "SD" },
+        "V": { "subject": "ART", "teacher": "VT" },
+        "IV": { "subject": "SST", "teacher": "PP" },
+        "III": { "subject": "ENG", "teacher": "DK" },
+"II": { "subject": "MOTHER-TEACHER", "teacher": "DP" },
+"I": { "subject": "MOTHER-TEACHER", "teacher": "SNT" },
+"KG": { "subject": "MOTHER-TEACHER", "teacher": "SKH" }
             }
           }
         },
@@ -460,13 +572,19 @@
             "VI": { "subject": "PBI", "teacher": "JJ" }
             },
             "Shangri-la": {
-              "XII": { "subject": "ENG", "teacher": "AK" },
-            "XI": { "subject": "ACC/PHY", "teacher": "JSS/BSN" },
-            "X": { "subject": "MATHS/ECO", "teacher": "PD/PR" },
-            "IX": { "subject": "COM/CHEM", "teacher": "AG/PSK" },
-            "VIII": { "subject": "ENG", "teacher": "IR" },
-            "VII": { "subject": "GEO", "teacher": "PK" },
-            "VI": { "subject": "MATHS", "teacher": "SRW" }
+              "XII": { "subject": "COM/CHE", "teacher": "VKS/KK" },
+        "XI": { "subject": "ECO/CHE", "teacher": "TB/KST" },
+        "X": { "subject": "ENG", "teacher": "AVK" },
+        "IX": { "subject": "HIST", "teacher": "CPR" },
+        "VIII": { "subject": "ART", "teacher": "VT" },
+        "VII": { "subject": "COMP", "teacher": "SD" },
+        "VI": { "subject": "MATHS", "teacher": "GD" },
+        "V": { "subject": "MATHS", "teacher": "ES" },
+        "IV": { "subject": "DIV", "teacher": "HK" },
+        "III": { "subject": "HIN", "teacher": "DD" },
+"II": { "subject": "MOTHER-TEACHER", "teacher": "DP" },
+"I": { "subject": "MOTHER-TEACHER", "teacher": "SNT" },
+"KG": { "subject": "MOTHER-TEACHER", "teacher": "SKH" }
             }
           }
         },
@@ -476,20 +594,26 @@
             "Vincent Hill": {
             "XII": { "subject": "P/C/A", "teacher": "RA/AM/NT" },
             "XI": { "subject": "HINDI/PBI", "teacher": "SS/HPS" },
-            "X": { "subject": "P/C/A", "teacher": "RA/SR/NT" },
+            "X": { "subject": "PHY/LIB", "teacher": "BSN/SGR" },
             "IX": { "subject": "GEOG", "teacher": "SRW" },
             "VIII": { "subject": "MATHS", "teacher": "RBH" },
             "VII": { "subject": "ENG", "teacher": "IR" },
             "VI": { "subject": "ENG", "teacher": "SJK" }
             },
             "Shangri-la": {
-              "XII": { "subject": "ENG", "teacher": "AK" },
-            "XI": { "subject": "ACC/PHY", "teacher": "JSS/BSN" },
-            "X": { "subject": "MATHS/ECO", "teacher": "PD/PR" },
-            "IX": { "subject": "COM/CHEM", "teacher": "AG/PSK" },
-            "VIII": { "subject": "ENG", "teacher": "IR" },
-            "VII": { "subject": "GEO", "teacher": "PK" },
-            "VI": { "subject": "MATHS", "teacher": "SRW" }
+             "XII": { "subject": "ENG", "teacher": "AVK" },
+        "XI": { "subject": "CHEM", "teacher": "KST" },
+        "X": { "subject": "MAT/ECO", "teacher": "PD/TB" },
+        "IX": { "subject": "COM/BIO", "teacher": "VKS/DS" },
+        "VIII": { "subject": "ENG", "teacher": "PG" },
+        "VII": { "subject": "LIB", "teacher": "SK" },
+        "VI": { "subject": "HIN", "teacher": "DD" },
+        "V": { "subject": "SCI", "teacher": "DK" },
+        "IV": { "subject": "SCI", "teacher": "ES" },
+        "III": { "subject": "SCI", "teacher": "PP" },
+"II": { "subject": "MOTHER-TEACHER", "teacher": "DP" },
+"I": { "subject": "MOTHER-TEACHER", "teacher": "SNT" },
+"KG": { "subject": "MOTHER-TEACHER", "teacher": "SKH" }
             }
           }
         },
@@ -500,20 +624,26 @@
             "Vincent Hill": {
             "XII": { "subject": "COM/CHEM", "teacher": "AG/KK" },
             "XI": { "subject": "ENG", "teacher": "AK" },
-            "X": { "subject": "BIO", "teacher": "RBW" },
-            "IX": { "subject": "MATHS/ECO", "teacher": "PSK/PR" },
+            "X": { "subject": "BIO/MUSIC", "teacher": "RBW/HS" },
+            "IX": { "subject": "MATHS/ECO", "teacher": "RB/PR" },
             "VIII": { "subject": "HINDI", "teacher": "SS" },
             "VII": { "subject": "HINDI", "teacher": "RK" },
             "VI": { "subject": "HIST", "teacher": "SJK" }
             },
             "Shangri-la": {
-              "XII": { "subject": "ENG", "teacher": "AK" },
-            "XI": { "subject": "ACC/PHY", "teacher": "JSS/BSN" },
-            "X": { "subject": "MATHS/ECO", "teacher": "PD/PR" },
-            "IX": { "subject": "COM/CHEM", "teacher": "AG/PSK" },
-            "VIII": { "subject": "ENG", "teacher": "IR" },
-            "VII": { "subject": "GEO", "teacher": "PK" },
-            "VI": { "subject": "MATHS", "teacher": "SRW" }
+            "XII": { "subject": "ACC/PHY", "teacher": "JSS/BSN" },
+        "XI": { "subject": "COM", "teacher": "VKS" },
+        "X": { "subject": "P/C/A", "teacher": "SSB/SR/VT" },
+        "IX": { "subject": "MAT/ECO", "teacher": "PD/TB" },
+        "VIII": { "subject": "MATHS", "teacher": "PB" },
+        "VII": { "subject": "MATHS", "teacher": "RBH" },
+        "VI": { "subject": "ENG", "teacher": "PK" },
+        "V": { "subject": "GAMES", "teacher": "SSN" },
+        "IV": { "subject": "MATHS", "teacher": "ES" },
+        "III": { "subject": "SST", "teacher": "PP" },
+"II": { "subject": "MOTHER-TEACHER", "teacher": "DP" },
+"I": { "subject": "MOTHER-TEACHER", "teacher": "SNT" },
+"KG": { "subject": "MOTHER-TEACHER", "teacher": "SKH" }
             }
           }
         },
@@ -527,16 +657,22 @@
             "IX": { "subject": "ENG", "teacher": "IR" },
             "VIII": { "subject": "PHY", "teacher": "PS" },
             "VII": { "subject": "HIST", "teacher": "SJK" },
-            "VI": { "subject": "CHEM", "teacher": "PSK" }
+            "VI": { "subject": "DIV", "teacher": "HPS" }
             },
             "Shangri-la": {
-              "XII": { "subject": "ENG", "teacher": "AK" },
-            "XI": { "subject": "ACC/PHY", "teacher": "JSS/BSN" },
-            "X": { "subject": "MATHS/ECO", "teacher": "PD/PR" },
-            "IX": { "subject": "COM/CHEM", "teacher": "AG/PSK" },
-            "VIII": { "subject": "ENG", "teacher": "IR" },
-            "VII": { "subject": "GEO", "teacher": "PK" },
-            "VI": { "subject": "MATHS", "teacher": "SRW" }
+             "XII": { "subject": "BIO/HIST", "teacher": "DS/CPR" },
+        "XI": { "subject": "ACC/PHY", "teacher": "JSS/BSN" },
+        "X": { "subject": "GEOG", "teacher": "SRW" },
+        "IX": { "subject": "MATH/ECO", "teacher": "PD/TB" },
+        "VIII": { "subject": "PHY", "teacher": "AP" },
+        "VII": { "subject": "ENG", "teacher": "PG" },
+        "VI": { "subject": "MATHS", "teacher": "PB" },
+        "V": { "subject": "SST", "teacher": "PK" },
+        "IV": { "subject": "GK", "teacher": "ES" },
+        "III": { "subject": "PBI", "teacher": "JJ" },
+"II": { "subject": "MOTHER-TEACHER", "teacher": "DP" },
+"I": { "subject": "MOTHER-TEACHER", "teacher": "SNT" },
+"KG": { "subject": "MOTHER-TEACHER", "teacher": "SKH" }
             }
           }
         },
@@ -553,13 +689,19 @@
             "VI": { "subject": "HINDI", "teacher": "RK" }
             },
             "Shangri-la": {
-              "XII": { "subject": "ENG", "teacher": "AK" },
-            "XI": { "subject": "ACC/PHY", "teacher": "JSS/BSN" },
-            "X": { "subject": "MATHS/ECO", "teacher": "PD/PR" },
-            "IX": { "subject": "COM/CHEM", "teacher": "AG/PSK" },
-            "VIII": { "subject": "ENG", "teacher": "IR" },
-            "VII": { "subject": "GEO", "teacher": "PK" },
-            "VI": { "subject": "MATHS", "teacher": "SRW" }
+            "XII": { "subject": "ECO/MATH", "teacher": "TB/PB" },
+        "XI": { "subject": "ENG", "teacher": "AVK" },
+        "X": { "subject": "BIO", "teacher": "DS" },
+        "IX": { "subject": "GEOG", "teacher": "SRW" },
+        "VIII": { "subject": "HIN", "teacher": "PT" },
+        "VII": { "subject": "MATHS", "teacher": "RBH" },
+        "VI": { "subject": "PBI", "teacher": "JJ" },
+        "V": { "subject": "ENG", "teacher": "DK" },
+        "IV": { "subject": "HINDI", "teacher": "DD" },
+        "III": { "subject": "GAMES", "teacher": "SSN" },
+"II": { "subject": "MOTHER-TEACHER", "teacher": "DP" },
+"I": { "subject": "MOTHER-TEACHER", "teacher": "SNT" },
+"KG": { "subject": "MOTHER-TEACHER", "teacher": "SKH" }
             }
           }
         },
@@ -567,22 +709,28 @@
           "time": "12:55 PM TO 1:30 PM",
           "subjects": {
             "Vincent Hill": {
-              "XII": { "subject": "MATHS/HINDI/PBI", "teacher": "PS/SS/HPS" },
-            "XI": { "subject": "MATHS", "teacher": "PS" },
+              "XII": { "subject": "HINDI/PBI", "teacher": "SS/HPS" },
+            "XI": { "subject": "MATHS", "teacher": "RB" },
             "X": { "subject": "COM/CHEM", "teacher": "AG/PSK" },
             "IX": { "subject": "HIST", "teacher": "SJK" },
             "VIII": { "subject": "LIB", "teacher": "SGR" },
-            "VII": { "subject": "GK", "teacher": "RK" },
-            "VI": { "subject": "DIV", "teacher": "HPS" }
+            "VII": { "subject": "MUSIC", "teacher": "HS" },
+            "VI": { "subject": "GK", "teacher": "RK" }
             },
             "Shangri-la": {
-              "XII": { "subject": "ENG", "teacher": "AK" },
-            "XI": { "subject": "ACC/PHY", "teacher": "JSS/BSN" },
-            "X": { "subject": "MATHS/ECO", "teacher": "PD/PR" },
-            "IX": { "subject": "COM/CHEM", "teacher": "AG/PSK" },
-            "VIII": { "subject": "ENG", "teacher": "IR" },
-            "VII": { "subject": "GEO", "teacher": "PK" },
-            "VI": { "subject": "MATHS", "teacher": "SRW" }
+             "XII": { "subject": "ACC", "teacher": "JSS" },
+        "XI": { "subject": "ENG ", "teacher": "AVK" },
+        "X": { "subject": "ECO/MAT", "teacher": "TB/PD" },
+        "IX": { "subject": "COM/PHY", "teacher": "VKS/BSN" },
+        "VIII": { "subject": "GEOG", "teacher": "SRW" },
+        "VII": { "subject": "HINDI", "teacher": "DD" },
+        "VI": { "subject": "HIST", "teacher": "RBH" },
+        "V": { "subject": "PBI", "teacher": "JJ" },
+        "IV": { "subject": "GAMES", "teacher": "SSN" },
+        "III": { "subject": "MATHS", "teacher": "ES" },
+"II": { "subject": "MOTHER-TEACHER", "teacher": "DP" },
+"I": { "subject": "MOTHER-TEACHER", "teacher": "SNT" },
+"KG": { "subject": "MOTHER-TEACHER", "teacher": "SKH" }
             }
           }
         }
@@ -602,17 +750,23 @@
             "X": { "subject": "MATHS/ECO", "teacher": "PD/PR" },
             "IX": { "subject": "COM/BIO", "teacher": "AG/RBW" },
             "VIII": { "subject": "ENG", "teacher": "IR" },
-            "VII": { "subject": "COMP", "teacher": "SR" },
+            "VII": { "subject": "PBI", "teacher": "JJ" },
             "VI": { "subject": "MATHS", "teacher": "SRW" }
             },
             "Shangri-la": {
-              "XII": { "subject": "ENG", "teacher": "AK" },
-            "XI": { "subject": "ACC/PHY", "teacher": "JSS/BSN" },
-            "X": { "subject": "MATHS/ECO", "teacher": "PD/PR" },
-            "IX": { "subject": "COM/BIO", "teacher": "AG/RBW" },
-            "VIII": { "subject": "ENG", "teacher": "IR" },
-            "VII": { "subject": "PBI", "teacher": "JJ" },
-            "VI": { "subject": "MATHS", "teacher": "SRW" }
+            "XII": { "subject": "H/P/C/PE/A", "teacher": "PT/HPK/AM/SSB/VT" },
+        "XI": { "subject": "MATH/BIO", "teacher": "RB/DS" },
+        "X": { "subject": "COM/CHE", "teacher": "VKS/KK" },
+        "IX": { "subject": "ENG", "teacher": "PG" },
+        "VIII": { "subject": "HIST", "teacher": "CPR" },
+        "VII": { "subject": "MUSIC", "teacher": "HS" },
+        "VI": { "subject": "CHEM", "teacher": "AP" },
+        "V": { "subject": "COMP", "teacher": "SD" },
+        "IV": { "subject": "ENG", "teacher": "DK" },
+        "III": { "subject": "MATHS", "teacher": "ES" },
+"II": { "subject": "MOTHER-TEACHER", "teacher": "DP" },
+"I": { "subject": "MOTHER-TEACHER", "teacher": "SNT" },
+"KG": { "subject": "MOTHER-TEACHER", "teacher": "SKH" }
             }
           }
         },
@@ -629,13 +783,19 @@
             "VI": { "subject": "CHEM", "teacher": "PSK" }
             },
             "Shangri-la": {
-              "XII": { "subject": "ENG", "teacher": "AK" },
-            "XI": { "subject": "ACC/PHY", "teacher": "JSS/BSN" },
-            "X": { "subject": "MATHS/ECO", "teacher": "PD/PR" },
-            "IX": { "subject": "COM/CHEM", "teacher": "AG/PSK" },
-            "VIII": { "subject": "ENG", "teacher": "IR" },
-            "VII": { "subject": "GEO", "teacher": "PK" },
-            "VI": { "subject": "MATHS", "teacher": "SRW" }
+              "XII": { "subject": "MAT/BIO/HIST", "teacher": "GD/DS/CPR" },
+        "XI": { "subject": "H/P/C/PE/A", "teacher": "PT/HPK/AK/SSB/VT" },
+        "X": { "subject": "ENG", "teacher": "AVK" },
+        "IX": { "subject": "CHE/COM", "teacher": "KST/VKS" },
+        "VIII": { "subject": "ENG", "teacher": "PG" },
+        "VII": { "subject": "GK", "teacher": "AP" },
+        "VI": { "subject": "GAMES", "teacher": "SN" },
+        "V": { "subject": "DIV", "teacher": "HK" },
+        "IV": { "subject": "SST", "teacher": "PP" },
+        "III": { "subject": "GK", "teacher": "DK" },
+"II": { "subject": "MOTHER-TEACHER", "teacher": "DP" },
+"I": { "subject": "MOTHER-TEACHER", "teacher": "SNT" },
+"KG": { "subject": "MOTHER-TEACHER", "teacher": "SKH" }
             }
           }
         },
@@ -645,20 +805,26 @@
             "Vincent Hill": {
              "XII": { "subject": "ACC/PHY", "teacher": "JSS/PS" },
             "XI": { "subject": "ECO/BIO", "teacher": "PR/RBW" },
-            "X": { "subject": "PHY/MUSIC", "teacher": "BSN/HS" },
+            "X": { "subject": "GEOG", "teacher": "SRW" },
             "IX": { "subject": "P/C/A", "teacher": "VR/SR/NT" },
-            "VIII": { "subject": "HIST", "teacher": "SJK" },
+            "VIII": { "subject": "ART", "teacher": "NT" },
             "VII": { "subject": "MATHS", "teacher": "RBH" },
             "VI": { "subject": "GEOG", "teacher": "PK" }
             },
             "Shangri-la": {
-              "XII": { "subject": "ENG", "teacher": "AK" },
-            "XI": { "subject": "ACC/PHY", "teacher": "JSS/BSN" },
-            "X": { "subject": "MATHS/ECO", "teacher": "PD/PR" },
-            "IX": { "subject": "COM/CHEM", "teacher": "AG/PSK" },
-            "VIII": { "subject": "ENG", "teacher": "IR" },
-            "VII": { "subject": "GEO", "teacher": "PK" },
-            "VI": { "subject": "MATHS", "teacher": "SRW" }
+              "XII": { "subject": "COM/CHE", "teacher": "VKS/KK" },
+        "XI": { "subject": "ECO/CHE", "teacher": "TB/KST" },
+        "X": { "subject": "BIO", "teacher": "DS" },
+        "IX": { "subject": "ENG", "teacher": "PG" },
+        "VIII": { "subject": "MUSIC", "teacher": "HS" },
+        "VII": { "subject": "CHEM", "teacher": "AP" },
+        "VI": { "subject": "MATHS", "teacher": "PB" },
+        "V": { "subject": "MATHS", "teacher": "ES" },
+        "IV": { "subject": "COMP", "teacher": "SD" },
+        "III": { "subject": "ENG", "teacher": "DK" },
+"II": { "subject": "MOTHER-TEACHER", "teacher": "DP" },
+"I": { "subject": "MOTHER-TEACHER", "teacher": "SNT" },
+"KG": { "subject": "MOTHER-TEACHER", "teacher": "SKH" }
             }
           }
         },
@@ -675,13 +841,19 @@
             "VI": { "subject": "ENG", "teacher": "SJK" }
             },
             "Shangri-la": {
-              "XII": { "subject": "ENG", "teacher": "AK" },
-            "XI": { "subject": "ACC/PHY", "teacher": "JSS/BSN" },
-            "X": { "subject": "MATHS/ECO", "teacher": "PD/PR" },
-            "IX": { "subject": "COM/CHEM", "teacher": "AG/PSK" },
-            "VIII": { "subject": "ENG", "teacher": "IR" },
-            "VII": { "subject": "GEO", "teacher": "PK" },
-            "VI": { "subject": "MATHS", "teacher": "SRW" }
+             "XII": { "subject": "ENG", "teacher": "AVK" },
+        "XI": { "subject": "CHEM", "teacher": "KST" },
+        "X": { "subject": "MAT/ECO", "teacher": "PD/TB" },
+        "IX": { "subject": "HIST", "teacher": "CPR" },
+        "VIII": { "subject": "CHEM", "teacher": "AP" },
+        "VII": { "subject": "PUN", "teacher": "HPK" },
+        "VI": { "subject": "ART", "teacher": "VT" },
+        "V": { "subject": "ENG", "teacher": "DK" },
+        "IV": { "subject": "SCI", "teacher": "ES" },
+        "III": { "subject": "SCI", "teacher": "PP" },
+"II": { "subject": "MOTHER-TEACHER", "teacher": "DP" },
+"I": { "subject": "MOTHER-TEACHER", "teacher": "SNT" },
+"KG": { "subject": "MOTHER-TEACHER", "teacher": "SKH" }
             }
           }
         },
@@ -692,20 +864,26 @@
             "Vincent Hill": {
             "XII": { "subject": "COM/CHEM", "teacher": "AG/KK" },
             "XI": { "subject": "ENG", "teacher": "AK" },
-            "X": { "subject": "BIO", "teacher": "RBW" },
-            "IX": { "subject": "MATHS/ECO", "teacher": "PSK/PR" },
+            "X": { "subject": "BIO/LIB", "teacher": "RBW/SGR" },
+            "IX": { "subject": "MATHS/ECO", "teacher": "RB/PR" },
             "VIII": { "subject": "PBI", "teacher": "HPS" },
             "VII": { "subject": "HIST", "teacher": "SJK" },
             "VI": { "subject": "PHY", "teacher": "PS" }
             },
             "Shangri-la": {
-              "XII": { "subject": "ENG", "teacher": "AK" },
-            "XI": { "subject": "ACC/PHY", "teacher": "JSS/BSN" },
-            "X": { "subject": "MATHS/ECO", "teacher": "PD/PR" },
-            "IX": { "subject": "COM/CHEM", "teacher": "AG/PSK" },
-            "VIII": { "subject": "ENG", "teacher": "IR" },
-            "VII": { "subject": "GEO", "teacher": "PK" },
-            "VI": { "subject": "MATHS", "teacher": "SRW" }
+             "XII": { "subject": "ACC/PHY", "teacher": "JSS/BSN" },
+        "XI": { "subject": "COM", "teacher": "VKS" },
+        "X": { "subject": "P/C/A", "teacher": "SSB/SR/VT" },
+        "IX": { "subject": "MAT/ECO", "teacher": "PD/TB" },
+        "VIII": { "subject": "MATHS", "teacher": "PB" },
+        "VII": { "subject": "MATHS", "teacher": "RBH" },
+        "VI": { "subject": "ENG", "teacher": "PK" },
+        "V": { "subject": "SCI", "teacher": "DK" },
+        "IV": { "subject": "PBI", "teacher": "JJ" },
+        "III": { "subject": "SST", "teacher": "PP" },
+"II": { "subject": "MOTHER-TEACHER", "teacher": "DP" },
+"I": { "subject": "MOTHER-TEACHER", "teacher": "SNT" },
+"KG": { "subject": "MOTHER-TEACHER", "teacher": "SKH" }
             }
           }
         },
@@ -719,16 +897,22 @@
             "IX": { "subject": "ENG", "teacher": "IR" },
             "VIII": { "subject": "CHEM", "teacher": "PSK" },
             "VII": { "subject": "PHY", "teacher": "PS" },
-            "VI": { "subject": "BIO", "teacher": "RBW" }
+            "VI": { "subject": "ENG", "teacher": "SJK" }
             },
             "Shangri-la": {
-              "XII": { "subject": "ENG", "teacher": "AK" },
-            "XI": { "subject": "ACC/PHY", "teacher": "JSS/BSN" },
-            "X": { "subject": "MATHS/ECO", "teacher": "PD/PR" },
-            "IX": { "subject": "COM/CHEM", "teacher": "AG/PSK" },
-            "VIII": { "subject": "ENG", "teacher": "IR" },
-            "VII": { "subject": "GEO", "teacher": "PK" },
-            "VI": { "subject": "MATHS", "teacher": "SRW" }
+             "XII": { "subject": "NA", "teacher": "NA" },
+        "XI": { "subject": "ACC/PHY", "teacher": "JSS/BSN" },
+        "X": { "subject": "ENG", "teacher": "AVK" },
+        "IX": { "subject": "P/C/A", "teacher": "SN/SR/VT" },
+        "VIII": { "subject": "BIO", "teacher": "AP" },
+        "VII": { "subject": "ENG", "teacher": "PG" },
+        "VI": { "subject": "MATHS", "teacher": "PB" },
+        "V": { "subject": "SST", "teacher": "PK" },
+        "IV": { "subject": "MATHS", "teacher": "ES" },
+        "III": { "subject": "PUN", "teacher": "JJ" },
+"II": { "subject": "MOTHER-TEACHER", "teacher": "DP" },
+"I": { "subject": "MOTHER-TEACHER", "teacher": "SNT" },
+"KG": { "subject": "MOTHER-TEACHER", "teacher": "SKH" }
             }
           }
         },
@@ -740,18 +924,24 @@
             "XI": { "subject": "COM/CHEM", "teacher": "AG/KK" },
             "X": { "subject": "ENG", "teacher": "AK" },
             "IX": { "subject": "ENG", "teacher": "IR" },
-            "VIII": { "subject": "ART", "teacher": "NT" },
-            "VII": { "subject": "HIST", "teacher": "SJK" },
-            "VI": { "subject": "HINDI", "teacher": "RK" }
+            "VIII": { "subject": "HIST", "teacher": "SJK" },
+            "VII": { "subject": "GK", "teacher": "RK" },
+            "VI": { "subject": "HINDI  (R)", "teacher": "SS" }
             },
             "Shangri-la": {
-              "XII": { "subject": "ENG", "teacher": "AK" },
-            "XI": { "subject": "ACC/PHY", "teacher": "JSS/BSN" },
-            "X": { "subject": "MATHS/ECO", "teacher": "PD/PR" },
-            "IX": { "subject": "COM/CHEM", "teacher": "AG/PSK" },
-            "VIII": { "subject": "ENG", "teacher": "IR" },
-            "VII": { "subject": "GEO", "teacher": "PK" },
-            "VI": { "subject": "MATHS", "teacher": "SRW" }
+             "XII": { "subject": "ECO/MATH", "teacher": "TB/GD" },
+        "XI": { "subject": "PHY", "teacher": "BSN" },
+        "X": { "subject": "HIST", "teacher": "CPR" },
+        "IX": { "subject": "GEOG", "teacher": "SRW" },
+        "VIII": { "subject": "PUN", "teacher": "HPK" },
+        "VII": { "subject": "HIN", "teacher": "DD" },
+        "VI": { "subject": "PUN", "teacher": "JJ" },
+        "V": { "subject": "ENG", "teacher": "DK" },
+        "IV": { "subject": "MATHS", "teacher": "ES" },
+        "III": { "subject": "COMP", "teacher": "SD" },
+"II": { "subject": "MOTHER-TEACHER", "teacher": "DP" },
+"I": { "subject": "MOTHER-TEACHER", "teacher": "SNT" },
+"KG": { "subject": "MOTHER-TEACHER", "teacher": "SKH" }
             }
           }
         },
@@ -759,8 +949,8 @@
           "time": "12:55 PM TO 1:30 PM",
           "subjects": {
             "Vincent Hill": {
-            "XII": { "subject": "HINDI/PBI", "teacher": "SS/HPS" },
-            "XI": { "subject": "MATHS", "teacher": "PS" },
+            "XII": { "subject": "MATHS", "teacher": "PS" },
+            "XI": { "subject": "MATHS", "teacher": "RB" },
             "X": { "subject": "COM/CHEM", "teacher": "AG/PSK" },
             "IX": { "subject": "HIST", "teacher": "SJK" },
             "VIII": { "subject": "GK", "teacher": "RK" },
@@ -768,13 +958,19 @@
             "VI": { "subject": "LIB", "teacher": "SGR" }
             },
             "Shangri-la": {
-              "XII": { "subject": "ENG", "teacher": "AK" },
-            "XI": { "subject": "ACC/PHY", "teacher": "JSS/BSN" },
-            "X": { "subject": "MATHS/ECO", "teacher": "PD/PR" },
-            "IX": { "subject": "COM/CHEM", "teacher": "AG/PSK" },
-            "VIII": { "subject": "ENG", "teacher": "IR" },
-            "VII": { "subject": "GEO", "teacher": "PK" },
-            "VI": { "subject": "MATHS", "teacher": "SRW" }
+             "XII": { "subject": "NA", "teacher": "NA" },
+        "XI": { "subject": "ENG", "teacher": "AVK" },
+        "X": { "subject": "ECO/MATHS", "teacher": "TB/PD" },
+        "IX": { "subject": "COM/PHY", "teacher": "VKS/PD" },
+        "VIII": { "subject": "COMP", "teacher": "SR" },
+        "VII": { "subject": "GEOG", "teacher": "SRW" },
+        "VI": { "subject": "GEOG", "teacher": "RBH" },
+        "V": { "subject": "PUN", "teacher": "JJ" },
+        "IV": { "subject": "ART", "teacher": "DD" },
+        "III": { "subject": "ENG", "teacher": "DK" },
+"II": { "subject": "MOTHER-TEACHER", "teacher": "DP" },
+"I": { "subject": "MOTHER-TEACHER", "teacher": "SNT" },
+"KG": { "subject": "MOTHER-TEACHER", "teacher": "SKH" }
             }
           }
         }
@@ -794,17 +990,23 @@
             "X": { "subject": "MATHS/ECO", "teacher": "PD/PR" },
             "IX": { "subject": "COM/CHEM", "teacher": "AG/PSK" },
             "VIII": { "subject": "ENG", "teacher": "IR" },
-            "VII": { "subject": "COMP", "teacher": "SR" },
+            "VII": { "subject": "PBI", "teacher": "JJ" },
             "VI": { "subject": "MATHS", "teacher": "SRW" }
             },
             "Shangri-la": {
-              "XII": { "subject": "ENG", "teacher": "AK" },
-            "XI": { "subject": "ACC/PHY", "teacher": "JSS/BSN" },
-            "X": { "subject": "MATHS/ECO", "teacher": "PD/PR" },
-            "IX": { "subject": "COM/BIO", "teacher": "AG/RBW" },
-            "VIII": { "subject": "ENG", "teacher": "IR" },
-            "VII": { "subject": "PBI", "teacher": "JJ" },
-            "VI": { "subject": "MATHS", "teacher": "SRW" }
+             "XII": { "subject": "ENG", "teacher": "AVK" },
+        "XI": { "subject": "MATH/BIO", "teacher": "RB/DS" },
+        "X": { "subject": "COM/CHE", "teacher": "VKS/KK" },
+        "IX": { "subject": "HIN/PBI", "teacher": "PT/HPK" },
+        "VIII": { "subject": "HIST", "teacher": "CPR" },
+        "VII": { "subject": "ENG", "teacher": "PG" },
+        "VI": { "subject": "CHEM", "teacher": "AP" },
+        "V": { "subject": "COMP", "teacher": "SD" },
+        "IV": { "subject": "ENG", "teacher": "DK" },
+        "III": { "subject": "MATHS", "teacher": "ES" },
+"II": { "subject": "MOTHER-TEACHER", "teacher": "DP" },
+"I": { "subject": "MOTHER-TEACHER", "teacher": "SNT" },
+"KG": { "subject": "MOTHER-TEACHER", "teacher": "SKH" }
             }
           }
         },
@@ -815,42 +1017,56 @@
             "XII": { "subject": "ACC/PHY", "teacher": "JSS/PS" },
             "XI": { "subject": "ECO/BIO", "teacher": "PR/RBW" },
             "X": { "subject": "HIN/PBI", "teacher": "SS/HPS" },
-            "IX": { "subject": "PHY/LIB", "teacher": "BSN/SGR" },
+            "IX": { "subject": "PHY/MUSIC", "teacher": "BSN/HS" },
             "VIII": { "subject": "HIST", "teacher": "SJK" },
             "VII": { "subject": "MATHS", "teacher": "RBH" },
             "VI": { "subject": "COMP", "teacher": "SR" }
             },
             "Shangri-la": {
-              "XII": { "subject": "ENG", "teacher": "AK" },
-            "XI": { "subject": "ACC/PHY", "teacher": "JSS/BSN" },
-            "X": { "subject": "MATHS/ECO", "teacher": "PD/PR" },
-            "IX": { "subject": "COM/CHEM", "teacher": "AG/PSK" },
-            "VIII": { "subject": "ENG", "teacher": "IR" },
-            "VII": { "subject": "GEO", "teacher": "PK" },
-            "VI": { "subject": "MATHS", "teacher": "SRW" }
+            "XII": { "subject": "ENG", "teacher": "AVK" },
+        "XI": { "subject": "MATH/BIO", "teacher": "RB/DS" },
+        "X": { "subject": "HIN/PBI", "teacher": "PT/HPK" },
+        "IX": { "subject": "ENG", "teacher": "PG" },
+        "VIII": { "subject": "CHEM", "teacher": "AP" },
+        "VII": { "subject": "ART", "teacher": "VT" },
+        "VI": { "subject": "LIB", "teacher": "SK" },
+        "V": { "subject": "ENG", "teacher": "DK" },
+        
+"IV": { "subject": "SST", "teacher": "PP" },
+        "III": { "subject": "COMP", "teacher": "SD" },
+"II": { "subject": "MOTHER-TEACHER", "teacher": "DP" },
+"I": { "subject": "MOTHER-TEACHER", "teacher": "SNT" },
+"KG": { "subject": "MOTHER-TEACHER", "teacher": "SKH" }
             }
           }
         },
  {
+
           "time": "09:40 AM TO 10:15 AM",
           "subjects": {
             "Vincent Hill": {
             "XII": { "subject": "ECO/BIO", "teacher": "PR/RBW" },
             "XI": { "subject": "P/C/A", "teacher": "VR/AM/NT" },
-            "X": { "subject": "GEOG", "teacher": "SRW" },
+            "X": { "subject": "P/C/A", "teacher": "VR/SR/NT" },
             "IX": { "subject": "HINDI/PBI", "teacher": "SS/HPS" },
             "VIII": { "subject": "MATHS", "teacher": "RBH" },
             "VII": { "subject": "ENG", "teacher": "IR" },
             "VI": { "subject": "GEOG", "teacher": "PK" }
             },
             "Shangri-la": {
-              "XII": { "subject": "ENG", "teacher": "AK" },
-            "XI": { "subject": "ACC/PHY", "teacher": "JSS/BSN" },
-            "X": { "subject": "MATHS/ECO", "teacher": "PD/PR" },
-            "IX": { "subject": "COM/CHEM", "teacher": "AG/PSK" },
-            "VIII": { "subject": "ENG", "teacher": "IR" },
-            "VII": { "subject": "GEO", "teacher": "PK" },
-            "VI": { "subject": "MATHS", "teacher": "SRW" }
+            "XII": { "subject": "COM/CHE", "teacher": "VKS/KK" },
+        "XI": { "subject": "ECO/CHE", "teacher": "TB/KST" },
+        "X": { "subject": "ENG", "teacher": "AVK" },
+        "IX": { "subject": "ENG", "teacher": "PG" },
+        "VIII": { "subject": "MATHS", "teacher": "PB" },
+        "VII": { "subject": "GAMES", "teacher": "SN" },
+        "VI": { "subject": "BIO", "teacher": "AP" },
+        "V": { "subject": "MATHS", "teacher": "ES" },
+        "IV": { "subject": "COMP", "teacher": "SD" },
+        "III": { "subject": "ENG", "teacher": "DK" },
+"II": { "subject": "MOTHER-TEACHER", "teacher": "DP" },
+"I": { "subject": "MOTHER-TEACHER", "teacher": "SNT" },
+"KG": { "subject": "MOTHER-TEACHER", "teacher": "SKH" }
             }
           }
         },
@@ -867,13 +1083,19 @@
             "VI": { "subject": "ENG", "teacher": "SJK" }
             },
             "Shangri-la": {
-              "XII": { "subject": "ENG", "teacher": "AK" },
-            "XI": { "subject": "ACC/PHY", "teacher": "JSS/BSN" },
-            "X": { "subject": "MATHS/ECO", "teacher": "PD/PR" },
-            "IX": { "subject": "COM/CHEM", "teacher": "AG/PSK" },
-            "VIII": { "subject": "ENG", "teacher": "IR" },
-            "VII": { "subject": "GEO", "teacher": "PK" },
-            "VI": { "subject": "MATHS", "teacher": "SRW" }
+            "XII": { "subject": "MATH/HIST", "teacher": "PB/CPR" },
+        "XI": { "subject": "ENG", "teacher": "AVK" },
+        "X": { "subject": "MAT/ECO", "teacher": "PD/TB" },
+        "IX": { "subject": "COM/BIO", "teacher": "VKS/AP" },
+        "VIII": { "subject": "ENG", "teacher": "PG" },
+        "VII": { "subject": "PUN", "teacher": "HPK" },
+        "VI": { "subject": "ART", "teacher": "VT" },
+        "V": { "subject": "SCIENCE", "teacher": "DK" },
+        "IV": { "subject": "SCIENCE", "teacher": "ES" },
+        "III": { "subject": "SCIENCE", "teacher": "PP" },
+"II": { "subject": "MOTHER-TEACHER", "teacher": "DP" },
+"I": { "subject": "MOTHER-TEACHER", "teacher": "SNT" },
+"KG": { "subject": "MOTHER-TEACHER", "teacher": "SKH" }
             }
           }
         },
@@ -885,19 +1107,25 @@
              "XII": { "subject": "COM/CHEM", "teacher": "AG/KK" },
             "XI": { "subject": "ENG", "teacher": "AK" },
             "X": { "subject": "HIST", "teacher": "SJK" },
-            "IX": { "subject": "MATHS/ECO", "teacher": "PSK/PR" },
+            "IX": { "subject": "MATHS/ECO", "teacher": "RB/PR" },
             "VIII": { "subject": "BIO", "teacher": "RBW" },
             "VII": { "subject": "ART", "teacher": "NT" },
             "VI": { "subject": "PHY", "teacher": "PS" }
             },
             "Shangri-la": {
-              "XII": { "subject": "ENG", "teacher": "AK" },
-            "XI": { "subject": "ACC/PHY", "teacher": "JSS/BSN" },
-            "X": { "subject": "MATHS/ECO", "teacher": "PD/TB" },
-            "IX": { "subject": "COM/CHEM", "teacher": "VKS/KK" },
-            "VIII": { "subject": "ENG", "teacher": "PG" },
-            "VII": { "subject": "GEO", "teacher": "SRW" },
-            "VI": { "subject": "MATHS", "teacher": "RBH" }
+             "XII": { "subject": "ACC/PHY", "teacher": "JSS/BSN" },
+        "XI": { "subject": "COM", "teacher": "VKS" },
+        "X": { "subject": "P/C/A", "teacher": "SSB/SR/VT" },
+        "IX": { "subject": "MAT/ECO", "teacher": "PD/TB" },
+        "VIII": { "subject": "DIV", "teacher": "JJ" },
+        "VII": { "subject": "MATHS", "teacher": "RBH" },
+        "VI": { "subject": "ENG", "teacher": "PK" },
+        "V": { "subject": "HINDI", "teacher": "DD" },
+        "IV": { "subject": "MATHS", "teacher": "ES" },
+        "III": { "subject": "SST", "teacher": "PP" },
+"II": { "subject": "MOTHER-TEACHER", "teacher": "DP" },
+"I": { "subject": "MOTHER-TEACHER", "teacher": "SNT" },
+"KG": { "subject": "MOTHER-TEACHER", "teacher": "SKH" }
             }
           }
         },
@@ -911,16 +1139,22 @@
             "IX": { "subject": "ENG", "teacher": "IR" },
             "VIII": { "subject": "CHEM", "teacher": "PSK" },
             "VII": { "subject": "PHY", "teacher": "PS" },
-            "VI": { "subject": "BIO", "teacher": "RBW" }
+            "VI": { "subject": "ENG", "teacher": "SJK" }
             },
             "Shangri-la": {
-              "XII": { "subject": "ENG", "teacher": "AK" },
-            "XI": { "subject": "ACC/PHY", "teacher": "JSS/BSN" },
-            "X": { "subject": "MATHS/ECO", "teacher": "PD/PR" },
-            "IX": { "subject": "COM/CHEM", "teacher": "AG/PSK" },
-            "VIII": { "subject": "ENG", "teacher": "IR" },
-            "VII": { "subject": "GEO", "teacher": "PK" },
-            "VI": { "subject": "MATHS", "teacher": "SRW" }
+             "XII": { "subject": "ECO/BIO", "teacher": "TB/DS" },
+        "XI": { "subject": "ACC/PHY", "teacher": "JSS/BSN" },
+        "X": { "subject": "COM/PHY", "teacher": "VKS/PD" },
+        "IX": { "subject": "GEOG", "teacher": "SRW" },
+        "VIII": { "subject": "BIO", "teacher": "AP" },
+        "VII": { "subject": "ENG", "teacher": "PG" },
+        "VI": { "subject": "MATHS", "teacher": "PB" },
+        "V": { "subject": "SST", "teacher": "PK" },
+        "IV": { "subject": "PUN", "teacher": "JJ" },
+        "III": { "subject": "HIN", "teacher": "DD" },
+"II": { "subject": "MOTHER-TEACHER", "teacher": "DP" },
+"I": { "subject": "MOTHER-TEACHER", "teacher": "SNT" },
+"KG": { "subject": "MOTHER-TEACHER", "teacher": "SKH" }
             }
           }
         },
@@ -928,22 +1162,28 @@
           "time": "12:20 PM TO 12:55 PM",
           "subjects": {
             "Vincent Hill": {
-            "XII": { "subject": "MATHS", "teacher": "PS" },
-            "XI": { "subject": "MATHS", "teacher": "PS" },
+            "XII": { "subject": "HINDI/PBI", "teacher": "SS/HPS" },
+            "XI": { "subject": "MATHS", "teacher": "RB" },
             "X": { "subject": "ENG", "teacher": "AK" },
-            "IX": { "subject": "HIST", "teacher": "SJK" },
-            "VIII": { "subject": "ART", "teacher": "NT" },
-            "VII": { "subject": "GK", "teacher": "RK" },
-            "VI": { "subject": "MUSIC", "teacher": "HS" }
+            "IX": { "subject": "LIB", "teacher": "SGR" },
+            "VIII": { "subject": "ENG", "teacher": "IR" },
+            "VII": { "subject": "HIST", "teacher": "SJK" },
+            "VI": { "subject": "CHEM", "teacher": "PSK" }
             },
             "Shangri-la": {
-              "XII": { "subject": "ENG", "teacher": "AK" },
-            "XI": { "subject": "ACC/PHY", "teacher": "JSS/BSN" },
-            "X": { "subject": "MATHS/ECO", "teacher": "PD/PR" },
-            "IX": { "subject": "COM/CHEM", "teacher": "AG/PSK" },
-            "VIII": { "subject": "ENG", "teacher": "IR" },
-            "VII": { "subject": "GEO", "teacher": "PK" },
-            "VI": { "subject": "MATHS", "teacher": "SRW" }
+            "XII": { "subject": "MAT/BIO", "teacher": "GD/DS" },
+        "XI": { "subject": "PHYECO", "teacher": "BSN/TB" },
+        "X": { "subject": "NA", "teacher": "NA" },
+        "IX": { "subject": "NA", "teacher": "NA" },
+        "VIII": { "subject": "PUN", "teacher": "HPK" },
+        "VII": { "subject": "HIN", "teacher": "DD" },
+        "VI": { "subject": "PUN", "teacher": "JJ" },
+        "V": { "subject": "ENG", "teacher": "DK" },
+        "IV": { "subject": "MATHS", "teacher": "ES" },
+        "III": { "subject": "LIB", "teacher": "SK" },
+"II": { "subject": "MOTHER-TEACHER", "teacher": "DP" },
+"I": { "subject": "MOTHER-TEACHER", "teacher": "SNT" },
+"KG": { "subject": "MOTHER-TEACHER", "teacher": "SKH" }
             }
           }
         },
@@ -951,22 +1191,28 @@
           "time": "12:55 PM TO 1:30 PM",
           "subjects": {
             "Vincent Hill": {
-             "XII": { "subject": "HINDI/PBI", "teacher": "SS/HPS" },
-            "XI": { "subject": "MATHS", "teacher": "PS" },
-            "X": { "subject": "COM/CHEM", "teacher": "AG/PSK" },
-            "IX": { "subject": "LIB", "teacher": "SGR" },
-            "VIII": { "subject": "HIST", "teacher": "SJK" },
-            "VII": { "subject": "MUSIC", "teacher": "HS" },
-            "VI": { "subject": "GK", "teacher": "RK" }
+             "XII": { "subject": "MATHS/HINDI/PBI", "teacher": "PS/SS/HPS" },
+            "XI": { "subject": "MATHS", "teacher": "RB" },
+            "X": { "subject": "COM", "teacher": "AG" },
+            "IX": { "subject": "GAMES", "teacher": "VR" },
+            "VIII": { "subject": "PHY", "teacher": "PS" },
+            "VII": { "subject": "CHEM", "teacher": "PSK" },
+            "VI": { "subject": "MUSIC", "teacher": "HS" }
             },
             "Shangri-la": {
-              "XII": { "subject": "ENG", "teacher": "AK" },
-            "XI": { "subject": "ACC/PHY", "teacher": "JSS/BSN" },
-            "X": { "subject": "MATHS/ECO", "teacher": "PD/PR" },
-            "IX": { "subject": "COM/CHEM", "teacher": "AG/PSK" },
-            "VIII": { "subject": "ENG", "teacher": "IR" },
-            "VII": { "subject": "GEO", "teacher": "PK" },
-            "VI": { "subject": "MATHS", "teacher": "SRW" }
+            "XII": { "subject": "NA", "teacher": "NA" },
+        "XI": { "subject": "ENG", "teacher": "AVK" },
+        "X": { "subject": "HIST", "teacher": "CPR" },
+        "IX": { "subject": "MAT/ECO", "teacher": "PD/TB" },
+        "VIII": { "subject": "COMP", "teacher": "SR" },
+        "VII": { "subject": "GEOG", "teacher": "SRW" },
+        "VI": { "subject": "GEOG", "teacher": "RBH" },
+        "V": { "subject": "PUN", "teacher": "JJ" },
+        "IV": { "subject": "ART", "teacher": "DD" },
+        "III": { "subject": "ENG", "teacher": "DK" },
+"II": { "subject": "MOTHER-TEACHER", "teacher": "DP" },
+"I": { "subject": "MOTHER-TEACHER", "teacher": "SNT" },
+"KG": { "subject": "MOTHER-TEACHER", "teacher": "SKH" }
             }
           }
         }
@@ -986,17 +1232,23 @@
             "X": { "subject": "MATHS/ECO", "teacher": "PD/PR" },
             "IX": { "subject": "COM/CHEM", "teacher": "AG/PSK" },
             "VIII": { "subject": "ENG", "teacher": "IR" },
-            "VII": { "subject": "GEOG", "teacher": "PK" },
+            "VII": { "subject": "PBI", "teacher": "JJ" },
             "VI": { "subject": "MATHS", "teacher": "SRW" }
             },
             "Shangri-la": {
-              "XII": { "subject": "ENG", "teacher": "AK" },
-            "XI": { "subject": "ACC/PHY", "teacher": "JSS/BSN" },
-            "X": { "subject": "MATHS/ECO", "teacher": "PD/PR" },
-            "IX": { "subject": "COM/BIO", "teacher": "AG/RBW" },
-            "VIII": { "subject": "ENG", "teacher": "IR" },
-            "VII": { "subject": "PBI", "teacher": "JJ" },
-            "VI": { "subject": "MATHS", "teacher": "SRW" }
+              "XII": { "subject": "ENG", "teacher": "AVK" },
+        "XI": { "subject": "MATH/BIO", "teacher": "RB/DS" },
+        "X": { "subject": "COM/CHE", "teacher": "VKS/KK" },
+        "IX": { "subject": "HIN/PBI", "teacher": "PT/HPK" },
+        "VIII": { "subject": "HIST", "teacher": "CPR" },
+        "VII": { "subject": "ENG", "teacher": "PG" },
+        "VI": { "subject": "CHEM", "teacher": "AP" },
+        "V": { "subject": "COMP", "teacher": "SD" },
+        "IV": { "subject": "ENG", "teacher": "DK" },
+        "III": { "subject": "MATHS", "teacher": "ES" },
+"II": { "subject": "MOTHER-TEACHER", "teacher": "DP" },
+"I": { "subject": "MOTHER-TEACHER", "teacher": "SNT" },
+"KG": { "subject": "MOTHER-TEACHER", "teacher": "SKH" }
             }
           }
         },
@@ -1013,13 +1265,19 @@
             "VI": { "subject": "COMP", "teacher": "SR" }
             },
             "Shangri-la": {
-              "XII": { "subject": "ENG", "teacher": "AK" },
-            "XI": { "subject": "ACC/PHY", "teacher": "JSS/BSN" },
-            "X": { "subject": "MATHS/ECO", "teacher": "PD/PR" },
-            "IX": { "subject": "COM/CHEM", "teacher": "AG/PSK" },
-            "VIII": { "subject": "ENG", "teacher": "IR" },
-            "VII": { "subject": "GEO", "teacher": "PK" },
-            "VI": { "subject": "MATHS", "teacher": "SRW" }
+             "XII": { "subject": "ENG", "teacher": "AVK" },
+        "XI": { "subject": "MATH/BIO", "teacher": "RB/DS" },
+        "X": { "subject": "HIN/PBI", "teacher": "PT/HPK" },
+        "IX": { "subject": "NA", "teacher": "NA" },
+        "VIII": { "subject": "LIB", "teacher": "SK" },
+        "VII": { "subject": "ART", "teacher": "VT" },
+        "VI": { "subject": "MUSIC", "teacher": "HS" },
+        "V": { "subject": "ENG", "teacher": "DK" },
+        "IV": { "subject": "SST", "teacher": "PP" },
+        "III": { "subject": "COMP", "teacher": "SD" },
+"II": { "subject": "MOTHER-TEACHER", "teacher": "DP" },
+"I": { "subject": "MOTHER-TEACHER", "teacher": "SNT" },
+"KG": { "subject": "MOTHER-TEACHER", "teacher": "SKH" }
             }
           }
         },
@@ -1036,13 +1294,19 @@
             "VI": { "subject": "GEOG", "teacher": "PK" }
             },
             "Shangri-la": {
-              "XII": { "subject": "ENG", "teacher": "AK" },
-            "XI": { "subject": "ACC/PHY", "teacher": "JSS/BSN" },
-            "X": { "subject": "MATHS/ECO", "teacher": "PD/PR" },
-            "IX": { "subject": "COM/CHEM", "teacher": "AG/PSK" },
-            "VIII": { "subject": "ENG", "teacher": "IR" },
-            "VII": { "subject": "GEO", "teacher": "PK" },
-            "VI": { "subject": "MATHS", "teacher": "SRW" }
+            "XII": { "subject": "COM/CHE", "teacher": "VKS/KK" },
+        "XI": { "subject": "ECO/CHE", "teacher": "TB/KST" },
+        "X": { "subject": "ENG", "teacher": "AVK" },
+        "IX": { "subject": "ENG", "teacher": "PG" },
+        "VIII": { "subject": "MATHS", "teacher": "PB" },
+        "VII": { "subject": "CHEM", "teacher": "AP" },
+        "VI": { "subject": "GK", "teacher": "SN" },
+        "V": { "subject": "MATHS", "teacher": "ES" },
+        "IV": { "subject": "COMP", "teacher": "SD" },
+        "III": { "subject": "ENG", "teacher": "DK" },
+"II": { "subject": "MOTHER-TEACHER", "teacher": "DP" },
+"I": { "subject": "MOTHER-TEACHER", "teacher": "SNT" },
+"KG": { "subject": "MOTHER-TEACHER", "teacher": "SKH" }
             }
           }
         },
@@ -1059,13 +1323,19 @@
             "VI": { "subject": "ENG", "teacher": "SJK" }
             },
             "Shangri-la": {
-              "XII": { "subject": "ENG", "teacher": "AK" },
-            "XI": { "subject": "ACC/PHY", "teacher": "JSS/BSN" },
-            "X": { "subject": "MATHS/ECO", "teacher": "PD/PR" },
-            "IX": { "subject": "COM/CHEM", "teacher": "AG/PSK" },
-            "VIII": { "subject": "ENG", "teacher": "IR" },
-            "VII": { "subject": "GEO", "teacher": "PK" },
-            "VI": { "subject": "MATHS", "teacher": "SRW" }
+            "XII": { "subject": "MAT/HIS/BIO", "teacher": "PB/CPR/DS" },
+        "XI": { "subject": "ENG", "teacher": "AVK" },
+        "X": { "subject": "MAT/ECO", "teacher": "PD/TB" },
+        "IX": { "subject": "COM/BIO", "teacher": "VKS/AP" },
+        "VIII": { "subject": "ENG", "teacher": "PG" },
+        "VII": { "subject": "PUN", "teacher": "HPK" },
+        "VI": { "subject": "BIO", "teacher": "AP" },
+        "V": { "subject": "SCIENCE", "teacher": "DK" },
+        "IV": { "subject": "SCIENCE", "teacher": "ES" },
+        "III": { "subject": "SCIENCE", "teacher": "PP" },
+"II": { "subject": "MOTHER-TEACHER", "teacher": "DP" },
+"I": { "subject": "MOTHER-TEACHER", "teacher": "SNT" },
+"KG": { "subject": "MOTHER-TEACHER", "teacher": "SKH" }
             }
           }
         },
@@ -1077,19 +1347,25 @@
             "XII": { "subject": "COM/CHEM", "teacher": "AG/KK" },
             "XI": { "subject": "ENG", "teacher": "AK" },
             "X": { "subject": "HIST", "teacher": "SJK" },
-            "IX": { "subject": "MATHS/ECO", "teacher": "PSK/PR" },
+            "IX": { "subject": "MATHS/ECO", "teacher": "RB/PR" },
             "VIII": { "subject": "BIO", "teacher": "RBW" },
             "VII": { "subject": "ART", "teacher": "NT" },
             "VI": { "subject": "PHY", "teacher": "PS" }
             },
             "Shangri-la": {
-              "XII": { "subject": "ENG", "teacher": "AK" },
-            "XI": { "subject": "ACC/PHY", "teacher": "JSS/BSN" },
-            "X": { "subject": "MATHS/ECO", "teacher": "PD/PR" },
-            "IX": { "subject": "COM/CHEM", "teacher": "AG/PSK" },
-            "VIII": { "subject": "ENG", "teacher": "IR" },
-            "VII": { "subject": "GEO", "teacher": "PK" },
-            "VI": { "subject": "MATHS", "teacher": "SRW" }
+            "XII": { "subject": "ACC/PHY", "teacher": "JSS/BSN" },
+        "XI": { "subject": "COM", "teacher": "VKS" },
+        "X": { "subject": "GEOG", "teacher": "SRW" },
+        "IX": { "subject": "MAT/ECO", "teacher": "PD/TB" },
+        "VIII": { "subject": "MATHS", "teacher": "PB" },
+        "VII": { "subject": "MATHS", "teacher": "RBH" },
+        "VI": { "subject": "ENG", "teacher": "PK" },
+        "V": { "subject": "PUN", "teacher": "JJ" },
+        "IV": { "subject": "MATHS", "teacher": "ES" },
+        "III": { "subject": "SST", "teacher": "PP" },
+"II": { "subject": "MOTHER-TEACHER", "teacher": "DP" },
+"I": { "subject": "MOTHER-TEACHER", "teacher": "SNT" },
+"KG": { "subject": "MOTHER-TEACHER", "teacher": "SKH" }
             }
           }
         },
@@ -1103,16 +1379,22 @@
             "IX": { "subject": "ENG", "teacher": "IR" },
             "VIII": { "subject": "CHEM", "teacher": "PSK" },
             "VII": { "subject": "PHY", "teacher": "PS" },
-            "VI": { "subject": "ENG", "teacher": "SJK" }
+            "VI": { "subject": "HINDI", "teacher": "RK" }
             },
             "Shangri-la": {
-              "XII": { "subject": "ENG", "teacher": "AK" },
-            "XI": { "subject": "ACC/PHY", "teacher": "JSS/BSN" },
-            "X": { "subject": "MATHS/ECO", "teacher": "PD/PR" },
-            "IX": { "subject": "COM/CHEM", "teacher": "AG/PSK" },
-            "VIII": { "subject": "ENG", "teacher": "IR" },
-            "VII": { "subject": "GEO", "teacher": "PK" },
-            "VI": { "subject": "MATHS", "teacher": "SRW" }
+            "XII": { "subject": "ECO/BIO", "teacher": "TB/DS" },
+        "XI": { "subject": "ACC/PHY", "teacher": "JSS/BSN" },
+        "X": { "subject": "COM/PHY", "teacher": "VKS/PD" },
+        "IX": { "subject": "P/C/A", "teacher": "SR/SN/VT" },
+        "VIII": { "subject": "BIO", "teacher": "AP" },
+        "VII": { "subject": "ENG", "teacher": "PG" },
+        "VI": { "subject": "GEOG", "teacher": "RBH" },
+        "V": { "subject": "SST", "teacher": "PK" },
+        "IV": { "subject": "PUN", "teacher": "JJ" },
+        "III": { "subject": "MATHS", "teacher": "ES" },
+"II": { "subject": "MOTHER-TEACHER", "teacher": "DP" },
+"I": { "subject": "MOTHER-TEACHER", "teacher": "SNT" },
+"KG": { "subject": "MOTHER-TEACHER", "teacher": "SKH" }
             }
           }
         },
@@ -1120,6 +1402,7 @@
           "time": "12:20 PM TO 12:55 PM",
           "subjects": {
             "Vincent Hill": {
+            "XII": { "subject": "HOBBY", "teacher": "HOBBY TEACHERS" },
             "XI": { "subject": "HOBBY", "teacher": "HOBBY TEACHERS" },
             "X": { "subject": "HOBBY", "teacher": "HOBBY TEACHERS" },
             "IX": { "subject": "HOBBY", "teacher": "HOBBY TEACHERS" },
@@ -1128,13 +1411,19 @@
             "VI": { "subject": "HOBBY", "teacher": "HOBBY TEACHERS" }
             },
             "Shangri-la": {
-              "XII": { "subject": "ENG", "teacher": "AK" },
-            "XI": { "subject": "ACC/PHY", "teacher": "JSS/BSN" },
-            "X": { "subject": "MATHS/ECO", "teacher": "PD/PR" },
-            "IX": { "subject": "COM/CHEM", "teacher": "AG/PSK" },
-            "VIII": { "subject": "ENG", "teacher": "IR" },
-            "VII": { "subject": "GEO", "teacher": "PK" },
-            "VI": { "subject": "MATHS", "teacher": "SRW" }
+             "XII": { "subject": "HOBBY", "teacher": "HOBBY TEACHERS" },
+            "XI": { "subject": "HOBBY", "teacher": "HOBBY TEACHERS" },
+            "X": { "subject": "HOBBY", "teacher": "HOBBY TEACHERS" },
+            "IX": { "subject": "HOBBY", "teacher": "HOBBY TEACHERS" },
+            "VIII": { "subject": "HOBBY", "teacher": "HOBBY TEACHERS" },
+            "VII": { "subject": "HOBBY", "teacher": "HOBBY TEACHERS" },
+            "VI": { "subject": "HOBBY", "teacher": "HOBBY TEACHERS" },
+"V": { "subject": "HOBBY", "teacher": "HOBBY TEACHERS" },
+"IV": { "subject": "HOBBY", "teacher": "HOBBY TEACHERS" },
+"III": { "subject": "HOBBY", "teacher": "HOBBY TEACHERS" },
+"II": { "subject": "HOBBY", "teacher": "HOBBY TEACHERS" },
+"I": { "subject": "MOTHER-TEACHER", "teacher": "SNT" },
+"KG": { "subject": "HOBBY", "teacher": "HOBBY TEACHERS" }
             }
           }
         },
@@ -1142,6 +1431,7 @@
           "time": "12:55 PM TO 1:30 PM",
           "subjects": {
             "Vincent Hill": {
+            "XII": { "subject": "HOBBY", "teacher": "HOBBY TEACHERS" },
             "XI": { "subject": "HOBBY", "teacher": "HOBBY TEACHERS" },
             "X": { "subject": "HOBBY", "teacher": "HOBBY TEACHERS" },
             "IX": { "subject": "HOBBY", "teacher": "HOBBY TEACHERS" },
@@ -1150,13 +1440,19 @@
             "VI": { "subject": "HOBBY", "teacher": "HOBBY TEACHERS" }
             },
             "Shangri-la": {
-              "XII": { "subject": "ENG", "teacher": "AK" },
-            "XI": { "subject": "ACC/PHY", "teacher": "JSS/BSN" },
-            "X": { "subject": "MATHS/ECO", "teacher": "PD/PR" },
-            "IX": { "subject": "COM/CHEM", "teacher": "AG/PSK" },
-            "VIII": { "subject": "ENG", "teacher": "IR" },
-            "VII": { "subject": "GEO", "teacher": "PK" },
-            "VI": { "subject": "MATHS", "teacher": "SRW" }
+             "XII": { "subject": "HOBBY", "teacher": "HOBBY TEACHERS" },
+            "XI": { "subject": "HOBBY", "teacher": "HOBBY TEACHERS" },
+            "X": { "subject": "HOBBY", "teacher": "HOBBY TEACHERS" },
+            "IX": { "subject": "HOBBY", "teacher": "HOBBY TEACHERS" },
+            "VIII": { "subject": "HOBBY", "teacher": "HOBBY TEACHERS" },
+            "VII": { "subject": "HOBBY", "teacher": "HOBBY TEACHERS" },
+            "VI": { "subject": "HOBBY", "teacher": "HOBBY TEACHERS" },
+"V": { "subject": "HOBBY", "teacher": "HOBBY TEACHERS" },
+"IV": { "subject": "HOBBY", "teacher": "HOBBY TEACHERS" },
+"III": { "subject": "HOBBY", "teacher": "HOBBY TEACHERS" },
+"II": { "subject": "HOBBY", "teacher": "HOBBY TEACHERS" },
+"I": { "subject": "MOTHER-TEACHER", "teacher": "SNT" },
+"KG": { "subject": "HOBBY", "teacher": "HOBBY TEACHERS" }
             }
           }
         }
