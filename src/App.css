@@ -311,5 +311,75 @@ body {
   background: #ddd;
   transition: 0.3s;
 }
+/* Heading on one line, centered */
+.timetable-title {
+  text-align: center;
+  font-size: 2rem;
+  white-space: nowrap;
+}
+
+/* Make the table responsive */
+.responsive-table {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.timetable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.timetable th,
+.timetable td {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+.timetable th {
+  background-color: #f0f0f0;
+}
+
+/* Break rows look special */
+.break-row {
+  background-color: #ffe0b2;
+}
+
+.break-cell {
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #e65100;
+  padding: 16px 8px;
+}
+
+/* For mobile view */
+@media (max-width: 600px) {
+  .timetable-title {
+    font-size: 1.5rem;
+  }
+
+  .timetable th,
+  .timetable td {
+    padding: 6px 8px;
+    font-size: 0.9rem;
+  }
+
+  .break-cell {
+    font-size: 1rem;
+    padding: 12px 6px;
+  }
+
+  .teacher-schedule h3,
+  .teacher-routine h3 {
+    font-size: 1.2rem;
+  }
+
+  select {
+    width: 100%;
+    padding: 8px;
+    font-size: 1rem;
+  }
+}
 
 
