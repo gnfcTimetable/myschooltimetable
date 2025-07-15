@@ -120,7 +120,8 @@ const TimetableTable = () => {
 
   return (
     <div className="timetable-container">
-      <h1 align="center">📅 School Timetable</h1>
+      <h1 className="timetable-title">📅 School Timetable</h1>
+
       <h2 align="center">{currentDay} 🕒 {currentTime}</h2>
       <h3 align="center">📚 {currentSlotTime}</h3>
 
@@ -135,51 +136,38 @@ const TimetableTable = () => {
                   <th>Shangri-la</th>
                 </tr>
               </thead>
-              <tbody>
-                {classes.map((className, idx) => {
-                  // ✅ RENDER for breaks
-                  if (currentSlot.break) {
-                    return (
-                      <tr key={idx}>
-                        <td>{className}</td>
-                        <td colSpan={2} align="center">{currentSlot.break}</td>
-                      </tr>
-                    );
-                  }
+             <tbody>
+  {classes.map((className, idx) => {
+    // ✅ Render single big row for breaks / meals / commonRoutine
+    if (currentSlot.break || currentSlot.remedial || currentSlot.isCommonRoutine) {
+      const activityText =
+        currentSlot.break ||
+        currentSlot.remedial ||
+        currentSlot.activity ||
+        "Common Routine Activity";
 
-                  if (currentSlot.remedial) {
-                    return (
-                      <tr key={idx}>
-                        <td>{className}</td>
-                        <td colSpan={2} align="center">{currentSlot.remedial}</td>
-                      </tr>
-                    );
-                  }
+      return idx === 0 ? (
+        <tr key={idx} className="break-row">
+          <td colSpan={3} className="break-cell">{activityText}</td>
+        </tr>
+      ) : null;
+    }
 
-                  if (currentSlot.isCommonRoutine) {
-                    const activity = currentSlot.break || currentSlot.remedial || currentSlot.activity || "Common Routine";
-                    return (
-                      <tr key={idx}>
-                        <td>{className}</td>
-                        <td colSpan={2} align="center">{activity}</td>
-                      </tr>
-                    );
-                  }
+    // ✅ Normal academic periods
+    const subjects = currentSlot.subjects || {};
+    const vhEntry = subjects["Vincent Hill"]?.[className] || {};
+    const shEntry = subjects["Shangri-la"]?.[className] || {};
 
-                  // ✅ NORMAL subject period
-                  const subjects = currentSlot.subjects || {};
-                  const vhEntry = subjects["Vincent Hill"]?.[className] || {};
-                  const shEntry = subjects["Shangri-la"]?.[className] || {};
+    return (
+      <tr key={idx}>
+        <td>{className}</td>
+        <td>{vhEntry.subject ? `${vhEntry.subject} (${vhEntry.teacher})` : "-"}</td>
+        <td>{shEntry.subject ? `${shEntry.subject} (${shEntry.teacher})` : "-"}</td>
+      </tr>
+    );
+  })}
+</tbody>
 
-                  return (
-                    <tr key={idx}>
-                      <td>{className}</td>
-                      <td>{vhEntry.subject ? `${vhEntry.subject} (${vhEntry.teacher})` : "-"}</td>
-                      <td>{shEntry.subject ? `${shEntry.subject} (${shEntry.teacher})` : "-"}</td>
-                    </tr>
-                  );
-                })}
-              </tbody>
             </table>
           </div>
         ) : (
