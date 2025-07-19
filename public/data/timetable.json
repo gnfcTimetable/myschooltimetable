@@ -264,8 +264,8 @@
                                 "teacher": "SPB/SR/NT"
                             },
                             "VIII": {
-                                "subject": "HIN",
-                                "teacher": "SS"
+                                "subject": "CHEM",
+                                "teacher": "PSK"
                             },
                             "VII": {
                                 "subject": "PHY",
@@ -361,8 +361,8 @@
                                 "teacher": "RBH"
                             },
                             "VI": {
-                                "subject": "MATHS",
-                                "teacher": "SRW"
+                                "subject": "GEOG",
+                                "teacher": "PK"
                             }
                         },
                         "Shangri-la": {
@@ -701,8 +701,8 @@
                                 "teacher": "PR/PS"
                             },
                             "XI": {
-                                "subject": "MUSIC/LANG",
-                                "teacher": "RBH"
+                                "subject": "MUSIC/PE",
+                                "teacher": "RBH/SPB"
                             },
                             "X": {
                                 "subject": "COM/CHEM",
@@ -713,8 +713,8 @@
                                 "teacher": "SS/HPS"
                             },
                             "VIII": {
-                                "subject": "CHEM",
-                                "teacher": "KK"
+                                "subject": "HINDI",
+                                "teacher": "SS"
                             },
                             "VII": {
                                 "subject": "HIS",
@@ -985,8 +985,8 @@
                                 "teacher": "SPB/SR/NT"
                             },
                             "VIII": {
-                                "subject": "ENG",
-                                "teacher": "IR"
+                                "subject": "CHEM",
+                                "teacher": "PSK"
                             },
                             "VII": {
                                 "subject": "PHY",
@@ -1434,8 +1434,8 @@
                                 "teacher": "SS/HPS"
                             },
                             "VIII": {
-                                "subject": "CHEM",
-                                "teacher": "KK"
+                                "subject": "ENG",
+                                "teacher": "IR"
                             },
                             "VII": {
                                 "subject": "HIST",
@@ -1621,8 +1621,8 @@
                                 "teacher": "SR"
                             },
                             "VII": {
-                                "subject": "GK",
-                                "teacher": "RK"
+                                "subject": "GK/MATHS (REMEDIAL)",
+                                "teacher": "RK/RBH"
                             },
                             "VI": {
                                 "subject": "ART",
@@ -1706,8 +1706,8 @@
                                 "teacher": "SPB/SR/NT"
                             },
                             "VIII": {
-                                "subject": "ENG",
-                                "teacher": "IR"
+                                "subject": "CHEM",
+                                "teacher": "PSK"
                             },
                             "VII": {
                                 "subject": "PHY",
@@ -1780,7 +1780,7 @@
                         "Vincent Hill": {
                             "XII": {
                                 "subject": "P/C/A",
-                                "teacher": "SPB/AM/NT"
+                                "teacher": "RA/AM/NT"
                             },
                             "XI": {
                                 "subject": "ECO/MATHS/BIO",
@@ -1973,8 +1973,8 @@
                                 "teacher": "RB/PR"
                             },
                             "IX": {
-                                "subject": "CHEM/LIB",
-                                "teacher": "PSK/SGR"
+                                "subject": "CHEM/MUSIC",
+                                "teacher": "PSK/HS"
                             },
                             "VIII": {
                                 "subject": "MUSIC/LANG",
@@ -2066,8 +2066,8 @@
                                 "teacher": "SJK"
                             },
                             "VIII": {
-                                "subject": "GK",
-                                "teacher": "RK"
+                                "subject": "GK/MATHS (REMEDIAL)",
+                                "teacher": "RK/RBH"
                             },
                             "VII": {
                                 "subject": "CHEM",
@@ -2144,19 +2144,19 @@
                             },
                             "XI": {
                                 "subject": "MUSIC",
-                                "teacher": "RBH"
+                                "teacher": "HS"
                             },
                             "X": {
-                                "subject": "CHEM/GAMES",
-                                "teacher": "PSK/RA"
+                                "subject": "CHEM/MUSIC",
+                                "teacher": "PSK/RBH"
                             },
                             "IX": {
                                 "subject": "HINDI/PBI",
                                 "teacher": "SS/HPS"
                             },
                             "VIII": {
-                                "subject": "CHEM",
-                                "teacher": "KK"
+                                "subject": "ENG",
+                                "teacher": "IR"
                             },
                             "VII": {
                                 "subject": "LIB",
@@ -2501,7 +2501,7 @@
                         "Vincent Hill": {
                             "XII": {
                                 "subject": "P/C/A",
-                                "teacher": "SPB/AM/"
+                                "teacher": "RA/AM"
                             },
                             "XI": {
                                 "subject": "ECO/BIO/MATHS",
@@ -2694,8 +2694,8 @@
                                 "teacher": "RB/PR"
                             },
                             "IX": {
-                                "subject": "CHEM/MUSIC",
-                                "teacher": "PSK/HS"
+                                "subject": "CHEM/LIB",
+                                "teacher": "PSK/SGR"
                             },
                             "VIII": {
                                 "subject": "HINDI",
@@ -3862,7 +3862,7 @@
                             },
                             "X": {
                                 "subject": "P/C/A",
-                                "teacher": "SPB/SR/NT"
+                                "teacher": "RA/SR/NT"
                             },
                             "IX": {
                                 "subject": "COM/PHY",
@@ -3943,7 +3943,7 @@
                         "Vincent Hill": {
                             "XII": {
                                 "subject": "P/C/A",
-                                "teacher": "SPB/AM/NT"
+                                "teacher": "RA/AM/NT"
                             },
                             "XI": {
                                 "subject": "ECO/MATHS/BIO",
