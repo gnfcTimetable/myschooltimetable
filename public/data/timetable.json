@@ -82,8 +82,8 @@
                                 "teacher": "AG/RBW"
                             },
                             "IX": {
-                                "subject": "ENG",
-                                "teacher": "IR"
+                                "subject": "HIN/PBI",
+                                "teacher": "SS/HPS"
                             },
                             "VIII": {
                                 "subject": "MATHS",
@@ -709,8 +709,8 @@
                                 "teacher": "AG/PSK"
                             },
                             "IX": {
-                                "subject": "HIN/PBI",
-                                "teacher": "SS/HPS"
+                                "subject": "ENG",
+                                "teacher": "IR"
                             },
                             "VIII": {
                                 "subject": "HINDI",
