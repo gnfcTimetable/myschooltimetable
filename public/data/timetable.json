@@ -121,7 +121,7 @@
                             },
                             "VII": {
                                 "subject": "HIST",
-                                "teacher": "CPR"
+                                "teacher": "NM"
                             },
                             "VI": {
                                 "subject": "PHY",
@@ -190,19 +190,19 @@
                         "Shangri-la": {
                             "XII": {
                                 "subject": "MATHS/BIO/HIST",
-                                "teacher": "GD/DS/CPR"
+                                "teacher": "PB/DS/CPR"
                             },
                             "XI": {
                                 "subject": "H/P/C/PE/A",
                                 "teacher": "PT/HK/AM/SPB/VT"
                             },
                             "X": {
-                                "subject": "PHY/ECO",
-                                "teacher": "PD/TB"
+                                "subject": "CHEM/ECO",
+                                "teacher": "KST/TB"
                             },
                             "IX": {
-                                "subject": "COM/CHEM",
-                                "teacher": "VKS/KST"
+                                "subject": "COM/PHY",
+                                "teacher": "VKS/PD"
                             },
                             "VIII": {
                                 "subject": "ENG",
@@ -303,7 +303,7 @@
                             },
                             "VI": {
                                 "subject": "MATHS",
-                                "teacher": "GD"
+                                "teacher": "PB"
                             },
                             "V": {
                                 "subject": "MATHS",
@@ -380,7 +380,7 @@
                             },
                             "IX": {
                                 "subject": "HIST",
-                                "teacher": "CPR"
+                                "teacher": "NM"
                             },
                             "VIII": {
                                 "subject": "ENG",
@@ -468,16 +468,16 @@
                                 "teacher": "VKS/DS"
                             },
                             "X": {
-                                "subject": "ENG",
-                                "teacher": "AVK"
+                                "subject": "P/C/A",
+                                "teacher": "SR/SN/VT"
                             },
                             "IX": {
                                 "subject": "MATHS/ECO",
                                 "teacher": "PD/TB"
                             },
                             "VIII": {
-                                "subject": "COMP",
-                                "teacher": "SR"
+                                "subject": "MATHS",
+                                "teacher": "PB"
                             },
                             "VII": {
                                 "subject": "GEOG",
@@ -574,7 +574,7 @@
                             },
                             "VI": {
                                 "subject": "MATHS",
-                                "teacher": "GD"
+                                "teacher": "PB"
                             },
                             "V": {
                                 "subject": "SST",
@@ -659,7 +659,7 @@
                             },
                             "VII": {
                                 "subject": "MATHS",
-                                "teacher": "RBH"
+                                "teacher": "PB"
                             },
                             "VI": {
                                 "subject": "ENG",
@@ -731,16 +731,16 @@
                                 "teacher": "JSS"
                             },
                             "XI": {
-                                "subject": "PUN",
-                                "teacher": "HPK"
+                                "subject": "PUN/HIN",
+                                "teacher": "HPK/PT"
                             },
                             "X": {
-                                "subject": "COM/BIO",
-                                "teacher": "VKS/DS"
+                                "subject": "COM/PHY",
+                                "teacher": "VKS/PD"
                             },
                             "IX": {
-                                "subject": "PHY/ECO",
-                                "teacher": "PD/TB"
+                                "subject": "BIO/ECO",
+                                "teacher": "AP/TB"
                             },
                             "VIII": {
                                 "subject": "GEOG",
@@ -752,7 +752,7 @@
                             },
                             "VI": {
                                 "subject": "HIST",
-                                "teacher": "RBH"
+                                "teacher": "NM"
                             },
                             "V": {
                                 "subject": "MATHS",
@@ -842,7 +842,7 @@
                             },
                             "VII": {
                                 "subject": "HIST",
-                                "teacher": "CPR"
+                                "teacher": "NM"
                             },
                             "VI": {
                                 "subject": "PHY",
@@ -911,19 +911,19 @@
                         "Shangri-la": {
                             "XII": {
                                 "subject": "MAT/BIO/HIST",
-                                "teacher": "GD/DS/CPR"
+                                "teacher": "PB/DS/CPR"
                             },
                             "XI": {
                                 "subject": "H/P/C/PE/A",
                                 "teacher": "PT/HPK/AM/SSB/VT"
                             },
                             "X": {
-                                "subject": "PHY/ECO",
-                                "teacher": "PD/TB"
+                                "subject": "CHEM/ECO",
+                                "teacher": "KST/TB"
                             },
                             "IX": {
-                                "subject": "CHE/COM",
-                                "teacher": "KST/VKS"
+                                "subject": "PHY/COM",
+                                "teacher": "PD/VKS"
                             },
                             "VIII": {
                                 "subject": "ENG",
@@ -1011,8 +1011,8 @@
                                 "teacher": "CPR"
                             },
                             "IX": {
-                                "subject": "PHY",
-                                "teacher": "PD"
+                                "subject": "ENG",
+                                "teacher": "PG"
                             },
                             "VIII": {
                                 "subject": "GAMES",
@@ -1024,7 +1024,7 @@
                             },
                             "VI": {
                                 "subject": "MATHS",
-                                "teacher": "GD"
+                                "teacher": "PB"
                             },
                             "V": {
                                 "subject": "MATHS",
@@ -1096,12 +1096,12 @@
                                 "teacher": "AVK"
                             },
                             "X": {
-                                "subject": "MATHS/ECO",
-                                "teacher": "PD/TB"
+                                "subject": "MATHS",
+                                "teacher": "PD"
                             },
                             "IX": {
                                 "subject": "HIST",
-                                "teacher": "CPR"
+                                "teacher": "NM"
                             },
                             "VIII": {
                                 "subject": "ENG",
@@ -1190,7 +1190,7 @@
                             },
                             "X": {
                                 "subject": "P/C/A",
-                                "teacher": "SSB/SR/VT"
+                                "teacher": "SN/SR/VT"
                             },
                             "IX": {
                                 "subject": "MAT/ECO",
@@ -1290,8 +1290,8 @@
                                 "teacher": "PT"
                             },
                             "VII": {
-                                "subject": "MATHS",
-                                "teacher": "RBH"
+                                "subject": "ENG",
+                                "teacher": "PG"
                             },
                             "VI": {
                                 "subject": "DIV",
@@ -1380,7 +1380,7 @@
                             },
                             "VII": {
                                 "subject": "MATHS",
-                                "teacher": "RBH"
+                                "teacher": "PB"
                             },
                             "VI": {
                                 "subject": "ENG",
@@ -1452,28 +1452,28 @@
                                 "teacher": "TB"
                             },
                             "XI": {
-                                "subject": "PUN",
-                                "teacher": "HPK"
+                                "subject": "PUN/HIN",
+                                "teacher": "HPK/PT"
                             },
                             "X": {
-                                "subject": "COM/BIO",
-                                "teacher": "DS/VKS"
+                                "subject": "COM/PHY",
+                                "teacher": "DS/PD"
                             },
                             "IX": {
-                                "subject": "HIN/PUN",
-                                "teacher": "PT/HPK"
+                                "subject": "GEOG",
+                                "teacher": "SRW"
                             },
                             "VIII": {
                                 "subject": "PHY",
                                 "teacher": "AP"
                             },
                             "VII": {
-                                "subject": "ENG",
-                                "teacher": "PG"
+                                "subject": "MATHS",
+                                "teacher": "PB"
                             },
                             "VI": {
                                 "subject": "HIST",
-                                "teacher": "RBH"
+                                "teacher": "NM"
                             },
                             "V": {
                                 "subject": "MATHS",
@@ -1542,16 +1542,16 @@
                         },
                         "Shangri-la": {
                             "XII": {
-                                "subject": "H/P/C/PE/A",
-                                "teacher": "PT/HPK/AM/SSB/VT"
+                                "subject": "H/P/C/A",
+                                "teacher": "PT/HPK/AM/VT"
                             },
                             "XI": {
                                 "subject": "MATH/HIST/PE",
-                                "teacher": "RB/CPR/SSB"
+                                "teacher": "RB/CPR/SN"
                             },
                             "X": {
-                                "subject": "COM/CHE",
-                                "teacher": "VKS/KK"
+                                "subject": "MATHS/ECO",
+                                "teacher": "PD/TB"
                             },
                             "IX": {
                                 "subject": "ENG",
@@ -1563,7 +1563,7 @@
                             },
                             "VII": {
                                 "subject": "HIST",
-                                "teacher": "CPR"
+                                "teacher": "NM"
                             },
                             "VI": {
                                 "subject": "PHY",
@@ -1635,8 +1635,8 @@
                                 "teacher": "TB/DS"
                             },
                             "XI": {
-                                "subject": "H/P/C/PE/A",
-                                "teacher": "PT/HPK/AM/SSB/VT"
+                                "subject": "H/P/C/A",
+                                "teacher": "PT/HPK/AM/VT"
                             },
                             "X": {
                                 "subject": "HIST",
@@ -1733,7 +1733,7 @@
                             },
                             "IX": {
                                 "subject": "HIST",
-                                "teacher": "CPR"
+                                "teacher": "NM"
                             },
                             "VIII": {
                                 "subject": "ART",
@@ -1745,7 +1745,7 @@
                             },
                             "VI": {
                                 "subject": "MATHS",
-                                "teacher": "GD"
+                                "teacher": "PB"
                             },
                             "V": {
                                 "subject": "MATHS",
@@ -1817,20 +1817,20 @@
                                 "teacher": "KST"
                             },
                             "X": {
-                                "subject": "MAT/ECO",
-                                "teacher": "PD/TB"
+                                "subject": "HIN/PUN",
+                                "teacher": "PT/HPK"
                             },
                             "IX": {
                                 "subject": "COM/BIO",
-                                "teacher": "VKS/DS"
+                                "teacher": "VKS/AP"
                             },
                             "VIII": {
                                 "subject": "ENG",
                                 "teacher": "PG"
                             },
                             "VII": {
-                                "subject": "LIB",
-                                "teacher": "SK"
+                                "subject": "MATHS",
+                                "teacher": "PB"
                             },
                             "VI": {
                                 "subject": "HIN",
@@ -1910,20 +1910,20 @@
                                 "teacher": "VKS/DS"
                             },
                             "X": {
-                                "subject": "P/C/A",
-                                "teacher": "SSB/SR/VT"
+                                "subject": "ENG",
+                                "teacher": "AVK"
                             },
                             "IX": {
                                 "subject": "MAT/ECO",
                                 "teacher": "PD/TB"
                             },
                             "VIII": {
-                                "subject": "MATHS",
-                                "teacher": "PB"
+                                "subject": "DIV",
+                                "teacher": "JJ"
                             },
                             "VII": {
-                                "subject": "MATHS",
-                                "teacher": "RBH"
+                                "subject": "LIB",
+                                "teacher": "SK"
                             },
                             "VI": {
                                 "subject": "ENG",
@@ -2003,8 +2003,8 @@
                                 "teacher": "SRW"
                             },
                             "IX": {
-                                "subject": "MATH/ECO",
-                                "teacher": "PD/TB"
+                                "subject": "MATH",
+                                "teacher": "PD"
                             },
                             "VIII": {
                                 "subject": "PHY",
@@ -2080,16 +2080,16 @@
                         },
                         "Shangri-la": {
                             "XII": {
-                                "subject": "ECO/MATH",
-                                "teacher": "TB/PB"
+                                "subject": "ECO",
+                                "teacher": "TB"
                             },
                             "XI": {
                                 "subject": "ENG",
                                 "teacher": "AVK"
                             },
                             "X": {
-                                "subject": "BIO",
-                                "teacher": "DS"
+                                "subject": "BIO/COMM",
+                                "teacher": "DS/VKS"
                             },
                             "IX": {
                                 "subject": "GEOG",
@@ -2101,7 +2101,7 @@
                             },
                             "VII": {
                                 "subject": "MATHS",
-                                "teacher": "RBH"
+                                "teacher": "PB"
                             },
                             "VI": {
                                 "subject": "PBI",
@@ -2169,20 +2169,20 @@
                         },
                         "Shangri-la": {
                             "XII": {
-                                "subject": "PS",
-                                "teacher": "SSB"
+                                "subject": "PE/MATHS",
+                                "teacher": "SN/PB"
                             },
                             "XI": {
                                 "subject": "ENG ",
                                 "teacher": "AVK"
                             },
                             "X": {
-                                "subject": "ECO/MAT",
-                                "teacher": "TB/PD"
+                                "subject": "MATHS",
+                                "teacher": "PD"
                             },
                             "IX": {
-                                "subject": "ENG",
-                                "teacher": "PG"
+                                "subject": "HIN/PUN",
+                                "teacher": "PT/HPK"
                             },
                             "VIII": {
                                 "subject": "GEOG",
@@ -2194,7 +2194,7 @@
                             },
                             "VI": {
                                 "subject": "HIST",
-                                "teacher": "RBH"
+                                "teacher": "NM"
                             },
                             "V": {
                                 "subject": "PBI",
@@ -2263,24 +2263,24 @@
                         },
                         "Shangri-la": {
                             "XII": {
-                                "subject": "H/P/C/PE/A",
-                                "teacher": "PT/HPK/AM/SSB/VT"
+                                "subject": "H/P/C/A",
+                                "teacher": "PT/HPK/AM/VT"
                             },
                             "XI": {
                                 "subject": "MATH/HIST/PE",
-                                "teacher": "RB/CPR/SSB"
+                                "teacher": "RB/CPR/SN"
                             },
                             "X": {
-                                "subject": "COM/CHE",
-                                "teacher": "VKS/KK"
+                                "subject": "ECO/MATHS",
+                                "teacher": "PD/TB"
                             },
                             "IX": {
-                                "subject": "MATH/ECO",
-                                "teacher": "PD/TB"
+                                "subject": "COM/CHEM",
+                                "teacher": "VKS/KST"
                             },
                             "VIII": {
                                 "subject": "HIST",
-                                "teacher": "CPR"
+                                "teacher": "NM"
                             },
                             "VII": {
                                 "subject": "MUSIC",
@@ -2353,7 +2353,7 @@
                         "Shangri-la": {
                             "XII": {
                                 "subject": "MAT/BIO/HIST",
-                                "teacher": "GD/DS/CPR"
+                                "teacher": "PB/DS/CPR"
                             },
                             "XI": {
                                 "subject": "H/P/C/PE/A",
@@ -2364,8 +2364,8 @@
                                 "teacher": "AVK"
                             },
                             "IX": {
-                                "subject": "CHE/COM",
-                                "teacher": "KST/VKS"
+                                "subject": "MATHS/ECO",
+                                "teacher": "PD/TB"
                             },
                             "VIII": {
                                 "subject": "ENG",
@@ -2538,20 +2538,20 @@
                                 "teacher": "KST"
                             },
                             "X": {
-                                "subject": "MAT/ECO",
-                                "teacher": "PD/TB"
+                                "subject": "HIN/PUN",
+                                "teacher": "PT/HPK"
                             },
                             "IX": {
                                 "subject": "HIST",
-                                "teacher": "CPR"
+                                "teacher": "NM"
                             },
                             "VIII": {
                                 "subject": "CHEM",
                                 "teacher": "AP"
                             },
                             "VII": {
-                                "subject": "PUN",
-                                "teacher": "HPK"
+                                "subject": "MATHS",
+                                "teacher": "PB"
                             },
                             "VI": {
                                 "subject": "ART",
@@ -2632,7 +2632,7 @@
                             },
                             "X": {
                                 "subject": "P/C/A",
-                                "teacher": "SSB/SR/VT"
+                                "teacher": "SN/SR/VT"
                             },
                             "IX": {
                                 "subject": "MAT/ECO",
@@ -2643,8 +2643,8 @@
                                 "teacher": "PB"
                             },
                             "VII": {
-                                "subject": "MATHS",
-                                "teacher": "RBH"
+                                "subject": "PUN",
+                                "teacher": "HPK"
                             },
                             "VI": {
                                 "subject": "ENG",
@@ -2712,8 +2712,8 @@
                         },
                         "Shangri-la": {
                             "XII": {
-                                "subject": "NA",
-                                "teacher": "NA"
+                                "subject": "HIST",
+                                "teacher": "CPR"
                             },
                             "XI": {
                                 "subject": "ACC/PHY",
@@ -2801,8 +2801,8 @@
                         },
                         "Shangri-la": {
                             "XII": {
-                                "subject": "ECO/MATH",
-                                "teacher": "TB/GD"
+                                "subject": "ECO/MATHS",
+                                "teacher": "TB/PB"
                             },
                             "XI": {
                                 "subject": "PHY",
@@ -2813,8 +2813,8 @@
                                 "teacher": "CPR"
                             },
                             "IX": {
-                                "subject": "BIO",
-                                "teacher": "AP"
+                                "subject": "COM/PHY",
+                                "teacher": "PD/VKS"
                             },
                             "VIII": {
                                 "subject": "PUN",
@@ -2890,8 +2890,8 @@
                         },
                         "Shangri-la": {
                             "XII": {
-                                "subject": "PS",
-                                "teacher": "SSB"
+                                "subject": "PE",
+                                "teacher": "SN"
                             },
                             "XI": {
                                 "subject": "ENG",
@@ -2899,11 +2899,11 @@
                             },
                             "X": {
                                 "subject": "MATHS",
-                                "teacher": "/PD"
+                                "teacher": "PD"
                             },
                             "IX": {
-                                "subject": "ENG",
-                                "teacher": "PG"
+                                "subject": "HIST",
+                                "teacher": "NM"
                             },
                             "VIII": {
                                 "subject": "COMP",
@@ -2915,7 +2915,7 @@
                             },
                             "VI": {
                                 "subject": "GEOG",
-                                "teacher": "RBH"
+                                "teacher": "PP"
                             },
                             "V": {
                                 "subject": "PUN",
@@ -2992,8 +2992,8 @@
                                 "teacher": "RB/CPR"
                             },
                             "X": {
-                                "subject": "COM/CHE",
-                                "teacher": "VKS/KK"
+                                "subject": "MATHS/ECO",
+                                "teacher": "PD/TB"
                             },
                             "IX": {
                                 "subject": "HIN/PBI",
@@ -3001,7 +3001,7 @@
                             },
                             "VIII": {
                                 "subject": "HIST",
-                                "teacher": "CPR"
+                                "teacher": "NM"
                             },
                             "VII": {
                                 "subject": "ENG",
@@ -3081,12 +3081,12 @@
                                 "teacher": "RB/CPR"
                             },
                             "X": {
-                                "subject": "HIN/PBI",
-                                "teacher": "PT/HPK"
+                                "subject": "BIO/COM",
+                                "teacher": "DS/VKS"
                             },
                             "IX": {
-                                "subject": "PHY",
-                                "teacher": "PD"
+                                "subject": "CHEM",
+                                "teacher": "KST"
                             },
                             "VIII": {
                                 "subject": "CHEM",
@@ -3259,8 +3259,8 @@
                                 "teacher": "AVK"
                             },
                             "X": {
-                                "subject": "MATH/ECO",
-                                "teacher": "PD/TB"
+                                "subject": "CHEM/ECO",
+                                "teacher": "KST/TB"
                             },
                             "IX": {
                                 "subject": "COM/BIO",
@@ -3353,19 +3353,19 @@
                             },
                             "X": {
                                 "subject": "P/C/A",
-                                "teacher": "SSB/SR/VT"
+                                "teacher": "SN/SR/VT"
                             },
                             "IX": {
                                 "subject": "MAT/ECO",
                                 "teacher": "PD/TB"
                             },
                             "VIII": {
-                                "subject": "DIV",
-                                "teacher": "JJ"
+                                "subject": "LIB",
+                                "teacher": "SK"
                             },
                             "VII": {
                                 "subject": "MATHS",
-                                "teacher": "RBH"
+                                "teacher": "PB"
                             },
                             "VI": {
                                 "subject": "ENG",
@@ -3457,8 +3457,8 @@
                                 "teacher": "PG"
                             },
                             "VI": {
-                                "subject": "MATHS",
-                                "teacher": "PB"
+                                "subject": "GEOG",
+                                "teacher": "PP"
                             },
                             "V": {
                                 "subject": "SST",
@@ -3523,19 +3523,19 @@
                         "Shangri-la": {
                             "XII": {
                                 "subject": "MAT/BIO",
-                                "teacher": "GD/DS"
+                                "teacher": "PB/DS"
                             },
                             "XI": {
                                 "subject": "PHY/ECO",
                                 "teacher": "BSN/TB"
                             },
                             "X": {
-                                "subject": "NA",
-                                "teacher": "NA"
+                                "subject": "PHY/COM",
+                                "teacher": "PD/VKS"
                             },
                             "IX": {
-                                "subject": "GEOG",
-                                "teacher": "SRW"
+                                "subject": "ENG",
+                                "teacher": "PG"
                             },
                             "VIII": {
                                 "subject": "PUN",
@@ -3612,7 +3612,7 @@
                         "Shangri-la": {
                             "XII": {
                                 "subject": "PE",
-                                "teacher": "SSB"
+                                "teacher": "SN"
                             },
                             "XI": {
                                 "subject": "ENG",
@@ -3623,8 +3623,8 @@
                                 "teacher": "CPR"
                             },
                             "IX": {
-                                "subject": "HIST",
-                                "teacher": "NM"
+                                "subject": "PHY",
+                                "teacher": "PD"
                             },
                             "VIII": {
                                 "subject": "COMP",
@@ -3635,8 +3635,8 @@
                                 "teacher": "SRW"
                             },
                             "VI": {
-                                "subject": "GEOG",
-                                "teacher": "RBH"
+                                "subject": "MATHS",
+                                "teacher": "PB"
                             },
                             "V": {
                                 "subject": "PUN",
@@ -3713,8 +3713,8 @@
                                 "teacher": "RB/CPR"
                             },
                             "X": {
-                                "subject": "COM/CHE",
-                                "teacher": "VKS/KK"
+                                "subject": "MATHS/ECO",
+                                "teacher": "PD/TB"
                             },
                             "IX": {
                                 "subject": "HIN/PBI",
@@ -3722,7 +3722,7 @@
                             },
                             "VIII": {
                                 "subject": "HIST",
-                                "teacher": "CPR"
+                                "teacher": "NM"
                             },
                             "VII": {
                                 "subject": "ENG",
@@ -3802,16 +3802,16 @@
                                 "teacher": "RB/CPR"
                             },
                             "X": {
-                                "subject": "HIN/PBI",
-                                "teacher": "PT/HPK"
+                                "subject": "BIO/COMM",
+                                "teacher": "DS/VKS"
                             },
                             "IX": {
-                                "subject": "PHY",
-                                "teacher": "PD"
+                                "subject": "CHEM",
+                                "teacher": "KST"
                             },
                             "VIII": {
-                                "subject": "LIB",
-                                "teacher": "SK"
+                                "subject": "MATHS",
+                                "teacher": "PB"
                             },
                             "VII": {
                                 "subject": "ART",
@@ -3907,8 +3907,8 @@
                                 "teacher": "AP"
                             },
                             "VI": {
-                                "subject": "GK",
-                                "teacher": "SN"
+                                "subject": "GEOG",
+                                "teacher": "PP"
                             },
                             "V": {
                                 "subject": "MATHS",
@@ -3980,8 +3980,8 @@
                                 "teacher": "AVK"
                             },
                             "X": {
-                                "subject": "MAT/ECO",
-                                "teacher": "PD/TB"
+                                "subject": "CHEM",
+                                "teacher": "KST"
                             },
                             "IX": {
                                 "subject": "COM",
@@ -4081,12 +4081,12 @@
                                 "teacher": "PD/TB"
                             },
                             "VIII": {
-                                "subject": "MATHS",
-                                "teacher": "PB"
+                                "subject": "COMP",
+                                "teacher": "SR"
                             },
                             "VII": {
                                 "subject": "MATHS",
-                                "teacher": "RBH"
+                                "teacher": "PB"
                             },
                             "VI": {
                                 "subject": "ENG",
@@ -4178,8 +4178,8 @@
                                 "teacher": "PG"
                             },
                             "VI": {
-                                "subject": "GEOG",
-                                "teacher": "RBH"
+                                "subject": "GK",
+                                "teacher": "PB"
                             },
                             "V": {
                                 "subject": "SST",
@@ -4391,3 +4391,4 @@
         }
     }
 }
+
