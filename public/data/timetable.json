@@ -721,8 +721,8 @@
                                 "teacher": "SJK"
                             },
                             "VI": {
-                                "subject": "GK",
-                                "teacher": "RK"
+                                "subject": "MUSIC",
+                                "teacher": "HS"
                             }
                         },
                         "Shangri-la": {
@@ -1974,11 +1974,11 @@
                             },
                             "IX": {
                                 "subject": "CHEM/MUSIC",
-                                "teacher": "PSK/HS"
+                                "teacher": "PSK/RBH"
                             },
                             "VIII": {
-                                "subject": "MUSIC/LANG",
-                                "teacher": "RBH"
+                                "subject": "MUSIC",
+                                "teacher": "HS"
                             },
                             "VII": {
                                 "subject": "ENG",
@@ -2876,8 +2876,8 @@
                                 "teacher": "SS/HPS"
                             },
                             "VIII": {
-                                "subject": "MUSIC",
-                                "teacher": "HS"
+                                "subject": "MUSIC/LANG",
+                                "teacher": "RBH"
                             },
                             "VII": {
                                 "subject": "HIST",
@@ -3419,8 +3419,8 @@
                                 "teacher": "PSK/RBH"
                             },
                             "VIII": {
-                                "subject": "LIB",
-                                "teacher": "SGR"
+                                "subject": "MUSIC",
+                                "teacher": "HS"
                             },
                             "VII": {
                                 "subject": "ENG",
@@ -4391,4 +4391,5 @@
         }
     }
 }
+
 
