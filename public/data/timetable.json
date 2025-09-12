@@ -1974,11 +1974,11 @@
                             },
                             "IX": {
                                 "subject": "CHEM/MUSIC",
-                                "teacher": "PSK/RBH"
+                                "teacher": "PSK/HS"
                             },
                             "VIII": {
-                                "subject": "MUSIC",
-                                "teacher": "HS"
+                                "subject": "LIB",
+                                "teacher": "SGR"
                             },
                             "VII": {
                                 "subject": "ENG",
@@ -2876,7 +2876,7 @@
                                 "teacher": "SS/HPS"
                             },
                             "VIII": {
-                                "subject": "MUSIC/LANG",
+                                "subject": "MUSIC",
                                 "teacher": "RBH"
                             },
                             "VII": {
@@ -3601,8 +3601,8 @@
                                 "teacher": "HPS"
                             },
                             "VII": {
-                                "subject": "GAMES",
-                                "teacher": "VR"
+                                "subject": "MUSIC",
+                                "teacher": "HS"
                             },
                             "VI": {
                                 "subject": "HINDI ( R)",
@@ -4391,5 +4391,6 @@
         }
     }
 }
+
 
 
