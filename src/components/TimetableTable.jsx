@@ -12,9 +12,23 @@ const TimetableTable = () => {
   const [teacherSchedule, setTeacherSchedule] = useState([]);
   const [teacherList, setTeacherList] = useState([]);
 
-  // 🔔 BELL REFERENCES
   const bellRef = useRef(null);
   const lastSlot = useRef(null);
+
+  // ✅ ENABLE SOUND AFTER FIRST CLICK (IMPORTANT)
+  useEffect(() => {
+    const enableSound = () => {
+      if (bellRef.current) {
+        bellRef.current.play().then(() => {
+          bellRef.current.pause();
+          bellRef.current.currentTime = 0;
+        }).catch(() => {});
+      }
+      document.removeEventListener("click", enableSound);
+    };
+
+    document.addEventListener("click", enableSound);
+  }, []);
 
   // ✅ FETCH DATA
   useEffect(() => {
@@ -61,7 +75,7 @@ const TimetableTable = () => {
     return h * 60 + m;
   };
 
-  // ✅ CURRENT SLOT + 🔔 BELL SYSTEM
+  // ✅ CURRENT SLOT + 🔔 BELL SYSTEM (EVERY SECOND)
   useEffect(() => {
     if (!timetableData) return;
 
@@ -83,10 +97,10 @@ const TimetableTable = () => {
         return start && end && mins >= start && mins <= end;
       });
 
-      // 🔔 SMART BELL LOGIC
+      // 🔔 BELL LOGIC
       if (
         active?.time &&
-        active.bell !== false &&   // 👈 CONTROL FROM JSON
+        active.bell !== false &&
         lastSlot.current !== active.time
       ) {
         lastSlot.current = active.time;
@@ -101,7 +115,7 @@ const TimetableTable = () => {
     };
 
     update();
-    const i = setInterval(update, 60000);
+    const i = setInterval(update, 1000); // ✅ EVERY SECOND
     return () => clearInterval(i);
   }, [timetableData]);
 
@@ -140,7 +154,6 @@ const TimetableTable = () => {
       });
     });
 
-    // ✅ COMMON ROUTINE
     (timetableData.commonRoutine || []).forEach(item => {
       if (item.teacher === selectedTeacher) {
         schedule.push({
