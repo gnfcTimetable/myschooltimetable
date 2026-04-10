@@ -2,6 +2,7 @@ import React, { useState, useEffect, useMemo, useRef } from "react";
 import "../App.css";
 
 const TimetableTable = () => {
+
   const classes = ["KG","I","II","III","IV","V","VI","VII","VIII","IX","X","XI","XII"];
 
   const [timetableData, setTimetableData] = useState(null);
@@ -30,20 +31,24 @@ const TimetableTable = () => {
     return () => clearInterval(interval);
   }, []);
 
-  // ✅ TIME PARSER
+  // ✅ TIME PARSER (SAFE)
   const parseTime = (timeStr) => {
+    if (!timeStr) return null;
     const match = timeStr.match(/(\d+):(\d+)\s*(AM|PM)?/i);
     if (!match) return null;
+
     let [_, h, m, p] = match;
     h = parseInt(h); m = parseInt(m);
+
     if (p) {
       if (p.toUpperCase() === "PM" && h !== 12) h += 12;
       if (p.toUpperCase() === "AM" && h === 12) h = 0;
     }
+
     return h * 60 + m;
   };
 
-  // ✅ SLOT + 🔊 BELL
+  // ✅ SLOT DETECTION + BELL + COMMON ROUTINE
   useEffect(() => {
     if (!timetableData) return;
 
@@ -57,14 +62,28 @@ const TimetableTable = () => {
       const schedule = timetableData.schedule?.[day]?.classes || [];
       const common = timetableData.commonRoutine || [];
 
-      const merged = [...schedule, ...common.map(i => ({...i, isCommonRoutine:true}))];
+      // 🔥 ROBUST MERGE + SORT
+      const merged = [
+        ...schedule,
+        ...common.map(item => ({
+          ...item,
+          isCommonRoutine: true
+        }))
+      ].sort((a, b) => {
+        const aT = parseTime(a.time?.split(" TO ")[0] || "");
+        const bT = parseTime(b.time?.split(" TO ")[0] || "");
+        return (aT || 0) - (bT || 0);
+      });
 
+      // 🔥 SAFE SLOT MATCH
       const active = merged.find(item => {
-        if (!item.time?.includes(" TO ")) return false;
-        const [s,e] = item.time.split(" TO ");
-        const start = parseTime(s.trim());
-        const end = parseTime(e.trim());
-        return start !== null && end !== null && currentMins >= start && currentMins < end;
+        if (!item?.time || !item.time.includes(" TO ")) return false;
+
+        const [start, end] = item.time.split(" TO ");
+        const s = parseTime(start?.trim());
+        const e = parseTime(end?.trim());
+
+        return s !== null && e !== null && currentMins >= s && currentMins < e;
       });
 
       setCurrentSlot(active || null);
@@ -73,14 +92,15 @@ const TimetableTable = () => {
       const slotKey = active?.time || "";
       if (slotKey && lastPlayedSlot.current !== slotKey) {
         lastPlayedSlot.current = slotKey;
+
         if (bellRef.current) {
           bellRef.current.currentTime = 0;
-          bellRef.current.play().catch(()=>{});
+          bellRef.current.play().catch(() => {});
         }
       }
 
-      const index = merged.findIndex(i => i === active);
-      setNextSlot(merged[index + 1] || null);
+      const idx = merged.findIndex(i => i === active);
+      setNextSlot(merged[idx + 1] || null);
     };
 
     updateSlot();
@@ -104,46 +124,64 @@ const TimetableTable = () => {
       clearTimeout(timer);
       timer = setTimeout(() => setIsIdle(true), 10000);
     };
+
     window.addEventListener("mousemove", reset);
     window.addEventListener("touchstart", reset);
     reset();
+
     return () => {
       window.removeEventListener("mousemove", reset);
       window.removeEventListener("touchstart", reset);
     };
   }, []);
 
-  // ✅ TEACHER LIST
+  // ✅ TEACHER LIST (SUPER SAFE)
   const teacherList = useMemo(() => {
-    if (!timetableData) return [];
-    return Array.from(new Set(
-      Object.values(timetableData.schedule?.[currentDay]?.classes || []).flatMap(slot =>
-        Object.values(slot.subjects || {}).flatMap(school =>
-          Object.values(school || {}).flatMap(entry =>
-            entry.teacher ? entry.teacher.split("/") : []
-          )
-        )
-      )
-    ));
+    if (!timetableData || !currentDay) return [];
+
+    const today = timetableData.schedule?.[currentDay]?.classes || [];
+
+    let teachers = [];
+
+    today.forEach(slot => {
+      if (!slot?.subjects) return;
+
+      Object.values(slot.subjects).forEach(school => {
+        if (!school) return;
+
+        Object.values(school).forEach(entry => {
+          if (entry?.teacher) {
+            teachers.push(...entry.teacher.split("/"));
+          }
+        });
+      });
+    });
+
+    return [...new Set(teachers.map(t => t.trim()).filter(Boolean))];
   }, [timetableData, currentDay]);
 
-  // ✅ TEACHER ROUTINE
+  // ✅ TEACHER ROUTINE (ACCURATE MATCH)
   useEffect(() => {
     if (!selectedTeacher || !timetableData) return;
 
     const today = timetableData.schedule?.[currentDay]?.classes || [];
 
     const result = today.flatMap(slot => {
+      if (!slot?.subjects) return [];
+
       return classes.flatMap(c => {
         let arr = [];
+
         const vh = slot.subjects?.["Vincent Hill"]?.[c];
         const sh = slot.subjects?.["Shangri-la"]?.[c];
 
-        if (vh?.teacher?.includes(selectedTeacher))
-          arr.push({ time: slot.time, class: `${c} VH`, subject: vh.subject });
+        if (vh?.teacher?.split("/").map(t=>t.trim()).includes(selectedTeacher)) {
+          arr.push({ time: slot.time, class: `${c} VH`, subject: vh.subject || "-" });
+        }
 
-        if (sh?.teacher?.includes(selectedTeacher))
-          arr.push({ time: slot.time, class: `${c} SH`, subject: sh.subject });
+        if (sh?.teacher?.split("/").map(t=>t.trim()).includes(selectedTeacher)) {
+          arr.push({ time: slot.time, class: `${c} SH`, subject: sh.subject || "-" });
+        }
 
         return arr;
       });
@@ -155,7 +193,7 @@ const TimetableTable = () => {
   return (
     <div className={`timetable-container ${isIdle ? "screensaver" : ""}`}>
 
-      {/* 🔊 BELL AUDIO */}
+      {/* 🔊 BELL */}
       <audio ref={bellRef} src="/sounds/bell.mp3" preload="auto" />
 
       <h1>📅 School Timetable</h1>
@@ -164,7 +202,7 @@ const TimetableTable = () => {
       {currentSlot && <h3>📚 {currentSlot.time}</h3>}
       {nextSlot && <h4>⏭ Next: {nextSlot.time}</h4>}
 
-      {/* TABLE */}
+      {/* ✅ TABLE */}
       {currentSlot ? (
         <table className="timetable">
           <thead>
@@ -175,32 +213,40 @@ const TimetableTable = () => {
             </tr>
           </thead>
           <tbody>
-            {classes.map((c,i) => {
+            {classes.map((c, i) => {
 
-              if (currentSlot.break || currentSlot.isCommonRoutine) {
+              // 🔥 HANDLE ALL NON-SUBJECT SLOTS
+              if (currentSlot.break || currentSlot.remedial || currentSlot.isCommonRoutine) {
+                const text =
+                  currentSlot.break ||
+                  currentSlot.remedial ||
+                  currentSlot.activity ||
+                  "Common Routine";
+
                 return i === 0 ? (
                   <tr key={i}>
-                    <td colSpan={3}>{currentSlot.break || "Activity"}</td>
+                    <td colSpan={3}>{text}</td>
                   </tr>
                 ) : null;
               }
 
+              // 🔥 SAFE SUBJECT HANDLING
               const vh = currentSlot.subjects?.["Vincent Hill"]?.[c] || {};
               const sh = currentSlot.subjects?.["Shangri-la"]?.[c] || {};
 
               return (
                 <tr key={i}>
                   <td>{c}</td>
-                  <td>{vh.subject ? `${vh.subject} (${vh.teacher})` : "-"}</td>
-                  <td>{sh.subject ? `${sh.subject} (${sh.teacher})` : "-"}</td>
+                  <td>{vh.subject ? `${vh.subject} (${vh.teacher || ""})` : "-"}</td>
+                  <td>{sh.subject ? `${sh.subject} (${sh.teacher || ""})` : "-"}</td>
                 </tr>
               );
             })}
           </tbody>
         </table>
-      ) : <p>No active class</p>}
+      ) : <p>No active slot</p>}
 
-      {/* 👨‍🏫 TEACHER SELECT */}
+      {/* 👨‍🏫 TEACHER */}
       {!isIdle && (
         <>
           <h3>Select Teacher</h3>
@@ -209,7 +255,6 @@ const TimetableTable = () => {
             {teacherList.map(t => <option key={t}>{t}</option>)}
           </select>
 
-          {/* ROUTINE */}
           {teacherSchedule.length > 0 && (
             <table>
               <thead>
