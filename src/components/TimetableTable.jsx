@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "../App.css";
 
 const TimetableTable = () => {
@@ -12,29 +12,31 @@ const TimetableTable = () => {
   const [teacherSchedule, setTeacherSchedule] = useState([]);
   const [teacherList, setTeacherList] = useState([]);
 
-  // ✅ FETCH DATA (FIXED PATH)
+  // 🔔 BELL REFERENCES
+  const bellRef = useRef(null);
+  const lastSlot = useRef(null);
+
+  // ✅ FETCH DATA
   useEffect(() => {
-    fetch("/data/timetable.json")   // ✅ CORRECT PATH
+    fetch("/data/timetable.json")
       .then(res => res.json())
       .then(data => {
         setTimetableData(data);
 
         let teachers = [];
 
-        // ✅ EXTRACT TEACHERS FROM ALL DAYS
         Object.values(data.schedule || {}).forEach(day => {
           (day.classes || []).forEach(slot => {
             Object.values(slot.subjects || {}).forEach(school => {
               Object.values(school || {}).forEach(entry => {
                 if (entry?.teacher) {
-                  teachers.push(...entry.teacher.split("/")); // ✅ HANDLE '/'
+                  teachers.push(...entry.teacher.split("/"));
                 }
               });
             });
           });
         });
 
-        // ✅ ADD COMMON ROUTINE TEACHER
         (data.commonRoutine || []).forEach(item => {
           if (item.teacher) teachers.push(item.teacher);
         });
@@ -59,7 +61,7 @@ const TimetableTable = () => {
     return h * 60 + m;
   };
 
-  // ✅ CURRENT SLOT
+  // ✅ CURRENT SLOT + 🔔 BELL SYSTEM
   useEffect(() => {
     if (!timetableData) return;
 
@@ -80,6 +82,20 @@ const TimetableTable = () => {
         const [start, end] = slot.time.split("TO").map(t => parseTime(t.trim()));
         return start && end && mins >= start && mins <= end;
       });
+
+      // 🔔 SMART BELL LOGIC
+      if (
+        active?.time &&
+        active.bell !== false &&   // 👈 CONTROL FROM JSON
+        lastSlot.current !== active.time
+      ) {
+        lastSlot.current = active.time;
+
+        if (bellRef.current) {
+          bellRef.current.currentTime = 0;
+          bellRef.current.play().catch(() => {});
+        }
+      }
 
       setCurrentSlot(active || null);
     };
@@ -124,7 +140,7 @@ const TimetableTable = () => {
       });
     });
 
-    // ✅ COMMON ROUTINE FOR TEACHER
+    // ✅ COMMON ROUTINE
     (timetableData.commonRoutine || []).forEach(item => {
       if (item.teacher === selectedTeacher) {
         schedule.push({
@@ -143,6 +159,9 @@ const TimetableTable = () => {
       <h1>📅 School Timetable</h1>
 
       <h2>{currentDay} | {currentTime}</h2>
+
+      {/* 🔔 AUDIO */}
+      <audio ref={bellRef} src="/sounds/bell.mp3" preload="auto" />
 
       {/* ✅ CURRENT SLOT */}
       {currentSlot ? (
