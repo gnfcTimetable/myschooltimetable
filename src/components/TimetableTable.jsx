@@ -120,7 +120,7 @@ const TimetableTable = () => {
 
   return (
     <div className="timetable-container">
-      <h1 className="timetable-title">📅 Guru Nanak School Timetable</h1>
+      <h1 className="timetable-title">📅 School Timetable</h1>
 
       <h2 align="center">{currentDay} 🕒 {currentTime}</h2>
       <h3 align="center">📚 {currentSlotTime}</h3>
