@@ -15,15 +15,15 @@ const TimetableTable = () => {
   const bellRef = useRef(null);
   const lastSlot = useRef("");
 
-  // ✅ LOAD DATA (FIXED FOR GITHUB + DEBUG)
+  // ✅ LOAD DATA (FIXED FOR YOUR STRUCTURE)
   useEffect(() => {
-    fetch(`${import.meta.env.BASE_URL}data/timetable.json`)
+    fetch(`${import.meta.env.BASE_URL}timetable.json`)
       .then(res => res.json())
       .then(data => {
         console.log("✅ DATA LOADED:", data);
         setTimetableData(data);
       })
-      .catch(err => console.error("❌ ERROR LOADING JSON:", err));
+      .catch(err => console.error("❌ ERROR:", err));
   }, []);
 
   // ✅ TIME PARSER
@@ -43,7 +43,7 @@ const TimetableTable = () => {
     return h * 60 + m;
   };
 
-  // ✅ SLOT DETECTION + BELL
+  // ✅ SLOT DETECTION + COMMON ROUTINE + BELL
   useEffect(() => {
     if (!timetableData) return;
 
@@ -74,7 +74,7 @@ const TimetableTable = () => {
 
       setCurrentSlot(active || null);
 
-      // 🔊 Bell trigger
+      // 🔊 Bell
       if (active?.time && lastSlot.current !== active.time) {
         lastSlot.current = active.time;
         bellRef.current?.play().catch(() => {});
@@ -107,44 +107,33 @@ const TimetableTable = () => {
     return `${subject}${teacher ? ` (${teacher})` : ""}`;
   };
 
-  // ✅ TEACHER LIST (FIXED)
+  // ✅ TEACHER LIST
   const teacherList = useMemo(() => {
     if (!timetableData) return [];
 
     let teachers = [];
 
-    try {
-      Object.values(timetableData.schedule || {}).forEach(day => {
-        (day.classes || []).forEach(slot => {
-          if (!slot.subjects) return;
+    Object.values(timetableData.schedule || {}).forEach(day => {
+      (day.classes || []).forEach(slot => {
+        if (!slot.subjects) return;
 
-          Object.values(slot.subjects).forEach(school => {
-            Object.values(school || {}).forEach(entry => {
-              if (entry?.teacher) {
-                teachers.push(...entry.teacher.split("/"));
-              }
-            });
+        Object.values(slot.subjects).forEach(school => {
+          Object.values(school || {}).forEach(entry => {
+            if (entry?.teacher) {
+              teachers.push(...entry.teacher.split("/"));
+            }
           });
         });
       });
+    });
 
-      (timetableData.commonRoutine || []).forEach(item => {
-        if (item.teacher) {
-          teachers.push(...item.teacher.split("/"));
-        }
-      });
+    (timetableData.commonRoutine || []).forEach(item => {
+      if (item.teacher) {
+        teachers.push(...item.teacher.split("/"));
+      }
+    });
 
-    } catch (err) {
-      console.error("Teacher error:", err);
-    }
-
-    const cleaned = [...new Set(
-      teachers.map(t => t.trim()).filter(Boolean)
-    )];
-
-    console.log("👨‍🏫 TEACHERS:", cleaned);
-
-    return cleaned;
+    return [...new Set(teachers.map(t => t.trim()).filter(Boolean))];
 
   }, [timetableData]);
 
@@ -193,7 +182,7 @@ const TimetableTable = () => {
 
       {currentSlot ? <h3>{currentSlot.time}</h3> : <p>No active slot</p>}
 
-      {/* ✅ TABLE */}
+      {/* TABLE */}
       {currentSlot && (
         <table className="timetable">
           <thead>
@@ -234,7 +223,7 @@ const TimetableTable = () => {
         </table>
       )}
 
-      {/* 👨‍🏫 DROPDOWN */}
+      {/* TEACHER DROPDOWN */}
       <h3>Select Teacher</h3>
       <select value={selectedTeacher} onChange={(e)=>setSelectedTeacher(e.target.value)}>
         <option value="">Select Teacher</option>
@@ -243,7 +232,7 @@ const TimetableTable = () => {
         ))}
       </select>
 
-      {/* 📋 ROUTINE */}
+      {/* TEACHER ROUTINE */}
       {teacherSchedule.length > 0 && (
         <table>
           <thead>
