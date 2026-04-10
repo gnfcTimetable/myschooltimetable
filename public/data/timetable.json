@@ -2,64 +2,80 @@
     "commonRoutine": [ 
         {
             "time": "07:00 AM TO 07:45 AM",
-            "break": "MORNING GURUDWARA"
+            "break": "MORNING GURUDWARA",
+            "bell": true
         },
         {
             "time": "07:45 AM TO 08:15 AM",
-            "break": "BREAKFAST"
+            "break": "BREAKFAST",
+            "bell": true
         },
         {
             "time": "08:15 AM TO 08:30 AM",
-            "break": "ASSEMBLY"
+            "break": "ASSEMBLY",
+            "bell": true
         },
         {
             "time": "01:30 PM TO 02:00 PM",
-            "break": "LUNCH BREAK"
+            "break": "LUNCH BREAK",
+            "bell": true
         },
         {
             "time": "02:00 PM TO 03:30 PM",
             "remedial": "REMEDIAL CLASSES/PREP",
-            "teacher": "Class Teacher"
+            "teacher": "Class Teacher",
+            "bell": true
         },
         {
             "time": "03:30 PM TO 03:45 PM",
-            "break": "TEA SHARE"
+            "break": "TEA SHARE",
+            "bell": true
+            
         },
         {
             "time": "03:45 PM TO 04:00 PM",
-            "break": "CHANGE INTO GAMES KIT"
+            "break": "CHANGE INTO GAMES KIT",
+            "bell": true
         },
         {
             "time": "04:00 PM TO 05:30 PM",
-            "break": "GAMES / PHONE CALL"
+            "break": "GAMES / PHONE CALL",
+            "bell": true
         },
         {
             "time": "05:30 PM TO 06:15 PM",
-            "break": "TUCK SHOP"
+            "break": "TUCK SHOP",
+            "bell": true
         },
         {
             "time": "06:15 PM TO 07:00 PM",
-            "break": "EVENING GURUDWARA"
+            "break": "EVENING GURUDWARA",
+            "bell": true
         },
         {
             "time": "07:00 PM TO 07:30 PM",
-            "break": "DINNER"
+            "break": "DINNER",
+            "bell": true
         },
         {
             "time": "07:30 PM TO 08:30 PM",
-            "break": "NIGHT PREP"
+            "break": "NIGHT PREP",
+            "bell": true
         },
         {
             "time": "08:30 PM TO 10:00 PM",
-            "break": "RECREATION & REST"
+            "break": "RECREATION & REST",
+            "bell": true
         },
         {
             "time": "10:00 PM TO 11:59 PM",
-            "break": "LIGHTS OUT"
+            "break": "LIGHTS OUT",
+            "bell": false
         },
         {
             "time": "00:00 AM TO 05:30 AM",
-            "break": "LIGHTS OUT"
+            "break": "LIGHTS OUT",
+            "bell": false
         }
     ],
     "schedule": {
@@ -67,6 +83,7 @@
             "classes": [
                 {
                     "time": "08:30 AM TO 09:05 AM",
+                    "bell": true,
                     "subjects": {
                         "Vincent Hill": {
                             "XII": {
@@ -101,6 +118,7 @@
                         "Shangri-la": {
                             "XII": {
                                 "subject": "H/P/C/A/PE",
+                                "bell": true,
                                 "teacher": "PT/HK/AM/VT/SPB"
                             },
                             "XI": {
@@ -156,6 +174,7 @@
                 },
                 {
                     "time": "09:05 AM TO 09:40 AM",
+                    "bell": true,
                     "subjects": {
                         "Vincent Hill": {
                             "XII": {
@@ -245,6 +264,7 @@
                 },
                 {
                     "time": "09:40 AM TO 10:15 AM",
+                    "bell": true,
                     "subjects": {
                         "Vincent Hill": {
                             "XII": {
@@ -334,6 +354,7 @@
                 },
                 {
                     "time": "10:15 AM TO 10:50 AM",
+                    "bell": true,
                     "subjects": {
                         "Vincent Hill": {
                             "XII": {
@@ -423,6 +444,7 @@
                 },
                 {
                     "time": "10:50 AM TO 11:10 AM",
+                    "bell": true,
                     "break": "MILK BREAK"
                 },
                 {
@@ -516,6 +538,7 @@
                 },
                 {
                     "time": "11:45 AM TO 12:20 PM",
+                    "bell": true,
                     "subjects": {
                         "Vincent Hill": {
                             "XII": {
@@ -605,6 +628,7 @@
                 },
                 {
                     "time": "12:20 PM TO 12:55 PM",
+                    "bell": true,
                     "subjects": {
                         "Vincent Hill": {
                             "XII": {
@@ -694,6 +718,7 @@
                 },
                 {
                     "time": "12:55 PM TO 1:30 PM",
+                    "bell": true,
                     "subjects": {
                         "Vincent Hill": {
                             "XII": {
@@ -3672,6 +3697,7 @@
             "classes": [
                 {
                     "time": "08:30 AM TO 09:05 AM",
+                    "bell": true,
                     "subjects": {
                         "Vincent Hill": {
                             "XII": {
@@ -3761,6 +3787,7 @@
                 },
                 {
                     "time": "09:05 AM TO 09:40 AM",
+                    "bell": true,
                     "subjects": {
                         "Vincent Hill": {
                             "XII": {
@@ -3850,6 +3877,7 @@
                 },
                 {
                     "time": "09:40 AM TO 10:15 AM",
+                    "bell": true,
                     "subjects": {
                         "Vincent Hill": {
                             "XII": {
@@ -3939,6 +3967,7 @@
                 },
                 {
                     "time": "10:15 AM TO 10:50 AM",
+                    "bell": true,
                     "subjects": {
                         "Vincent Hill": {
                             "XII": {
@@ -4028,10 +4057,12 @@
                 },
                 {
                     "time": "10:50 AM TO 11:10 AM",
+                    "bell": true,
                     "break": "MILK BREAK"
                 },
                 {
                     "time": "11:10 AM TO 11:45 AM",
+                    "bell": true,
                     "subjects": {
                         "Vincent Hill": {
                             "XII": {
@@ -4121,6 +4152,7 @@
                 },
                 {
                     "time": "11:45 AM TO 12:20 PM",
+                    "bell": true,
                     "subjects": {
                         "Vincent Hill": {
                             "XII": {
@@ -4210,6 +4242,7 @@
                 },
                 {
                     "time": "12:20 PM TO 12:55 PM",
+                    "bell": true,
                     "subjects": {
                         "Vincent Hill": {
                             "XII": {
@@ -4299,6 +4332,7 @@
                 },
                 {
                     "time": "12:55 PM TO 1:30 PM",
+                    "bell": true,
                     "subjects": {
                         "Vincent Hill": {
                             "XII": {
