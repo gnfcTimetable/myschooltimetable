@@ -261,4 +261,4 @@ const TimetableTable = () => {
 };
 
 export default TimetableTable;
-Fix timetable fetch path for deployment
+//Fix timetable fetch path for deployment
