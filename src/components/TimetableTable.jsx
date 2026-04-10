@@ -17,7 +17,7 @@ const TimetableTable = () => {
 
   // ✅ LOAD DATA
   useEffect(() => {
-    fetch("/data/timetable.json")
+    fetch(`${import.meta.env.BASE_URL}data/timetable.json`)
       .then(res => res.json())
       .then(data => setTimetableData(data))
       .catch(err => console.error("Error:", err));
@@ -261,3 +261,4 @@ const TimetableTable = () => {
 };
 
 export default TimetableTable;
+Fix timetable fetch path for deployment
