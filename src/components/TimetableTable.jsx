@@ -1,8 +1,7 @@
-import React, { useState, useEffect, useMemo, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import "../App.css";
 
 const TimetableTable = () => {
-
   const classes = ["KG","I","II","III","IV","V","VI","VII","VIII","IX","X","XI","XII"];
 
   const [timetableData, setTimetableData] = useState(null);
@@ -11,249 +10,210 @@ const TimetableTable = () => {
   const [currentTime, setCurrentTime] = useState("");
   const [selectedTeacher, setSelectedTeacher] = useState("");
   const [teacherSchedule, setTeacherSchedule] = useState([]);
+  const [teacherList, setTeacherList] = useState([]);
 
-  const bellRef = useRef(null);
-  const lastSlot = useRef("");
-
-  // ✅ LOAD DATA (FIXED FOR YOUR STRUCTURE)
+  // ✅ FETCH DATA (FIXED PATH)
   useEffect(() => {
-    fetch(`${import.meta.env.BASE_URL}timetable.json`)
+    fetch("/data/timetable.json")   // ✅ CORRECT PATH
       .then(res => res.json())
       .then(data => {
-        console.log("✅ DATA LOADED:", data);
         setTimetableData(data);
+
+        let teachers = [];
+
+        // ✅ EXTRACT TEACHERS FROM ALL DAYS
+        Object.values(data.schedule || {}).forEach(day => {
+          (day.classes || []).forEach(slot => {
+            Object.values(slot.subjects || {}).forEach(school => {
+              Object.values(school || {}).forEach(entry => {
+                if (entry?.teacher) {
+                  teachers.push(...entry.teacher.split("/")); // ✅ HANDLE '/'
+                }
+              });
+            });
+          });
+        });
+
+        // ✅ ADD COMMON ROUTINE TEACHER
+        (data.commonRoutine || []).forEach(item => {
+          if (item.teacher) teachers.push(item.teacher);
+        });
+
+        setTeacherList([...new Set(teachers.filter(Boolean))]);
       })
       .catch(err => console.error("❌ ERROR:", err));
   }, []);
 
   // ✅ TIME PARSER
   const parseTime = (timeStr) => {
-    if (!timeStr) return null;
-
-    const match = timeStr.match(/(\d+):(\d+)\s*(AM|PM)/i);
+    const match = timeStr.match(/(\d+):(\d+)\s*(AM|PM)/);
     if (!match) return null;
 
     let [_, h, m, p] = match;
     h = parseInt(h);
     m = parseInt(m);
 
-    if (p.toUpperCase() === "PM" && h !== 12) h += 12;
-    if (p.toUpperCase() === "AM" && h === 12) h = 0;
+    if (p === "PM" && h !== 12) h += 12;
+    if (p === "AM" && h === 12) h = 0;
 
     return h * 60 + m;
   };
 
-  // ✅ SLOT DETECTION + COMMON ROUTINE + BELL
+  // ✅ CURRENT SLOT
   useEffect(() => {
     if (!timetableData) return;
 
     const update = () => {
       const now = new Date();
+      const mins = now.getHours() * 60 + now.getMinutes();
       const day = now.toLocaleString("en-US", { weekday: "long" });
+
       setCurrentDay(day);
 
-      const mins = now.getHours() * 60 + now.getMinutes();
-
-      const schedule = timetableData.schedule?.[day]?.classes || [];
-      const common = timetableData.commonRoutine || [];
-
-      const merged = [
-        ...schedule,
-        ...common.map(c => ({ ...c, isCommon: true }))
+      const allSlots = [
+        ...(timetableData.schedule?.[day]?.classes || []),
+        ...(timetableData.commonRoutine || [])
       ];
 
-      const active = merged.find(item => {
-        if (!item.time?.includes(" TO ")) return false;
-
-        const [start, end] = item.time.split(" TO ");
-        const s = parseTime(start);
-        const e = parseTime(end);
-
-        return mins >= s && mins < e;
+      const active = allSlots.find(slot => {
+        if (!slot.time?.includes("TO")) return false;
+        const [start, end] = slot.time.split("TO").map(t => parseTime(t.trim()));
+        return start && end && mins >= start && mins <= end;
       });
 
       setCurrentSlot(active || null);
-
-      // 🔊 Bell
-      if (active?.time && lastSlot.current !== active.time) {
-        lastSlot.current = active.time;
-        bellRef.current?.play().catch(() => {});
-      }
     };
 
     update();
-    const interval = setInterval(update, 60000);
-    return () => clearInterval(interval);
-
+    const i = setInterval(update, 60000);
+    return () => clearInterval(i);
   }, [timetableData]);
 
   // ✅ CLOCK
   useEffect(() => {
-    const t = setInterval(() => {
+    const clock = () => {
       setCurrentTime(new Date().toLocaleTimeString());
-    }, 1000);
-    return () => clearInterval(t);
+    };
+    clock();
+    const i = setInterval(clock, 1000);
+    return () => clearInterval(i);
   }, []);
-
-  // ✅ FORMAT ENTRY
-  const formatEntry = (entry) => {
-    if (!entry) return "-";
-
-    const subject = entry.subject || "";
-    const teacher = entry.teacher || "";
-
-    if (!subject && !teacher) return "-";
-
-    return `${subject}${teacher ? ` (${teacher})` : ""}`;
-  };
-
-  // ✅ TEACHER LIST
-  const teacherList = useMemo(() => {
-    if (!timetableData) return [];
-
-    let teachers = [];
-
-    Object.values(timetableData.schedule || {}).forEach(day => {
-      (day.classes || []).forEach(slot => {
-        if (!slot.subjects) return;
-
-        Object.values(slot.subjects).forEach(school => {
-          Object.values(school || {}).forEach(entry => {
-            if (entry?.teacher) {
-              teachers.push(...entry.teacher.split("/"));
-            }
-          });
-        });
-      });
-    });
-
-    (timetableData.commonRoutine || []).forEach(item => {
-      if (item.teacher) {
-        teachers.push(...item.teacher.split("/"));
-      }
-    });
-
-    return [...new Set(teachers.map(t => t.trim()).filter(Boolean))];
-
-  }, [timetableData]);
 
   // ✅ TEACHER ROUTINE
   useEffect(() => {
     if (!selectedTeacher || !timetableData) return;
 
+    let schedule = [];
     const today = timetableData.schedule?.[currentDay]?.classes || [];
 
-    const getTeachers = (str) =>
-      str ? str.split("/").map(t => t.trim()) : [];
+    today.forEach(slot => {
+      Object.entries(slot.subjects || {}).forEach(([school, schoolData]) => {
+        Object.entries(schoolData || {}).forEach(([cls, entry]) => {
+          if (!entry.teacher) return;
 
-    const result = today.flatMap(slot => {
-      if (!slot.subjects) return [];
+          const teachers = entry.teacher.split("/");
 
-      return classes.flatMap(c => {
-        let arr = [];
-
-        const vh = slot.subjects?.["Vincent Hill"]?.[c];
-        const sh = slot.subjects?.["Shangri-la"]?.[c];
-
-        if (getTeachers(vh?.teacher).includes(selectedTeacher)) {
-          arr.push({ time: slot.time, class: `${c} VH`, subject: vh.subject });
-        }
-
-        if (getTeachers(sh?.teacher).includes(selectedTeacher)) {
-          arr.push({ time: slot.time, class: `${c} SH`, subject: sh.subject });
-        }
-
-        return arr;
+          if (teachers.includes(selectedTeacher)) {
+            schedule.push({
+              time: slot.time,
+              class: `${cls} (${school === "Vincent Hill" ? "VH" : "SH"})`,
+              subject: entry.subject || "-"
+            });
+          }
+        });
       });
     });
 
-    setTeacherSchedule(result);
+    // ✅ COMMON ROUTINE FOR TEACHER
+    (timetableData.commonRoutine || []).forEach(item => {
+      if (item.teacher === selectedTeacher) {
+        schedule.push({
+          time: item.time,
+          class: "All Classes",
+          subject: item.remedial || item.break || "Activity"
+        });
+      }
+    });
 
+    setTeacherSchedule(schedule);
   }, [selectedTeacher, timetableData, currentDay]);
 
   return (
     <div className="timetable-container">
-
-      {/* 🔊 Bell */}
-      <audio ref={bellRef} src={`${import.meta.env.BASE_URL}sounds/bell.mp3`} />
-
       <h1>📅 School Timetable</h1>
+
       <h2>{currentDay} | {currentTime}</h2>
 
-      {currentSlot ? <h3>{currentSlot.time}</h3> : <p>No active slot</p>}
-
-      {/* TABLE */}
-      {currentSlot && (
-        <table className="timetable">
-          <thead>
-            <tr>
-              <th>Class</th>
-              <th>Vincent Hill</th>
-              <th>Shangri-la</th>
-            </tr>
-          </thead>
-          <tbody>
-            {classes.map((c, i) => {
-
-              if (currentSlot.break || currentSlot.remedial || currentSlot.isCommon) {
-                const text =
-                  currentSlot.break ||
-                  currentSlot.remedial ||
-                  "Common Routine";
-
-                return i === 0 ? (
-                  <tr key={i}>
-                    <td colSpan={3}>{text}</td>
-                  </tr>
-                ) : null;
-              }
-
-              const vh = currentSlot.subjects?.["Vincent Hill"]?.[c];
-              const sh = currentSlot.subjects?.["Shangri-la"]?.[c];
-
-              return (
-                <tr key={i}>
-                  <td>{c}</td>
-                  <td>{formatEntry(vh)}</td>
-                  <td>{formatEntry(sh)}</td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
-      )}
-
-      {/* TEACHER DROPDOWN */}
-      <h3>Select Teacher</h3>
-      <select value={selectedTeacher} onChange={(e)=>setSelectedTeacher(e.target.value)}>
-        <option value="">Select Teacher</option>
-        {teacherList.map(t => (
-          <option key={t} value={t}>{t}</option>
-        ))}
-      </select>
-
-      {/* TEACHER ROUTINE */}
-      {teacherSchedule.length > 0 && (
-        <table>
-          <thead>
-            <tr>
-              <th>Time</th>
-              <th>Class</th>
-              <th>Subject</th>
-            </tr>
-          </thead>
-          <tbody>
-            {teacherSchedule.map((e,i)=>(
-              <tr key={i}>
-                <td>{e.time}</td>
-                <td>{e.class}</td>
-                <td>{e.subject}</td>
+      {/* ✅ CURRENT SLOT */}
+      {currentSlot ? (
+        currentSlot.break || currentSlot.remedial ? (
+          <h2 style={{ color: "red" }}>
+            {currentSlot.break || currentSlot.remedial}
+          </h2>
+        ) : (
+          <table border="1">
+            <thead>
+              <tr>
+                <th>Class</th>
+                <th>Vincent Hill</th>
+                <th>Shangri-la</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {classes.map(cls => {
+                const vh = currentSlot.subjects?.["Vincent Hill"]?.[cls];
+                const sh = currentSlot.subjects?.["Shangri-la"]?.[cls];
+
+                return (
+                  <tr key={cls}>
+                    <td>{cls}</td>
+                    <td>{vh?.subject ? `${vh.subject} (${vh.teacher})` : "-"}</td>
+                    <td>{sh?.subject ? `${sh.subject} (${sh.teacher})` : "-"}</td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        )
+      ) : (
+        <h3>No active slot</h3>
       )}
 
+      {/* ✅ TEACHER DROPDOWN */}
+      <div style={{ marginTop: "20px" }}>
+        <h3>Select Teacher</h3>
+        <select value={selectedTeacher} onChange={(e) => setSelectedTeacher(e.target.value)}>
+          <option value="">Select Teacher</option>
+          {teacherList.map(t => (
+            <option key={t} value={t}>{t}</option>
+          ))}
+        </select>
+      </div>
+
+      {/* ✅ TEACHER SCHEDULE */}
+      {teacherSchedule.length > 0 && (
+        <div>
+          <h3>{selectedTeacher}'s Schedule</h3>
+          <table border="1">
+            <thead>
+              <tr>
+                <th>Time</th>
+                <th>Class</th>
+                <th>Subject</th>
+              </tr>
+            </thead>
+            <tbody>
+              {teacherSchedule.map((e, i) => (
+                <tr key={i}>
+                  <td>{e.time}</td>
+                  <td>{e.class}</td>
+                  <td>{e.subject}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
     </div>
   );
 };
