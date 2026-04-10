@@ -15,12 +15,15 @@ const TimetableTable = () => {
   const bellRef = useRef(null);
   const lastSlot = useRef("");
 
-  // ✅ LOAD DATA
+  // ✅ LOAD DATA (FIXED FOR GITHUB + DEBUG)
   useEffect(() => {
     fetch(`${import.meta.env.BASE_URL}data/timetable.json`)
       .then(res => res.json())
-      .then(data => setTimetableData(data))
-      .catch(err => console.error("Error:", err));
+      .then(data => {
+        console.log("✅ DATA LOADED:", data);
+        setTimetableData(data);
+      })
+      .catch(err => console.error("❌ ERROR LOADING JSON:", err));
   }, []);
 
   // ✅ TIME PARSER
@@ -40,7 +43,7 @@ const TimetableTable = () => {
     return h * 60 + m;
   };
 
-  // ✅ SLOT DETECTION + COMMON ROUTINE + BELL
+  // ✅ SLOT DETECTION + BELL
   useEffect(() => {
     if (!timetableData) return;
 
@@ -71,7 +74,7 @@ const TimetableTable = () => {
 
       setCurrentSlot(active || null);
 
-      // 🔊 Bell
+      // 🔊 Bell trigger
       if (active?.time && lastSlot.current !== active.time) {
         lastSlot.current = active.time;
         bellRef.current?.play().catch(() => {});
@@ -92,7 +95,7 @@ const TimetableTable = () => {
     return () => clearInterval(t);
   }, []);
 
-  // ✅ FORMAT ENTRY (NO PAIRING)
+  // ✅ FORMAT ENTRY
   const formatEntry = (entry) => {
     if (!entry) return "-";
 
@@ -104,37 +107,44 @@ const TimetableTable = () => {
     return `${subject}${teacher ? ` (${teacher})` : ""}`;
   };
 
-  // ✅ TEACHER LIST (WORKING)
+  // ✅ TEACHER LIST (FIXED)
   const teacherList = useMemo(() => {
     if (!timetableData) return [];
 
     let teachers = [];
 
-    Object.values(timetableData.schedule || {}).forEach(day => {
-      (day.classes || []).forEach(slot => {
-        if (!slot.subjects) return;
+    try {
+      Object.values(timetableData.schedule || {}).forEach(day => {
+        (day.classes || []).forEach(slot => {
+          if (!slot.subjects) return;
 
-        ["Vincent Hill", "Shangri-la"].forEach(school => {
-          const schoolData = slot.subjects?.[school];
-          if (!schoolData) return;
-
-          Object.values(schoolData).forEach(entry => {
-            if (entry?.teacher) {
-              teachers.push(...entry.teacher.split("/"));
-            }
+          Object.values(slot.subjects).forEach(school => {
+            Object.values(school || {}).forEach(entry => {
+              if (entry?.teacher) {
+                teachers.push(...entry.teacher.split("/"));
+              }
+            });
           });
         });
       });
-    });
 
-    // commonRoutine teachers
-    (timetableData.commonRoutine || []).forEach(item => {
-      if (item.teacher) {
-        teachers.push(...item.teacher.split("/"));
-      }
-    });
+      (timetableData.commonRoutine || []).forEach(item => {
+        if (item.teacher) {
+          teachers.push(...item.teacher.split("/"));
+        }
+      });
 
-    return [...new Set(teachers.map(t => t.trim()).filter(Boolean))];
+    } catch (err) {
+      console.error("Teacher error:", err);
+    }
+
+    const cleaned = [...new Set(
+      teachers.map(t => t.trim()).filter(Boolean)
+    )];
+
+    console.log("👨‍🏫 TEACHERS:", cleaned);
+
+    return cleaned;
 
   }, [timetableData]);
 
@@ -176,7 +186,7 @@ const TimetableTable = () => {
     <div className="timetable-container">
 
       {/* 🔊 Bell */}
-      <audio ref={bellRef} src="/sounds/bell.mp3" />
+      <audio ref={bellRef} src={`${import.meta.env.BASE_URL}sounds/bell.mp3`} />
 
       <h1>📅 School Timetable</h1>
       <h2>{currentDay} | {currentTime}</h2>
@@ -196,7 +206,6 @@ const TimetableTable = () => {
           <tbody>
             {classes.map((c, i) => {
 
-              // 🔥 Break / Common
               if (currentSlot.break || currentSlot.remedial || currentSlot.isCommon) {
                 const text =
                   currentSlot.break ||
@@ -225,7 +234,7 @@ const TimetableTable = () => {
         </table>
       )}
 
-      {/* 👨‍🏫 TEACHER DROPDOWN */}
+      {/* 👨‍🏫 DROPDOWN */}
       <h3>Select Teacher</h3>
       <select value={selectedTeacher} onChange={(e)=>setSelectedTeacher(e.target.value)}>
         <option value="">Select Teacher</option>
@@ -234,7 +243,7 @@ const TimetableTable = () => {
         ))}
       </select>
 
-      {/* 📋 TEACHER ROUTINE */}
+      {/* 📋 ROUTINE */}
       {teacherSchedule.length > 0 && (
         <table>
           <thead>
@@ -261,4 +270,3 @@ const TimetableTable = () => {
 };
 
 export default TimetableTable;
-//Fix timetable fetch path for deployment
