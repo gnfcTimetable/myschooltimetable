@@ -2,12 +2,33 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+
+    <!-- ✅ Favicon (optional) -->
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+
+    <!-- ✅ IMPORTANT: RESPONSIVE FIX -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React</title>
+
+    <!-- ✅ BETTER TITLE -->
+    <title>School Timetable Display</title>
+
+    <!-- ✅ OPTIONAL: FULLSCREEN SMOOTH DISPLAY -->
+    <style>
+      html, body, #root {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        overflow: hidden; /* 🔥 prevents scrollbars */
+        background: #000;
+      }
+    </style>
   </head>
+
   <body>
     <div id="root"></div>
+
+    <!-- ✅ VITE ENTRY -->
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
