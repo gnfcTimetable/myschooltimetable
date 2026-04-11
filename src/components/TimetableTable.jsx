@@ -104,7 +104,8 @@ const TimetableTable = () => {
 
       {/* HEADER */}
       <div className="header">
-        <h1>📅 School Timetable</h1>
+       <h1>Guru Nanak Fifth Centenary School, Mussoorie</h1>
+<h2>📅 SCHOOL TIMETABLE</h2>
         <h2>{currentDay} | {currentTime}</h2>
       </div>
 
