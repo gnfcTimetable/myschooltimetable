@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import "../App.css";
 
 const TimetableTable = () => {
@@ -8,25 +9,19 @@ const TimetableTable = () => {
   const [currentDay, setCurrentDay] = useState("");
   const [currentSlot, setCurrentSlot] = useState(null);
   const [currentTime, setCurrentTime] = useState("");
-  const [selectedTeacher, setSelectedTeacher] = useState("");
-  const [teacherSchedule, setTeacherSchedule] = useState([]);
-  const [teacherList, setTeacherList] = useState([]);
 
   const bellRef = useRef(null);
   const lastSlot = useRef(null);
 
-  // ✅ ENABLE SOUND AFTER FIRST CLICK (IMPORTANT)
+  // ✅ ENABLE SOUND AFTER FIRST CLICK
   useEffect(() => {
     const enableSound = () => {
-      if (bellRef.current) {
-        bellRef.current.play().then(() => {
-          bellRef.current.pause();
-          bellRef.current.currentTime = 0;
-        }).catch(() => {});
-      }
+      bellRef.current?.play().then(() => {
+        bellRef.current.pause();
+        bellRef.current.currentTime = 0;
+      }).catch(() => {});
       document.removeEventListener("click", enableSound);
     };
-
     document.addEventListener("click", enableSound);
   }, []);
 
@@ -34,30 +29,8 @@ const TimetableTable = () => {
   useEffect(() => {
     fetch("/data/timetable.json")
       .then(res => res.json())
-      .then(data => {
-        setTimetableData(data);
-
-        let teachers = [];
-
-        Object.values(data.schedule || {}).forEach(day => {
-          (day.classes || []).forEach(slot => {
-            Object.values(slot.subjects || {}).forEach(school => {
-              Object.values(school || {}).forEach(entry => {
-                if (entry?.teacher) {
-                  teachers.push(...entry.teacher.split("/"));
-                }
-              });
-            });
-          });
-        });
-
-        (data.commonRoutine || []).forEach(item => {
-          if (item.teacher) teachers.push(item.teacher);
-        });
-
-        setTeacherList([...new Set(teachers.filter(Boolean))]);
-      })
-      .catch(err => console.error("❌ ERROR:", err));
+      .then(data => setTimetableData(data))
+      .catch(err => console.error(err));
   }, []);
 
   // ✅ TIME PARSER
@@ -75,7 +48,7 @@ const TimetableTable = () => {
     return h * 60 + m;
   };
 
-  // ✅ CURRENT SLOT + 🔔 BELL SYSTEM (EVERY SECOND)
+  // ✅ SLOT + BELL
   useEffect(() => {
     if (!timetableData) return;
 
@@ -97,155 +70,89 @@ const TimetableTable = () => {
         return start && end && mins >= start && mins <= end;
       });
 
-      // 🔔 BELL LOGIC
+      // 🔔 BELL
       if (
         active?.time &&
         active.bell !== false &&
         lastSlot.current !== active.time
       ) {
         lastSlot.current = active.time;
-
-        if (bellRef.current) {
-          bellRef.current.currentTime = 0;
-          bellRef.current.play().catch(() => {});
-        }
+        bellRef.current?.play().catch(() => {});
       }
 
       setCurrentSlot(active || null);
     };
 
     update();
-    const i = setInterval(update, 1000); // ✅ EVERY SECOND
+    const i = setInterval(update, 1000);
     return () => clearInterval(i);
   }, [timetableData]);
 
   // ✅ CLOCK
   useEffect(() => {
-    const clock = () => {
+    const i = setInterval(() => {
       setCurrentTime(new Date().toLocaleTimeString());
-    };
-    clock();
-    const i = setInterval(clock, 1000);
+    }, 1000);
     return () => clearInterval(i);
   }, []);
 
-  // ✅ TEACHER ROUTINE
-  useEffect(() => {
-    if (!selectedTeacher || !timetableData) return;
-
-    let schedule = [];
-    const today = timetableData.schedule?.[currentDay]?.classes || [];
-
-    today.forEach(slot => {
-      Object.entries(slot.subjects || {}).forEach(([school, schoolData]) => {
-        Object.entries(schoolData || {}).forEach(([cls, entry]) => {
-          if (!entry.teacher) return;
-
-          const teachers = entry.teacher.split("/");
-
-          if (teachers.includes(selectedTeacher)) {
-            schedule.push({
-              time: slot.time,
-              class: `${cls} (${school === "Vincent Hill" ? "VH" : "SH"})`,
-              subject: entry.subject || "-"
-            });
-          }
-        });
-      });
-    });
-
-    (timetableData.commonRoutine || []).forEach(item => {
-      if (item.teacher === selectedTeacher) {
-        schedule.push({
-          time: item.time,
-          class: "All Classes",
-          subject: item.remedial || item.break || "Activity"
-        });
-      }
-    });
-
-    setTeacherSchedule(schedule);
-  }, [selectedTeacher, timetableData, currentDay]);
-
   return (
-    <div className="timetable-container">
-      <h1>📅 School Timetable</h1>
-
-      <h2>{currentDay} | {currentTime}</h2>
+    <div className="fullscreen-container">
 
       {/* 🔔 AUDIO */}
-      <audio ref={bellRef} src="/sounds/bell.mp3" preload="auto" />
+      <audio ref={bellRef} src="/sounds/bell.mp3" />
 
-      {/* ✅ CURRENT SLOT */}
-      {currentSlot ? (
-        currentSlot.break || currentSlot.remedial ? (
-          <h2 style={{ color: "red" }}>
-            {currentSlot.break || currentSlot.remedial}
-          </h2>
-        ) : (
-          <table border="1">
-            <thead>
-              <tr>
-                <th>Class</th>
-                <th>Vincent Hill</th>
-                <th>Shangri-la</th>
-              </tr>
-            </thead>
-            <tbody>
-              {classes.map(cls => {
-                const vh = currentSlot.subjects?.["Vincent Hill"]?.[cls];
-                const sh = currentSlot.subjects?.["Shangri-la"]?.[cls];
-
-                return (
-                  <tr key={cls}>
-                    <td>{cls}</td>
-                    <td>{vh?.subject ? `${vh.subject} (${vh.teacher})` : "-"}</td>
-                    <td>{sh?.subject ? `${sh.subject} (${sh.teacher})` : "-"}</td>
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
-        )
-      ) : (
-        <h3>No active slot</h3>
-      )}
-
-      {/* ✅ TEACHER DROPDOWN */}
-      <div style={{ marginTop: "20px" }}>
-        <h3>Select Teacher</h3>
-        <select value={selectedTeacher} onChange={(e) => setSelectedTeacher(e.target.value)}>
-          <option value="">Select Teacher</option>
-          {teacherList.map(t => (
-            <option key={t} value={t}>{t}</option>
-          ))}
-        </select>
+      {/* HEADER */}
+      <div className="header">
+        <h1>📅 School Timetable</h1>
+        <h2>{currentDay} | {currentTime}</h2>
       </div>
 
-      {/* ✅ TEACHER SCHEDULE */}
-      {teacherSchedule.length > 0 && (
-        <div>
-          <h3>{selectedTeacher}'s Schedule</h3>
-          <table border="1">
-            <thead>
-              <tr>
-                <th>Time</th>
-                <th>Class</th>
-                <th>Subject</th>
-              </tr>
-            </thead>
-            <tbody>
-              {teacherSchedule.map((e, i) => (
-                <tr key={i}>
-                  <td>{e.time}</td>
-                  <td>{e.class}</td>
-                  <td>{e.subject}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      )}
+      {/* MAIN DISPLAY */}
+      <div className="main-display">
+        <AnimatePresence mode="wait">
+          {currentSlot && (
+            <motion.div
+              key={currentSlot.time}
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 1.05 }}
+              transition={{ duration: 0.4 }}
+              className="card"
+            >
+              {currentSlot.break || currentSlot.remedial ? (
+                <h1 className="big-text">
+                  {currentSlot.break || currentSlot.remedial}
+                </h1>
+              ) : (
+                <table className="timetable">
+                  <thead>
+                    <tr>
+                      <th>Class</th>
+                      <th>Vincent Hill</th>
+                      <th>Shangri-la</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {classes.map(cls => {
+                      const vh = currentSlot.subjects?.["Vincent Hill"]?.[cls];
+                      const sh = currentSlot.subjects?.["Shangri-la"]?.[cls];
+
+                      return (
+                        <tr key={cls}>
+                          <td>{cls}</td>
+                          <td>{vh?.subject ? `${vh.subject} (${vh.teacher})` : "-"}</td>
+                          <td>{sh?.subject ? `${sh.subject} (${sh.teacher})` : "-"}</td>
+                        </tr>
+                      );
+                    })}
+                  </tbody>
+                </table>
+              )}
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
     </div>
   );
 };
