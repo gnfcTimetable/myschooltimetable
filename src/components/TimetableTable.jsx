@@ -13,6 +13,25 @@ const TimetableTable = () => {
   const [teacherList, setTeacherList] = useState([]);
 
   const bellPlayedRef = useRef(null);
+  const audioRef = useRef(null);
+
+  // 🔓 UNLOCK AUDIO (IMPORTANT)
+  useEffect(() => {
+    const unlockAudio = () => {
+      if (!audioRef.current) {
+        audioRef.current = new Audio("/sounds/bell.mp3");
+        audioRef.current.play()
+          .then(() => {
+            audioRef.current.pause();
+            audioRef.current.currentTime = 0;
+          })
+          .catch(() => {});
+      }
+      window.removeEventListener("click", unlockAudio);
+    };
+
+    window.addEventListener("click", unlockAudio);
+  }, []);
 
   // ✅ FETCH DATA
   useEffect(() => {
@@ -59,13 +78,14 @@ const TimetableTable = () => {
     return h * 60 + m;
   };
 
-  // ✅ CURRENT SLOT + 🔔 BELL SYSTEM
+  // 🔔 SLOT + BELL SYSTEM (PERFECT TIMING)
   useEffect(() => {
     if (!timetableData) return;
 
     const update = () => {
       const now = new Date();
       const mins = now.getHours() * 60 + now.getMinutes();
+      const seconds = now.getSeconds();
       const day = now.toLocaleString("en-US", { weekday: "long" });
 
       setCurrentDay(day);
@@ -75,29 +95,43 @@ const TimetableTable = () => {
         ...(timetableData.commonRoutine || [])
       ];
 
-      const active = allSlots.find(slot => {
-        if (!slot.time?.includes("TO")) return false;
-        const [start, end] = slot.time.split("TO").map(t => parseTime(t.trim()));
-        return start !== null && end !== null && mins >= start && mins <= end;
+      let active = null;
+
+      allSlots.forEach(slot => {
+        if (!slot.time?.includes("TO")) return;
+
+        const [startStr, endStr] = slot.time.split("TO").map(t => t.trim());
+        const start = parseTime(startStr);
+        const end = parseTime(endStr);
+
+        if (start !== null && end !== null) {
+          if (mins >= start && mins <= end) {
+            active = slot;
+          }
+
+          // 🔔 PLAY EXACTLY ON TIME
+          if (mins === start && seconds === 0) {
+            if (bellPlayedRef.current !== slot.time) {
+              bellPlayedRef.current = slot.time;
+
+              if (audioRef.current) {
+                audioRef.current.currentTime = 0;
+                audioRef.current.play().catch(() => {});
+              }
+            }
+          }
+        }
       });
 
-      // 🔔 BELL LOGIC (PLAYS EXACTLY ON CHANGE)
-      if (active && active.time !== bellPlayedRef.current) {
-        bellPlayedRef.current = active.time;
-
-        const audio = new Audio("/sounds/bell.mp3");
-        audio.play().catch(() => {});
-      }
-
-      setCurrentSlot(active || null);
+      setCurrentSlot(active);
     };
 
     update();
-    const i = setInterval(update, 1000); // ✅ every second
+    const i = setInterval(update, 1000);
     return () => clearInterval(i);
   }, [timetableData]);
 
-  // ✅ CLOCK
+  // ⏰ CLOCK
   useEffect(() => {
     const clock = () => {
       setCurrentTime(new Date().toLocaleTimeString());
@@ -107,7 +141,7 @@ const TimetableTable = () => {
     return () => clearInterval(i);
   }, []);
 
-  // ✅ TEACHER ROUTINE
+  // 👨‍🏫 TEACHER ROUTINE
   useEffect(() => {
     if (!selectedTeacher || !timetableData) return;
 
@@ -132,7 +166,6 @@ const TimetableTable = () => {
       });
     });
 
-    // COMMON ROUTINE
     (timetableData.commonRoutine || []).forEach(item => {
       if (item.teacher === selectedTeacher) {
         schedule.push({
@@ -149,86 +182,75 @@ const TimetableTable = () => {
   return (
     <div className="fullscreen-container">
 
-      {/* HEADER */}
       <div className="header">
-        <h1>Guru Nanak Fifth Centenary School, Mussoorie</h1>
-        <h2>📅 {currentDay} | 🕒 {currentTime}</h2>
+        <h1>Guru Nanak Fifth Centenary School</h1>
+        <h2>{currentDay} | {currentTime}</h2>
       </div>
 
-      {/* MAIN */}
-      <div className="main-display">
-        <div className="card">
-
-          {currentSlot ? (
-            currentSlot.break || currentSlot.remedial ? (
-              <div className="big-text">
-                {currentSlot.break || currentSlot.remedial}
-              </div>
-            ) : (
-              <table className="timetable">
-                <thead>
-                  <tr>
-                    <th>Class</th>
-                    <th>Vincent Hill</th>
-                    <th>Shangri-la</th>
-                  </tr>
-                </thead>
-
-                <tbody>
-                  {classes.map(cls => {
-                    const vh = currentSlot.subjects?.["Vincent Hill"]?.[cls];
-                    const sh = currentSlot.subjects?.["Shangri-la"]?.[cls];
-
-                    return (
-                      <tr key={cls}>
-                        <td>{cls}</td>
-                        <td>{vh?.subject ? `${vh.subject} (${vh.teacher})` : "-"}</td>
-                        <td>{sh?.subject ? `${sh.subject} (${sh.teacher})` : "-"}</td>
-                      </tr>
-                    );
-                  })}
-                </tbody>
-              </table>
-            )
+      <div className="card">
+        {currentSlot ? (
+          currentSlot.break || currentSlot.remedial ? (
+            <div className="big-text">
+              {currentSlot.break || currentSlot.remedial}
+            </div>
           ) : (
-            <div className="big-text">No Active Slot</div>
-          )}
+            <table className="timetable">
+              <thead>
+                <tr>
+                  <th>Class</th>
+                  <th>Vincent Hill</th>
+                  <th>Shangri-la</th>
+                </tr>
+              </thead>
+              <tbody>
+                {classes.map(cls => {
+                  const vh = currentSlot.subjects?.["Vincent Hill"]?.[cls];
+                  const sh = currentSlot.subjects?.["Shangri-la"]?.[cls];
 
-        </div>
+                  return (
+                    <tr key={cls}>
+                      <td>{cls}</td>
+                      <td>{vh?.subject ? `${vh.subject} (${vh.teacher})` : "-"}</td>
+                      <td>{sh?.subject ? `${sh.subject} (${sh.teacher})` : "-"}</td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          )
+        ) : (
+          <div className="big-text">No Active Slot</div>
+        )}
       </div>
 
-      {/* TEACHER DROPDOWN */}
-      <div style={{ textAlign: "center", padding: "10px" }}>
+      <div className="teacher-section">
         <select value={selectedTeacher} onChange={(e) => setSelectedTeacher(e.target.value)}>
           <option value="">Select Teacher</option>
           {teacherList.map(t => (
-            <option key={t} value={t}>{t}</option>
+            <option key={t}>{t}</option>
           ))}
         </select>
       </div>
 
-      {/* TEACHER TABLE */}
       {teacherSchedule.length > 0 && (
-        <div style={{ padding: "10px" }}>
-          <table className="timetable">
-            <thead>
-              <tr>
-                <th>Time</th>
-                <th>Class</th>
-                <th>Subject</th>
+        <table className="timetable">
+          <thead>
+            <tr>
+              <th>Time</th>
+              <th>Class</th>
+              <th>Subject</th>
+            </tr>
+          </thead>
+          <tbody>
+            {teacherSchedule.map((e, i) => (
+              <tr key={i}>
+                <td>{e.time}</td>
+                <td>{e.class}</td>
+                <td>{e.subject}</td>
               </tr>
-            </thead>
-            <tbody>
-              {teacherSchedule.map((e, i) => (
-                <tr key={i}>
-                  <td>{e.time}</td>
-                  <td>{e.class}</td>
-                  <td>{e.subject}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+            ))}
+          </tbody>
+        </table>
       )}
 
     </div>
