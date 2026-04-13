@@ -15,11 +15,13 @@ const TimetableTable = () => {
   const bellPlayedRef = useRef(null);
   const audioRef = useRef(null);
 
-  // 🔓 UNLOCK AUDIO (IMPORTANT)
+  // 🔓 UNLOCK AUDIO (VERY IMPORTANT)
   useEffect(() => {
     const unlockAudio = () => {
       if (!audioRef.current) {
         audioRef.current = new Audio("/sounds/bell.mp3");
+        audioRef.current.volume = 1;
+
         audioRef.current.play()
           .then(() => {
             audioRef.current.pause();
@@ -27,6 +29,7 @@ const TimetableTable = () => {
           })
           .catch(() => {});
       }
+
       window.removeEventListener("click", unlockAudio);
     };
 
@@ -63,7 +66,7 @@ const TimetableTable = () => {
       .catch(err => console.error("❌ ERROR:", err));
   }, []);
 
-  // ✅ TIME PARSER
+  // ⏰ TIME PARSER
   const parseTime = (timeStr) => {
     const match = timeStr.match(/(\d+):(\d+)\s*(AM|PM)/);
     if (!match) return null;
@@ -78,7 +81,7 @@ const TimetableTable = () => {
     return h * 60 + m;
   };
 
-  // 🔔 SLOT + BELL SYSTEM (PERFECT TIMING)
+  // 🔔 SLOT + BELL SYSTEM (FINAL FIXED)
   useEffect(() => {
     if (!timetableData) return;
 
@@ -105,12 +108,14 @@ const TimetableTable = () => {
         const end = parseTime(endStr);
 
         if (start !== null && end !== null) {
+
+          // ✅ ACTIVE SLOT
           if (mins >= start && mins <= end) {
             active = slot;
           }
 
-          // 🔔 PLAY EXACTLY ON TIME
-          if (mins === start && seconds === 0) {
+          // 🔔 SMART BELL WINDOW (0–5 seconds)
+          if (mins === start && seconds <= 5) {
             if (bellPlayedRef.current !== slot.time) {
               bellPlayedRef.current = slot.time;
 
@@ -131,7 +136,7 @@ const TimetableTable = () => {
     return () => clearInterval(i);
   }, [timetableData]);
 
-  // ⏰ CLOCK
+  // ⏱️ CLOCK
   useEffect(() => {
     const clock = () => {
       setCurrentTime(new Date().toLocaleTimeString());
@@ -166,6 +171,7 @@ const TimetableTable = () => {
       });
     });
 
+    // COMMON ROUTINE
     (timetableData.commonRoutine || []).forEach(item => {
       if (item.teacher === selectedTeacher) {
         schedule.push({
