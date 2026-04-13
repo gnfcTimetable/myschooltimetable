@@ -1,65 +1,122 @@
-body {
+/* RESET */
+* {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: linear-gradient(135deg, #1e3c72, #2a5298);
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* BACKGROUND */
+.fullscreen-container {
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  display: flex;
+  flex-direction: column;
   color: white;
 }
 
-.fullscreen-container {
-  width: 100%;
-  min-height: 100vh;
-  text-align: center;
-}
-
+/* HEADER */
 .header {
-  background: rgba(0,0,0,0.3);
+  text-align: center;
   padding: 10px;
+  background: rgba(0,0,0,0.4);
+  backdrop-filter: blur(8px);
+  border-bottom: 2px solid rgba(255,255,255,0.1);
 }
 
 .header h1 {
-  font-size: 2.2rem;
-  margin: 5px;
+  font-size: 2.5vw;
+  font-weight: bold;
+  letter-spacing: 2px;
 }
 
 .header h2 {
-  font-size: 1.3rem;
+  font-size: 1.2vw;
+  margin-top: 5px;
+  color: #00e6ff;
 }
 
+/* MAIN */
+.main-display {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+/* CARD (3D GLASS EFFECT) */
 .card {
-  margin: 20px;
-  padding: 20px;
-  border-radius: 15px;
-  background: rgba(255,255,255,0.1);
-  box-shadow: 0 0 20px rgba(0,0,0,0.3);
+  width: 96%;
+  height: 96%;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.08);
+  box-shadow: 
+    0 8px 32px rgba(0,0,0,0.5),
+    inset 0 0 10px rgba(255,255,255,0.1);
+  backdrop-filter: blur(12px);
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
+/* BREAK TEXT */
+.big-text {
+  font-size: 4vw;
+  font-weight: bold;
+  color: #ffcc00;
+  text-shadow: 0 0 20px rgba(255,204,0,0.8);
+}
+
+/* TABLE */
 .timetable {
   width: 100%;
+  height: 100%;
   border-collapse: collapse;
+  text-align: center;
 }
 
+/* HEADER ROW */
 .timetable th {
-  background: #ff9800;
-  color: black;
+  background: linear-gradient(45deg, #00c6ff, #0072ff);
+  font-size: 1.3vw;
   padding: 10px;
+  border: 1px solid rgba(255,255,255,0.2);
 }
 
+/* BODY */
 .timetable td {
-  padding: 10px;
-  border-bottom: 1px solid white;
+  font-size: 1.1vw;
+  padding: 8px;
+  border: 1px solid rgba(255,255,255,0.1);
 }
 
-.big-text {
-  font-size: 3rem;
-  font-weight: bold;
-  color: yellow;
+/* ROW STRIPES */
+.timetable tr:nth-child(even) {
+  background: rgba(255,255,255,0.05);
 }
 
-.teacher-section {
-  margin: 15px;
+/* HOVER EFFECT */
+.timetable tr:hover {
+  background: rgba(0,255,255,0.2);
 }
 
-select {
-  padding: 10px;
-  font-size: 16px;
+/* SCHOOL COLORS */
+td:nth-child(2) {
+  color: #00ffcc; /* VH */
+}
+
+td:nth-child(3) {
+  color: #ff99ff; /* SH */
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .header h1 { font-size: 6vw; }
+  .header h2 { font-size: 3vw; }
+  .big-text { font-size: 8vw; }
+  .timetable th { font-size: 3vw; }
+  .timetable td { font-size: 2.5vw; }
 }
